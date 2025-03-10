@@ -6,7 +6,6 @@ tools:
     - WebFetch
 ---
 
-
 - Read .claude-plugin/plugin.json to know what is the current version.
 - Increase the version update on .claude-plugin/plugin.json and .claude-plugin/marketplace.json.
-- Tag it with the same version in git too.
+- `superball:commit` to commit it then `superbal:tag` tag it with the same version in git too.
