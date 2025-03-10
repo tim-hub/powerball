@@ -1,0 +1,17 @@
+{
+  "description": "Plugin-wide hooks for powerball",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'if git rev-parse --git-dir > /dev/null 2>&1; then staged=$(git diff --cached --name-only 2>/dev/null); unstaged=$(git diff --name-only 2>/dev/null); if [ -n \"$staged\" ] && [ -n \"$unstaged\" ]; then echo \"⚠️  You have both staged and unstaged changes. Consider staging everything or committing before continuing.\"; fi; fi'",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

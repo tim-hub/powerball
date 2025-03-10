@@ -1,26 +1,18 @@
 ## Powerball
 A simple collection of agents and skills and commands to use Claude Code effectively.
 
-> This requires `superpowers` plug installed.
+
+- add some small commangs and agents to use small models explcitly for some specific tasks, such as commit code changes, tag code with comments etc.
+- `/powerball:init`, to install well rated plugins from official marketplace and superpowers, with interactive setup and configuration, including statusline.
+- provide a hook (I think it is userful), to note user whether there are mixed stashed and unstashed changes. 
+
+
 
 
 ### Install
-`/plugin marketplace add tim-hub/powerball`
+- `/plugin marketplace add tim-hub/powerball`
+- `/powerball:init` to initialize the plugin, set up statusline and install plugins for your claude code.
 
-
-### How to empower this plugin
-
-
-Add these two to your global CLAUDE.md:
-
-```
-Always use `powerball:doc_checker` subagent when need library/API documentation, code generation, setup or configuration steps.
-```
-
-
-```
-Always use `powerball:gh_greper` subagent when need real-world code examples, or usage of specific libraries.
-```
 
 
 ### Others
