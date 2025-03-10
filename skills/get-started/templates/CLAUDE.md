@@ -1,4 +1,3 @@
 - Think before you act.
-- Follow existing pattern, style and structure in the codebase.
 - Always use `powerball:doc_checker` subagent when need library/API documentation, code generation, setup or configuration steps.
 - Always use `powerball:gh_greper` subagent when need real-world code examples, or usage of specific libraries.
