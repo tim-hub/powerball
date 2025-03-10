@@ -1,11 +1,13 @@
 ---
 name: get-started
-description: Initialize — set up statusline and install plugins. Invoke manually with /get-started.
-disable-model-invocation: true
+description: Initialize claude code settings — set up statusline, global CLAUDE.md and install plugins. Triggered by requests like "set up claude code", "initialize plugins", "get started", or "run setup".
 model: haiku
 tools:
   allow:
     - Bash
+  deny:
+    - WebFetch
+    - Fetch
 hooks:
   Stop:
     - matcher: "*"
