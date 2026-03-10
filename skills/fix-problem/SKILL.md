@@ -16,4 +16,4 @@ Analyze and fix the problem described: $ARGUMENTS.
 7. Ensure code passes linting and type checking. Discover the linter from project config if not obvious.
 8. Use the `review` command to review all changes, address any feedback, and ensure the code meets quality standards.
 9. Use the `smart-committer` agent to stage and commit the changes.
-10. Use the `pr-writer` agent to push the branch and open a PR. Describe the fix in the PR body based on the original problem description.
+10. Use the `pr-writing` skill to push the branch and open a PR. Describe the fix in the PR body based on the original problem description.

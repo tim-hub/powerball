@@ -1,6 +1,6 @@
 ---
 name: gh_greper
-description: Use this agent to search public GitHub repositories for real-world code examples, implementation patterns, or usage of specific functions and APIs using gh_grep. Spawn this agent when the user wants to see how others implement something, needs a working example of a pattern, or asks "how do people typically do X?". Also useful for finding fixes by searching for a specific error message across real codebases.
+description: Search public GitHub repositories for real-world code examples, implementation patterns, or usage of specific functions and APIs using gh_grep. Also useful for finding fixes by searching for a specific error message across real codebases.
 model: haiku
 color: green
 tools:

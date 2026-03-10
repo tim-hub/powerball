@@ -16,4 +16,4 @@ Analyze and fix the GitHub issue: $ARGUMENTS.
 7. Ensure code passes linting and type checking. Discover the linter from project config if not obvious.
 8. Use the `review` command to review all changes, address any feedback, and ensure the code meets quality standards, if unsure of how to implement the fix, ask user for guidance or clarification on the issue.
 9. Use the `smart-committer` agent to stage and commit the changes.
-10. Use the `pr-writer` agent to push the branch and open a PR. Reference the issue number in the PR body (e.g. `Closes #$ARGUMENTS`).
+10. Use the `pr-writing` skill to push the branch and open a PR. Reference the issue number in the PR body (e.g. `Closes #$ARGUMENTS`).

@@ -1,36 +1,7 @@
 ---
-name: pr-writer
-description: Use this agent when the user wants to create a pull request, open a PR, or generate a PR description. Examples:
-
-<example>
-Context: User has finished a feature branch and wants to open a PR.
-user: "create a PR"
-assistant: "I'll use the pr-writer agent to analyze the branch diff and create a pull request."
-<commentary>
-User wants to open a PR — pr-writer should analyze commits, write a great description, and run gh pr create.
-</commentary>
-</example>
-
-<example>
-Context: User wants to submit their work for review.
-user: "open a pull request for this branch"
-assistant: "I'll use pr-writer to generate the PR description and create it via gh."
-<commentary>
-User wants a PR opened — pr-writer reads the branch diff and commits, crafts a title and body, then creates it.
-</commentary>
-</example>
-
-<example>
-Context: User is done with their changes and wants a PR created.
-user: "write a PR description and submit it"
-assistant: "I'll use the pr-writer agent to draft and submit the PR."
-<commentary>
-User wants PR creation end-to-end — pr-writer handles description generation and gh pr create.
-</commentary>
-</example>
-
+name: pr-writing
+description: Use when creating a pull request — analyzing branch changes, writing a PR title and description, and opening the PR via gh CLI. Triggered by requests like "open a PR", "create a pull request", "push and PR this branch".
 model: haiku
-color: blue
 tools:
   deny:
     - WebFetch
