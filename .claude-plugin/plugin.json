@@ -4,6 +4,5 @@
   "description": "Agentic tools for git workflows, issue resolution, code review, creative writing, and content translation — from smart commits and PR descriptions to fixing GitHub issues and translating markdown.",
   "author": {
     "name": "@tim-hub"
-  },
-  "tags": ["git", "commits", "pull-requests", "workflow", "issues", "code-review", "creative-writing", "markdown", "translation", "agents"]
+  }
 }
