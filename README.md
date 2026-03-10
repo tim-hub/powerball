@@ -1,10 +1,19 @@
 ## Superball
 A simple collection of agents and skills and commands to use Claude Code effectively.
 
-- This requires `superpowers` plug installed.
+> This requires `superpowers` plug installed.
 
 
+### Install
+`/plugin marketplace add tim-hub/powerball`
 
+
+---
+
+Why create Superball?
+
+
+`commands, skills, agents` all have different roles, this collection try to have the right balance of each, and also provide a variety of examples for different use cases. 
 
 
 [Context cost by feature](https://code.claude.com/docs/en/features-overview#context-cost-by-feature)
