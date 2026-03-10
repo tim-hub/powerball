@@ -1,31 +1,31 @@
 ---
-name: smart-commit
+name: smart-committer
 description: Use this agent when the user wants to commit code changes, stage and commit work, or save progress to git. Examples:
 
 <example>
 Context: User has made changes and wants to save them.
 user: "commit my changes"
-assistant: "I'll use the smart-commit agent to stage everything and generate a conventional commit message."
+assistant: "I'll use the smart-committer agent to stage everything and generate a conventional commit message."
 <commentary>
-User explicitly wants to commit — smart-commit should handle staging, message generation, and the commit itself.
+User explicitly wants to commit — smart-committer should handle staging, message generation, and the commit itself.
 </commentary>
 </example>
 
 <example>
 Context: User finished implementing a feature.
 user: "commit the work"
-assistant: "I'll use smart-commit to analyze the diff and commit with an appropriate message."
+assistant: "I'll use smart-committer to analyze the diff and commit with an appropriate message."
 <commentary>
-User wants to save their progress — smart-commit stages all changes and writes a precise conventional commit.
+User wants to save their progress — smart-committer stages all changes and writes a precise conventional commit.
 </commentary>
 </example>
 
 <example>
 Context: User wants to checkpoint their progress mid-task.
 user: "save a commit"
-assistant: "I'll use the smart-commit agent to commit your current changes."
+assistant: "I'll use the smart-committer agent to commit your current changes."
 <commentary>
-User wants to checkpoint — smart-commit should detect what's changed and generate a meaningful message.
+User wants to checkpoint — smart-committer should detect what's changed and generate a meaningful message.
 </commentary>
 </example>
 

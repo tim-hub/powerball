@@ -2,6 +2,7 @@
 name: pr
 description: Generate a PR description and create a pull request via gh CLI.
 argument-hint: "[optional base branch, e.g. main]"
+model: haiku
 ---
 
 Use the `pr-writer` agent to analyze the current branch's commits and diff against the base branch, generate a clear PR title and description, and create the pull request using `gh pr create`.
