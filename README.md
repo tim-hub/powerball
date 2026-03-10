@@ -3,7 +3,7 @@ A simple collection of agents and skills and commands to use Claude Code effecti
 
 
 - add some small commangs and agents to use small models explcitly for some specific tasks, such as commit code changes, tag code with comments etc.
-- `/powerball:init`, to install well rated plugins from official marketplace and superpowers, with interactive setup and configuration, including statusline.
+- `/powerball:get-started`, to install well rated plugins from official marketplace and superpowers, with interactive setup and configuration, including statusline.
 - provide a hook (I think it is userful), to note user whether there are mixed stashed and unstashed changes. 
 
 
@@ -11,7 +11,7 @@ A simple collection of agents and skills and commands to use Claude Code effecti
 
 ### Install
 - `/plugin marketplace add tim-hub/powerball`
-- `/powerball:init` to initialize the plugin, set up statusline and install plugins for your claude code.
+- `/powerball:get-started` to initialize the plugin, set up statusline and install plugins for your claude code.
 
 
 
