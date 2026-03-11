@@ -2,7 +2,9 @@
 name: get-started
 description: Initialize claude code settings — set up statusline, global CLAUDE.md and install plugins. Triggered by requests like "set up claude code", "initialize plugins", "get started", or "run setup".
 model: haiku
-allowed-tools: Bash
+allowed-tools: Bash, Read, Write, Edit
+disable-model-invocation: true
+user-invocable: true
 hooks:
   Stop:
     - matcher: "*"

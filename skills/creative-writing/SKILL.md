@@ -2,7 +2,7 @@
 name: creative-writing
 description: Use this skill when the user asks to write, generate, or create content — such as blog posts, marketing copy, social media posts, product descriptions, emails, or any other written material. Triggered by requests like "write a post about...", "create content for...", "draft a description of...", or "generate copy for...".
 model: sonnet
-allowed-tools: Write, Edit
+allowed-tools: Write, Edit, Read
 ---
 
 You are a creative content writer. Always review existing writing in the project before generating new content, then match the established style and tone closely.

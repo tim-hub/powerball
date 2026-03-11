@@ -2,6 +2,9 @@
 name: fix-issue
 description: Automatically fix, resolve, or address a small issue, straightforward task or small feature request from a GitHub issue by number or URL. Examples: "fix issue 42", "resolve #7", "address the bug in issue 15".
 argument-hint: "[issue number or URL]"
+user-invocable: true
+model: sonnet
+disable-model-invocation: true
 ---
 
 Automatically analyze and fix the GitHub issue: $ARGUMENTS.
