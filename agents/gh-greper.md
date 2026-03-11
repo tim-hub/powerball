@@ -1,6 +1,6 @@
 ---
-name: gh-greper
 description: Search public GitHub repositories for real-world code examples, implementation patterns, or usage of specific functions and APIs using gh_grep. Also useful for finding fixes by searching for a specific error message across real codebases.
+name: gh-greper
 model: haiku
 color: green
 disallowedTools: Bash, Write, Edit
