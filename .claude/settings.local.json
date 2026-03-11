@@ -1,11 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "WebFetch"
     ]
-  },
-  "enabledMcpjsonServers": [
-    "context7",
-    "gh_grep"
-  ]
+  }
 }
