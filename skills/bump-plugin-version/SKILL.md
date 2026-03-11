@@ -1,6 +1,6 @@
 ---
-description: Bump the version of Claude Code plugin by updating the version field in .claude-plugin/plugin.json and .claude-plugin/marketplace.json, and tagging the new version in git. Triggered by requests like "bump version", "update version", or "release new version" in a Claude Code plugin project.
-name: bump-version
+description: Bump the version of Claude Code plugin by updating the version field in .claude-plugin/plugin.json and .claude-plugin/marketplace.json, and tagging the new version in git. Triggered by requests like "bump plugin version", "update plugin version", or "release new version" in a Claude Code plugin project.
+name: bump-plugin-version
 disable-model-invocation: true
 user-invocable: true
 model: haiku
