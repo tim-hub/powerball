@@ -2,31 +2,32 @@
 # Install recommended Claude Code plugins
 
 PLUGINS=(
-  frontend-design
-  pyright-lsp
-  context7
-  superpowers
-  code-review
-  github
-  feature-dev
-  code-simplifier
-  typescript-lsp
-  commit-commands
-  security-guidance
-  pr-review-toolkit
-  ralph-loop
-  playwright
-  claude-md-management
-  claude-code-setup
   agent-sdk-dev
+  claude-code-setup
+  claude-md-management
+  code-review
+  code-simplifier
+  commit-commands
+  context7
   explanatory-output-style
-  plugin-dev
+  feature-dev
+  frontend-design
+  gopls-lsp
   hookify
-  skill-creator
-  learning-output-style
-  playground
   huggingface-skills
-  firebase
+  learning-output-style
+  playwright
+  playground
+  plugin-dev
+  powerball
+  pr-review-toolkit
+  pyright-lsp
+  ralph-loop
+  security-guidance
+  skill-creator
+  stripe
+  superpowers
+  typescript-lsp
 )
 
 echo ""
