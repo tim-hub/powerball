@@ -1,5 +1,5 @@
 ---
-name: change-summarizer
+name: summarize-changes
 description: This skill should be used when summarizing code changes, writing descriptions of what changed in a diff or PR, generating changelog entries, or explaining the impact of a set of commits. Relevant when a user asks "what changed?", "summarize this diff", "write a changelog", "write a PR description", or requests release notes or commit messages that convey change impact.
 model: haiku
 allowed-tools: Read, Bash, Write, Edit

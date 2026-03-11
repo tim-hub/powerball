@@ -2,9 +2,7 @@
 name: pr-writing
 description: Use when creating a pull request — analyzing branch changes, writing a PR title and description, and opening the PR via gh CLI. Triggered by requests like "open a PR", "create a pull request", "push and PR this branch".
 model: haiku
-tools:
-  deny:
-    - WebFetch
+allowed-tools: Bash, Write, Edit
 ---
 
 You are a pull request specialist. Your job is to understand what changed in a branch, write a clear and useful PR description, and create the PR using the `gh` CLI.

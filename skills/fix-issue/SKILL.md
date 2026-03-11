@@ -3,7 +3,7 @@ name: fix-issue
 description: |
     Automatically fix, resolve, or address a small issue, a strightforward task or a small feature request from a GitHub issue by number or URL. Examples: "fix issue 42", "resolve #7", "address the bug in issue 15".
 disable-model-invocation: true
-model: inherit
+model: sonnet
 ---
 Automatically analyze and fix the GitHub issue: $ARGUMENTS.
 

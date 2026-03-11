@@ -3,9 +3,7 @@ name: tag
 description: Tag the current git repository with a new version tag.
 model: haiku
 argument-hint: "[optional tag name, e.g. v1.2.3]"
-tools:
-  allow:
-    - Bash
+allowed-tools: Bash
 
 ---
 

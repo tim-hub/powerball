@@ -2,10 +2,7 @@
 name: skill-review
 description: Review a SKILL.md file for clarity, simplicity, and quality. Use this whenever the user asks to "review my skill", "check if this skill is clear", "simplify a skill", "audit skill writing", "is this skill well written", or wants feedback on whether a SKILL.md could be improved or is doing too much.
 model: sonnet
-tools:
-  deny:
-    - WebFetch
-    - Fetch
+allowed-tools: Read
 ---
 
 Review the skill at: $ARGUMENTS (or the currently active/open SKILL.md if no path is given).

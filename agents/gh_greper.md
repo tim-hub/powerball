@@ -3,11 +3,9 @@ name: gh_greper
 description: Search public GitHub repositories for real-world code examples, implementation patterns, or usage of specific functions and APIs using gh_grep. Also useful for finding fixes by searching for a specific error message across real codebases.
 model: haiku
 color: green
-tools:
-  allow:
-    - mcp__plugin_powerball_gh_grep__search
-    - mcp__plugin_powerball_gh_grep__github_file
-    - mcp__plugin_powerball_gh_grep__github_batch_files
+disallowedTools: Bash, Write, Edit
+mcpServers:
+  - mcp__plugin_powerball_gh_grep
 ---
 
 You are a GitHub code search specialist. Your job is to find real-world working examples across millions of public repositories using gh_grep.
