@@ -4,4 +4,4 @@ description: Run the opsx-archive command.
 model: haiku
 ---
 
-/opsx-archive
+Use `opsx-archive` or `opsx:archive` command to archive.
