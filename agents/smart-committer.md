@@ -1,5 +1,5 @@
 ---
-description: Commit code changes, stage and commit work, or save progress to git.
+description: Stage relative changes and commit with an auto-generated conventional commit message. Use when you want to commit your work without manually writing the commit message.
 name: smart-committer
 model: haiku
 color: green

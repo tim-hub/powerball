@@ -1,7 +1,13 @@
 ---
 name: commit
-description: Stage all changes and commit with an auto-generated conventional commit message. Use when you want to commit your work without manually writing the commit message.
+description: Commit changes manually.
 argument-hint: "[optional context or hint for the commit message]"
+model: haiku
+allowed-tools: Agent, Skill, Bash(git *), Bash(gh *), Read
+context: fork
+agent: powerball:smart-committer
+user-invocable: true
+disable-model-invocation: true  
 ---
 
 Use the `smart-committer` agent to stage relative changes in the current git repository and commit them with a precise conventional commit message.
