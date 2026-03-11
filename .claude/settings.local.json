@@ -4,5 +4,9 @@
       "WebSearch",
       "WebFetch"
     ]
-  }
+  },
+  "disabledMcpjsonServers": [
+    "context7",
+    "gh_grep"
+  ]
 }

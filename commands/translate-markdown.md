@@ -2,7 +2,6 @@
 name: translate-markdown
 description: Use this skill when the user wants to translate markdown files or text content from one language to another. Triggered by requests like "translate this file to Spanish", "convert this markdown to French", "translate the docs to Japanese", or "translate $ARGUMENTS".
 model: haiku
-disable-model-invocation: true
 allowed-tools: Bash, Write, Edit
 ---
 

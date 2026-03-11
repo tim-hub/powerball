@@ -2,8 +2,8 @@
 name: fix-issue
 description: |
     Automatically fix, resolve, or address a small issue, a strightforward task or a small feature request from a GitHub issue by number or URL. Examples: "fix issue 42", "resolve #7", "address the bug in issue 15".
-disable-model-invocation: true
 model: sonnet
+argument-hint: "[issue number or URL]"
 ---
 Automatically analyze and fix the GitHub issue: $ARGUMENTS.
 
@@ -16,4 +16,4 @@ Automatically analyze and fix the GitHub issue: $ARGUMENTS.
 7. Ensure code passes linting and type checking. Discover the linter from project config if not obvious.
 8. Use the `review` command to review all changes, address any feedback, and ensure the code meets quality standards, if unsure of how to implement the fix, ask user for guidance or clarification on the issue.
 9.  Use the `smart-committer` agent to stage and commit the changes.
-10. Use the `pr-writing` skill to push the branch and open a PR. Reference the issue number in the PR body (e.g. `Closes #$ARGUMENTS`).
+10. Use the `gh` cli to push the branch and open a PR. Reference the issue number in the PR body (e.g. `Closes #$ARGUMENTS`).
