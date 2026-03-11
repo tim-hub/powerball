@@ -17,24 +17,48 @@ hooks:
           timeout: 120
 ---
 
-Run the following in order:
+Run the following steps in order. For each step, check if the file already exists before running the script.
 
-1. Make all scripts executable:
+## Step 1: Set up CLAUDE.md
+
+Check if `~/.claude/CLAUDE.md` already exists:
+
 ```bash
-chmod +x "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/"*.sh
+test -f ~/.claude/CLAUDE.md && echo "exists" || echo "missing"
 ```
 
-2. Set up CLAUDE.md:
+- If **missing**: run the script directly:
+  ```bash
+  bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/init-claude-md.sh"
+  ```
+
+- If **exists**: use `AskUserQuestion` to ask:
+  > "~/.claude/CLAUDE.md already exists. Override it with the powerball template?"
+  - Options: "Yes, override" / "No, skip"
+  - If Yes: run the script
+  - If No: report `  Skipped: ~/.claude/CLAUDE.md`
+
+## Step 2: Set up statusline
+
+Check if `~/.claude/statusline-command.sh` already exists:
+
 ```bash
-bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/init-claude-md.sh"
+test -f ~/.claude/statusline-command.sh && echo "exists" || echo "missing"
 ```
 
-3. Set up statusline:
-```bash
-bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/init-statusline.sh"
-```
+- If **missing**: run the script directly:
+  ```bash
+  bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/init-statusline.sh"
+  ```
 
-4. Set up plugins:
+- If **exists**: use `AskUserQuestion` to ask:
+  > "~/.claude/statusline-command.sh already exists. Override it with the powerball statusline?"
+  - Options: "Yes, override" / "No, skip"
+  - If Yes: run the script
+  - If No: report `  Skipped: ~/.claude/statusline-command.sh`
+
+## Step 3: Set up plugins
+
 ```bash
 bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/set-up-plugins.sh"
 ```
