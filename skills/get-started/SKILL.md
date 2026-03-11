@@ -17,6 +17,8 @@ hooks:
           timeout: 120
 ---
 
+The base directory for this skill is shown in the header when invoked (e.g. `/path/to/plugin/skills/get-started`). All script paths below use `<base-dir>/scripts/` — substitute the actual base directory path shown in the header.
+
 Run the following steps in order. For each step, check if the file already exists before running the script.
 
 ## Step 1: Set up CLAUDE.md
@@ -27,9 +29,9 @@ Check if `~/.claude/CLAUDE.md` already exists:
 test -f ~/.claude/CLAUDE.md && echo "exists" || echo "missing"
 ```
 
-- If **missing**: run the script directly:
+- If **missing**: run the script using the base directory from this skill's header:
   ```bash
-  bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/init-claude-md.sh"
+  bash "<base-dir>/scripts/init-claude-md.sh"
   ```
 
 - If **exists**: use `AskUserQuestion` to ask:
@@ -46,21 +48,22 @@ Check if `~/.claude/statusline-command.sh` already exists:
 test -f ~/.claude/statusline-command.sh && echo "exists" || echo "missing"
 ```
 
-- If **missing**: run the script directly:
+- If **missing**: copy the statusline script:
   ```bash
-  bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/init-statusline.sh"
+  bash "<base-dir>/scripts/init-statusline.sh"
   ```
+  Then use the `statusline-setup` Agent to configure `~/.claude/settings.json` with the command `bash ~/.claude/statusline-command.sh`.
 
 - If **exists**: use `AskUserQuestion` to ask:
   > "~/.claude/statusline-command.sh already exists. Override it with the powerball statusline?"
   - Options: "Yes, override" / "No, skip"
-  - If Yes: run the script
+  - If Yes: run the script, then use the `statusline-setup` Agent to configure `~/.claude/settings.json`
   - If No: report `  Skipped: ~/.claude/statusline-command.sh`
 
 ## Step 3: Set up plugins
 
 ```bash
-bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/set-up-plugins.sh"
+bash "<base-dir>/scripts/set-up-plugins.sh"
 ```
 
 Report the output of each step, then stop.
