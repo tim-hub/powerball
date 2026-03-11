@@ -22,4 +22,7 @@ Each feature has a different loading strategy and context cost:
 
 
 
-
+- “I want Claude to remember X automatically” → Skill
+- “I want to automate Y workflow step-by-step” → Subagent
+- “I use subagent Z frequently and want a shortcut” → Command
+- “I want to share my setup with others” → Plugin (bundle all three)

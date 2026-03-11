@@ -1,9 +1,9 @@
 ---
+description: Commit code changes, stage and commit work, or save progress to git.
 name: smart-committer
 model: haiku
 color: green
 disallowedTools: Fetch, WebFetch, Write, Edit
-description: Commit code changes, stage and commit work, or save progress to git.
 tools:
   - Read
 ---

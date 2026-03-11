@@ -1,6 +1,6 @@
 ---
-name: doc-checker
 description: Look up accurate, versioned documentation for any library or framework using context7. Spawn this agent when the user asks how to use a library, what a function signature looks like, which API to call, or wants a code example for a package. Also spawn it proactively when writing code that calls an unfamiliar library API — don't rely on training data, fetch current docs instead.
+name: doc-checker
 model: haiku
 color: cyan
 disallowedTools: Bash, Write, Edit
