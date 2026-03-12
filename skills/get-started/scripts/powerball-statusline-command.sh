@@ -5,7 +5,7 @@ echo "$input" >> /tmp/statusline-debug.json
 # Single jq call to extract all fields at once
 eval "$(echo "$input" | jq -r '@sh "MODEL=\(.model.display_name) DIR=\(.workspace.current_dir) COST=\(.cost.total_cost_usd // 0) PCT=\(.context_window.used_percentage // 0 | floor) DURATION_MS=\(.cost.total_duration_ms // 0)"')"
 
-REMOTE=$(git remote get-url origin 2>/dev/null | sed 's/git@github.com:/https:\/\/github.com\//' | sed 's/\.git$//')
+REMOTE=$(git remote get-url origin 2>/dev/null | sed 's/git@\([^:]*\):/https:\/\/\1\//' | sed 's/\.git$//')
 BRANCH=$(git rev-parse --git-dir > /dev/null 2>&1 && git branch --show-current 2>/dev/null || true)
 STAGED=$(git diff --cached --numstat 2>/dev/null | wc -l | tr -d ' ')
 MODIFIED=$(git diff --numstat 2>/dev/null | wc -l | tr -d ' ')
@@ -18,7 +18,9 @@ BAR=$(printf "%$((PCT / 10))s" | tr ' ' '█')$(printf "%$((10 - PCT / 10))s" | 
 # Location: show repo:branch in git repos, dir otherwise
 if [ -n "$BRANCH" ]; then
     [ -n "$REMOTE" ] && REPO_NAME="$(printf '%b' "\\e]8;;${REMOTE}\\a$(basename "$REMOTE")\\e]8;;\\a")" || REPO_NAME="${DIR##*/}"
-    LOCATION="🌿 ${REPO_NAME}:${BRANCH} +${STAGED} ~${MODIFIED}"
+    BRANCH_DISPLAY="${BRANCH:0:12}"; [ ${#BRANCH} -gt 12 ] && BRANCH_DISPLAY="${BRANCH_DISPLAY}…"
+    [ -n "$REMOTE" ] && BRANCH_DISPLAY="$(printf '%b' "\\e]8;;${REMOTE}/tree/${BRANCH}\\a${BRANCH_DISPLAY}\\e]8;;\\a")"
+    LOCATION="🌿 ${REPO_NAME}:${BRANCH_DISPLAY} +${STAGED} ~${MODIFIED}"
 else
     LOCATION="📁 ${DIR##*/}"
 fi

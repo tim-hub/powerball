@@ -13,6 +13,7 @@ A simple collection of agents and skills and commands to use Claude Code effecti
 - `/plugin marketplace add tim-hub/powerball`
 - `/get-started` to initialize the plugin, set up statusline and install plugins for your claude code.
 
+  - You may see some permission errors. You may need to temporarily disable sandox model for the session, because this skill will edit `~/.claude` to add status line script. You can re-enable it after the setup is done.
 
 
 ### Others
