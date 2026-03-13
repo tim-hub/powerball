@@ -1,0 +1,23 @@
+{
+  "skill_name": "jira-ticket-analyzer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analyze XY-96047",
+      "expected_output": "A structured development plan for a bug ticket with: problem summary, reproduction steps, affected code (Calendar-related files), implementation plan, and test guidance",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "What needs to be done for XY-96989?",
+      "expected_output": "A structured development plan for a feature/story ticket with: problem summary, context, implementation steps for product type support, and test coverage",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Look at the calendar scheduling conflict issue",
+      "expected_output": "Should search Jira for matching tickets, present options to the user, then produce a plan once a ticket is confirmed",
+      "files": []
+    }
+  ]
+}

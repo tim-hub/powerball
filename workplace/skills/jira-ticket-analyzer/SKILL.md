@@ -1,6 +1,6 @@
 ---
 name: jira-ticket-analyzer
-description: "Fetch and analyze Jira tickets to produce actionable development plans. Use this skill whenever the user provides a Jira ticket number (e.g., EZ-12345), a Jira URL, or asks to analyze/plan work for a Jira issue. Also trigger when the user says things like 'what needs to be done for [ticket]', 'plan the work for [ticket]', 'analyze [ticket]', 'look at this Jira ticket', or mentions working on a specific ticket. This skill fetches the ticket via the Atlassian MCP server, analyzes the problem, searches the codebase for relevant files, and produces a structured development plan including reproduction steps (for bugs), implementation steps, and test coverage guidance."
+description: "Fetch and analyze Jira tickets to produce actionable development plans. Use this skill whenever the user provides a Jira ticket number (e.g., XY-12345), a Jira URL, or asks to analyze/plan work for a Jira issue. Also trigger when the user says things like 'what needs to be done for [ticket]', 'plan the work for [ticket]', 'analyze [ticket]', 'look at this Jira ticket', or mentions working on a specific ticket. This skill fetches the ticket via the Atlassian MCP server, analyzes the problem, searches the codebase for relevant files, and produces a structured development plan including reproduction steps (for bugs), implementation steps, and test coverage guidance."
 ---
 
 # Jira Ticket Analyzer
@@ -15,7 +15,7 @@ If the user has configured their cloudId in CLAUDE.md, use it directly instead o
 
 ## Step 1: Parse Input & Fetch Ticket
 
-The user may provide a ticket number (`EZ-12345`), a Jira URL, or a description. For descriptions, search with `searchJiraIssuesUsingJql` and ask the user to confirm which ticket.
+The user may provide a ticket number (`XY-12345`), a Jira URL, or a description. For descriptions, search with `searchJiraIssuesUsingJql` and ask the user to confirm which ticket.
 
 Fetch with `getJiraIssue(cloudId, issueIdOrKey, responseContentFormat="markdown")` and extract: summary, type, status, priority, description, acceptance criteria, comments, linked issues, attachments, and labels/components.
 

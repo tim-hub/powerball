@@ -5,6 +5,7 @@ disable-model-invocation: true
 user-invocable: true
 model: haiku
 allowed-tool: Bash, Read
+argument-hint: "[plugin name, path or markplace version to bump version]"
 ---
 
 - Read .claude-plugin/plugin.json to know what is the current version.
