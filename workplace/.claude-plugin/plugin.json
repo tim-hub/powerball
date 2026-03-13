@@ -1,8 +1,0 @@
-{
-  "name": "powerball-workplace",
-  "version": "0.1.0",
-  "description": "Workplace productivity skills for Claude Code — Jira ticket analysis, development planning, and task management integrations.",
-  "author": {
-    "name": "@tim-hub"
-  }
-}
