@@ -16,6 +16,13 @@ A simple collection of agents and skills and commands to use Claude Code effecti
   - You may see some permission errors. You may need to temporarily disable sandox model for the session, because this skill will edit `~/.claude` to add status line script. You can re-enable it after the setup is done.
 
 
+#### Manual installation
+
+- Clone the repository to your local machine.
+
+
+
+
 ### Others
 
 - [why create this plugin?](docs/why%20create%20this%20plugin.md)
