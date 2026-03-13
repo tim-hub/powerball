@@ -25,7 +25,6 @@ PLUGINS=(
   ralph-loop
   security-guidance
   skill-creator
-  stripe
   superpowers
   typescript-lsp
 )

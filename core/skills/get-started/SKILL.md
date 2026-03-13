@@ -57,7 +57,19 @@ test -f ~/.claude/statusline-command.sh && echo "exists" || echo "missing"
   - If Yes: run the script, then use the `statusline-setup` Agent to configure `~/.claude/settings.json`
   - If No: report `  Skipped: ~/.claude/statusline-command.sh`
 
-## Step 3: Set up plugins
+## Step 3: Set up MCP servers
+
+```bash
+bash "<base-dir>/scripts/init-mcp-servers.sh"
+```
+
+## Step 4: Set up Claude Code settings
+
+```bash
+bash "<base-dir>/scripts/init-claude-settings.sh"
+```
+
+## Step 5: Set up plugins
 
 ```bash
 bash "<base-dir>/scripts/set-up-plugins.sh"

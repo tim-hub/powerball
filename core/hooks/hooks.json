@@ -1,9 +1,9 @@
 {
-  "description": "Plugin-wide hooks for powerball",
+  "description": "Warn when both staged and unstaged changes exist after file modifications",
   "hooks": {
-    "Stop": [
+    "PostToolUse": [
       {
-        "matcher": "*",
+        "matcher": "Write|Edit|Bash",
         "hooks": [
           {
             "type": "command",
