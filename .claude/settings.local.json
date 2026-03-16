@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "WebFetch"
+      "WebFetch",
+      "WebFetch(domain:github.com)"
     ]
   },
   "disabledMcpjsonServers": [
