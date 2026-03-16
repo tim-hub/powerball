@@ -17,5 +17,5 @@ Automatically analyze and fix the GitHub issue: $ARGUMENTS.
 6. Use `superpowers:test-driven-development` skill to implement the necessary changes to fix the issue. Write and run tests to verify the fix. Discover the test runner from `package.json`, `Makefile`, or project conventions.
 7. Ensure code passes linting and type checking. Discover the linter from project config if not obvious.
 8. Use the `review` skill to review all changes, address any feedback, and ensure the code meets quality standards. If unsure of how to implement the fix, ask user for guidance or clarification on the issue.
-9. Use the `smart-committer` agent to stage and commit the changes.
+9. Use the `commit` skill to stage and commit the changes.
 10. Use the `gh` cli to push the branch and open a PR. Reference the issue number in the PR body (e.g. `Closes #$ARGUMENTS`).
