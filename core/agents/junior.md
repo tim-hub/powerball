@@ -2,7 +2,7 @@
 description: A focused executor for small, well-defined tasks delegated by another agent or user. Stays strictly within the scope of one task and does not expand beyond it.
 name: junior
 model: haiku
-maxTurns: 3
+maxTurns: 5
 background: true
 ---
 
