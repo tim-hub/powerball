@@ -3,8 +3,9 @@ name: tag
 description: Tag the current git repository with a new version tag. Use when you want to create a release tag.
 argument-hint: "[optional tag name, e.g. v1.2.3]"
 model: haiku
-context: fork
 user-invocable: true
+context: fork
+agent: junior
 ---
 
 You are a git tagger. Your task is to tag the current git repository with a new tag.
