@@ -10,13 +10,22 @@ hooks:
     - matcher: "*"
       hooks:
         - type: command
-          command: bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/done.sh"
+          command: >
+            test -f /tmp/.get-started-running &&
+            rm /tmp/.get-started-running &&
+            bash "$CLAUDE_PLUGIN_ROOT/skills/get-started/scripts/done.sh"
           timeout: 120
 ---
 
 The base directory for this skill is shown in the header when invoked (e.g. `/path/to/plugin/skills/get-started`). All script paths below use `<base-dir>/scripts/` — substitute the actual base directory path shown in the header.
 
 Run the following steps in order. For each step, check if the file already exists before running the script.
+
+Before starting, create the sentinel file so the Stop hook knows this skill ran:
+
+```bash
+touch /tmp/.get-started-running
+```
 
 ## Step 1: Set up CLAUDE.md
 
@@ -57,11 +66,24 @@ test -f ~/.claude/statusline-command.sh && echo "exists" || echo "missing"
   - If Yes: run the script, then use the `statusline-setup` Agent to configure `~/.claude/settings.json`
   - If No: report `  Skipped: ~/.claude/statusline-command.sh`
 
-## Step 3: Set up MCP servers
+## Step 3: Install playwright-cli skills
+
+Check if `@playwright/cli` is already installed globally:
 
 ```bash
-bash "<base-dir>/scripts/init-mcp-servers.sh"
+playwright-cli --version 2>/dev/null && echo "installed" || echo "missing"
 ```
+
+- If **installed**: skip the install step, proceed directly to running:
+  ```bash
+  playwright-cli install --skills
+  ```
+
+- If **missing**: install it first, then install skills:
+  ```bash
+  pnpm install -g @playwright/cli@latest
+  playwright-cli install --skills
+  ```
 
 ## Step 4: Set up Claude Code settings
 
