@@ -35,7 +35,7 @@
       "name": "powerball-workplace",
       "source": "./workplace",
       "description": "Workplace productivity skills for Claude Code — Jira ticket analysis, development planning, and task management integrations.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "jira",
         "tickets",
