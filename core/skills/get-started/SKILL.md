@@ -1,6 +1,6 @@
 ---
 name: get-started
-description: Initialize claude code settings — set up statusline, global CLAUDE.md and install plugins. Triggered by requests like "set up claude code", "initialize plugins", "get started", or "run setup".
+description: This skill should be used when the user asks to "set up claude code", "initialize plugins", "get started with powerball", or "run setup". Sets up global CLAUDE.md, statusline, Claude Code settings, and installs plugins.
 model: haiku
 allowed-tools: Bash, Read, Write, Edit
 disable-model-invocation: true
@@ -76,13 +76,13 @@ playwright-cli --version 2>/dev/null && echo "installed" || echo "missing"
 
 - If **installed**: skip the install step, proceed directly to running:
   ```bash
-  playwright-cli install --skills
+  cd ~ && playwright-cli install --skills
   ```
 
 - If **missing**: install it first, then install skills:
   ```bash
   pnpm install -g @playwright/cli@latest
-  playwright-cli install --skills
+  cd ~  && playwright-cli install --skills
   ```
 
 ## Step 4: Set up Claude Code settings
