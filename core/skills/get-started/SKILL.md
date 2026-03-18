@@ -85,13 +85,34 @@ playwright-cli --version 2>/dev/null && echo "installed" || echo "missing"
   cd ~  && playwright-cli install --skills
   ```
 
-## Step 4: Set up Claude Code settings
+## Step 4: Install chub and get-api-docs skill
+
+Check if `@aisuite/chub` is already installed globally:
+
+```bash
+chub --version 2>/dev/null && echo "installed" || echo "missing"
+```
+
+- If **missing**: install it first:
+  ```bash
+  pnpm install -g @aisuite/chub@latest
+  ```
+
+Then add the `get-api-docs` skill globally (whether it was already installed or just installed):
+
+```bash
+mkdir -p ~/.claude/skills/get-api-docs && curl -fsSL https://raw.githubusercontent.com/andrewyng/context-hub/main/cli/skills/get-api-docs/SKILL.md -o ~/.claude/skills/get-api-docs/SKILL.md
+```
+
+Report whether chub was already installed or freshly installed, and confirm the skill was added to `~/.claude/skills/get-api-docs/SKILL.md`.
+
+## Step 5: Set up Claude Code settings
 
 ```bash
 bash "<base-dir>/scripts/init-claude-settings.sh"
 ```
 
-## Step 5: Set up plugins
+## Step 6: Set up plugins
 
 ```bash
 bash "<base-dir>/scripts/set-up-plugins.sh"
