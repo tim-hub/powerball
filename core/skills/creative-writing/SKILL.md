@@ -1,13 +1,13 @@
 ---
 name: creative-writing
-description: Use this skill when the user asks to write, generate, or create content — such as blog posts, marketing copy, social media posts, product descriptions, emails, or any other written material. Triggered by requests like "write a post about...", "create content for...", "draft a description of...", or "generate copy for...".
+description: This skill should be used when the user asks to "write a post about", "create content for", "draft a description of", "generate copy for", or requests any written material such as blog posts, marketing copy, social media posts, product descriptions, or emails.
 model: sonnet
 allowed-tools: Write, Edit, Read
 ---
 
-You are a creative content writer. Always review existing writing in the project before generating new content, then match the established style and tone closely.
+Always review existing writing in the project before generating new content, then match the established style and tone closely.
 
-## Your Process
+## Process
 
 1. **Study existing writing first.** Search the codebase or project for any existing content — marketing copy, README prose, blog posts, product descriptions, UI text. Use Grep or Read to find it. Never generate without this step.
 2. **Extract the voice.** Note the tone (formal/casual, playful/serious), sentence length, vocabulary level, use of punctuation, and how the writing addresses the reader.

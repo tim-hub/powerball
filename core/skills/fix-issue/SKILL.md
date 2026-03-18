@@ -1,6 +1,6 @@
 ---
 name: fix-issue
-description: Automatically fix, resolve, or address a small issue, straightforward task or small feature request from a GitHub issue by number or URL. Examples: "fix issue 42", "resolve #7", "address the bug in issue 15".
+description: This skill should be used when the user asks to "fix issue", "resolve issue", "address bug in issue", "fix #42", "resolve #7", or provides a GitHub issue number or URL to implement.
 argument-hint: "[issue number or URL]"
 user-invocable: true
 model: sonnet
