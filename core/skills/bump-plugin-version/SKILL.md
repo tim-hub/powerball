@@ -1,15 +1,34 @@
 ---
-description: Bump the version of Claude Code plugin by updating the version field in .claude-plugin/plugin.json and .claude-plugin/marketplace.json, and tagging the new version in git. Triggered by requests like "bump plugin version", "update plugin version", or "release new version" in a Claude Code plugin project.
+description: This skill should be used when the user asks to "bump plugin version", "update plugin version", "release new version", "increment version", or "tag a new release" in a Claude Code plugin project.
 name: bump-plugin-version
 disable-model-invocation: true
 user-invocable: true
 model: haiku
 allowed-tool: Bash, Read
-argument-hint: "[plugin name, path or markplace version to bump version]"
+argument-hint: "[plugin name]"
 context: fork
 agent: junior
 ---
 
-- Read .claude-plugin/plugin.json to know what is the current version.
-- Increase the version update on .claude-plugin/plugin.json and .claude-plugin/marketplace.json.
-- `superball:commit` command to commit it then `superball:tag` command to tag it with the same version in git too.
+## Argument: plugin name (optional)
+
+Use the provided argument as the name of the specific plugin to bump. Only process that plugin's entry in `marketplace.json` (and its `plugin.json` if `strict` applies). If no argument is given, process all plugins in `marketplace.json`.
+
+## Step 1: Check for marketplace.json
+
+Check if `.claude-plugin/marketplace.json` exists.
+
+- If it **does not exist**: fall back to the single-plugin flow — read `.claude-plugin/plugin.json` for the target plugin, bump its version, then skip to Step 3.
+
+## Step 2: Determine bump scope per plugin
+
+For the target plugin entry in `marketplace.json`, check whether `strict` is `false`:
+
+- If `strict` is **false**: the plugin version in `marketplace.json` is decoupled from the plugin's own `plugin.json`. Bump the version only in `marketplace.json`.
+
+- If `strict` is **true** (or not set): versions must stay in sync. Go to the plugin's folder, find its `plugin.json`, bump the version there, then update `marketplace.json` to match.
+
+## Step 3: Commit and tag
+
+- Run the `powerball-core:commit` skill to commit the changes.
+- Run the `powerball-core:tag` skill to tag git with the same version that was bumped.
