@@ -6,7 +6,7 @@ user-invocable: true
 tools: Read, Bash(git *), Bash(gh *)
 context: fork
 model: haiku
-agent: junior
+agent: powerball-core:junior
 ---
 
 Analyze what has changed, write a precise conventional commit message, and commit — without asking for confirmation.

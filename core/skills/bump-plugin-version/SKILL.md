@@ -7,7 +7,7 @@ model: haiku
 allowed-tool: Bash, Read
 argument-hint: "[plugin name]"
 context: fork
-agent: junior
+agent: powerball-core:junior
 ---
 
 ## Argument: plugin name (optional)
