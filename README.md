@@ -2,6 +2,8 @@
 
 A marketplace of Claude Code plugins for productivity, git workflows, and workplace integrations.
 
+> In theory all the skills and scripts can be worked on other agent coding tools too, however, this was note tested.
+
 ### Plugins
 
 #### `powerball-core`
@@ -43,3 +45,12 @@ Clone the repository to your local machine.
 
 - [Why create this plugin?](docs/why%20create%20this%20plugin.md)
 - [FAQ](docs/FAQ.md)
+
+
+#### Checklist
+
+- [ ] Add MIT License
+- [ ] Add a new skill to review skills
+  - Claude Code Focus
+  - Do not remove frontmatter key values
+  - Focus on keep skill clear, straighforward
