@@ -47,9 +47,6 @@ Clone the repository to your local machine.
 - [FAQ](docs/FAQ.md)
 
 
-#### Checklist
-
-- [ ] Add MIT License
 - [ ] Add a new skill to review skills
   - Claude Code Focus
   - Do not remove frontmatter key values
