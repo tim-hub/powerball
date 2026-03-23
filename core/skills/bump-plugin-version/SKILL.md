@@ -4,7 +4,7 @@ name: bump-plugin-version
 disable-model-invocation: true
 user-invocable: true
 model: haiku
-allowed-tool: Bash, Read
+allowed-tools: Bash, Read
 argument-hint: "[plugin name]"
 context: fork
 agent: powerball-core:junior

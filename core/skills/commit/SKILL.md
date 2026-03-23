@@ -3,7 +3,7 @@ name: commit
 description: This skill should be used when the user asks to "commit changes", "commit my work", "make a commit", "stage and commit", or wants to save progress with a git commit. Stages relative changes and commits with an auto-generated conventional commit message.
 argument-hint: "[optional context or hint for the commit message]"
 user-invocable: true
-tools: Read, Bash(git *), Bash(gh *)
+allowed-tools: Bash, Read
 context: fork
 model: haiku
 agent: powerball-core:junior
