@@ -64,3 +64,11 @@ else
   jq '.permissions = {"allow": ["Bash", "WebFetch", "WebSearch", "Read", "Search", "Edit", "TodoWrite(**)", "Task(**)"]}' "$SETTINGS" > "$SETTINGS.tmp" && mv "$SETTINGS.tmp" "$SETTINGS"
   echo "Added: permissions (allow list)"
 fi
+
+# Set showClearContextOnPlanAccept if not present
+if jq -e '.showClearContextOnPlanAccept' "$SETTINGS" &>/dev/null; then
+  echo "Skipped: showClearContextOnPlanAccept (already configured)"
+else
+  jq '.showClearContextOnPlanAccept = true' "$SETTINGS" > "$SETTINGS.tmp" && mv "$SETTINGS.tmp" "$SETTINGS"
+  echo "Added: showClearContextOnPlanAccept = true"
+fi
