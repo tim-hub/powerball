@@ -13,9 +13,10 @@ Automatically analyze and fix the GitHub issue: $ARGUMENTS.
 2. Understand the problem described in the issue.
 3. Search the codebase for relevant files.
 4. Create and checkout a new branch: `git checkout -b fix/<issue-number>-<short-slug>` (derive slug from the issue title).
-5. Use `superpowers:brainstorming` skill to outline a plan to fix the issue, including which files to modify and what changes to make, save it to `docs` folder. Follow recommended solution if needs confirmation from user before proceeding.
-6. Use `superpowers:test-driven-development` skill to implement the necessary changes to fix the issue. Write and run tests to verify the fix. Discover the test runner from `package.json`, `Makefile`, or project conventions.
+5. Use `/openspec-propose` skill to outline a plan to fix the issue, including which files to modify and what changes to make, save it to `docs` folder. Follow recommended solution if needs confirmation from user before proceeding.
+6. Use `/openspec-apply-change` skill to implement the necessary changes to fix the issue. Write and run tests to verify the fix. Discover the test runner from `package.json`, `Makefile`, or project conventions.
 7. Ensure code passes linting and type checking. Discover the linter from project config if not obvious.
 8. Use the `review` skill to review all changes, address any feedback, and ensure the code meets quality standards. If unsure of how to implement the fix, ask user for guidance or clarification on the issue.
-9. Use the `commit` skill to stage and commit the changes.
-10. Use the `gh` cli to push the branch and open a PR. Reference the issue number in the PR body (e.g. `Closes #$ARGUMENTS`).
+9. Use the `/openspec-archive-change` skill to archive the change once the issue is fixed and all changes are committed.
+10. Use the `commit` skill to stage and commit the changes.
+11. Use the `gh` cli to push the branch and open a PR. Reference the issue number in the PR body (e.g. `Closes #$ARGUMENTS`).
