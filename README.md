@@ -20,9 +20,20 @@ Skills for workplace tool integrations:
 /plugin marketplace add tim-hub/powerball
 ```
 
+Install 3 plugins, 
+- core (compulsory, the other two dependets on this one) 
+- workplace - [more](workplace/README.md)
+- openspec-rewrite - [more](openspec-rewrite/README.md)
+
+
+
 Then run `/get-started` to set up statusline and install recommended plugins.
 
 > You may need to temporarily disable sandbox mode for the session, because this skill edits `~/.claude` to add the statusline script. You can re-enable it after setup.
+
+
+If you want to set up a skill set of openspec globally, run `setup-openspec`
+
 
 #### Manual installation
 
