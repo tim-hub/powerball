@@ -29,7 +29,7 @@ When ready to implement, run /openspec-apply-change
 
 **Steps**
 
-1. **If no clear input provided, use skill `/brainstorming` and ask what they want to build**
+1. **If no clear input provided, ask what they want to build**
 
    Use the **AskUserQuestion tool** (open-ended, no preset options) to ask:
    > "What change do you want to work on? Describe what you want to build or fix."

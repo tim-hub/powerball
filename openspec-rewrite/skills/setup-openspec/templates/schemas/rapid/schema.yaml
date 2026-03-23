@@ -7,7 +7,7 @@ artifacts:
     description: Initial rapid development proposal document outlining the change
     template: proposal.md
     instruction: >
-      Use `@Plan` agent and  `/brainstorming` skill to explore the ideas and create the proposal document that establishes WHY this change is needed.
+      Use `@Plan` agent to explore the ideas and create the proposal document that establishes WHY this change is needed.
 
       Use mermaid charts to represent the old and new changes of how the problems is solved, such as, data flow, system archtecture, use case diagrams.  
 
@@ -34,9 +34,7 @@ artifacts:
       Each capability listed here will need a corresponding spec file.
 
 
-      Keep it concise (1-2 pages). Focus on the "why" not the "how" -
-
-      implementation details belong in design.md.
+      Keep it concise (1-2 pages). Focus on the "why" not the "how" - implementation details belong in design.md.
 
 
       This is the foundation - specs, design, and tasks all build on this.
@@ -246,6 +244,7 @@ apply:
     Read context files, work through pending tasks, mark complete as you go.
     Pause if you hit blockers or need clarification.
     Use `@junior` agent if work is simple, straightforward and less than 10 lines of changes.
+    Use `/brainstorming` skill when you need to think through a problem or explore ideas.
 
 archive:
   requires:

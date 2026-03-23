@@ -13,7 +13,7 @@ metadata:
   generatedBy: "1.2.0"
 ---
 
-Enter explore mode. Think deeply. Visualize freely. Follow the conversation wherever it goes. Use `/brainstorming` skill for possible directions.
+Enter explore mode. Think deeply. Visualize freely. Follow the conversation wherever it goes.
 
 **IMPORTANT: Explore mode is for thinking, not implementing.** Read files, search code, and investigate the codebase freely, but NEVER write code or implement features. If the user asks to implement something, remind them to exit explore mode first and create a change proposal. Creating OpenSpec artifacts (proposals, designs, specs) is fine — that's capturing thinking, not implementing.
 
