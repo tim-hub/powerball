@@ -5,6 +5,8 @@ license: MIT
 compatibility: Requires openspec CLI.
 model: haiku
 agent: junior
+user-invocable: true
+disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"

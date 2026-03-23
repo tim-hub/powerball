@@ -3,6 +3,8 @@ name: openspec-new-change
 description: This skill should be used when the user asks to "create a new change", "start a new feature", "begin a new modification", or "start a new OpenSpec workflow" with a structured step-by-step approach.
 license: MIT
 compatibility: Requires openspec CLI.
+user-invocable: true
+disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"

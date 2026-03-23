@@ -4,8 +4,6 @@ description: This skill should be used when the user asks to "explore an idea", 
 license: MIT
 compatibility: Requires openspec CLI.
 agent: Explore
-user-invocable: true
-disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"

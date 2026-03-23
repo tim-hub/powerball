@@ -3,6 +3,8 @@ name: openspec-sync-specs
 description: This skill should be used when the user asks to "sync specs", "update main specs", "apply delta specs", or "sync changes to specs" from an OpenSpec change without archiving.
 license: MIT
 compatibility: Requires openspec CLI.
+user-invocable: true
+disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"

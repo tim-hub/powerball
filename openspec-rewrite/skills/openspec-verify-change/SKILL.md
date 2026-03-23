@@ -3,6 +3,8 @@ name: openspec-verify-change
 description: This skill should be used when the user asks to "verify implementation", "validate a change", "check if implementation is complete", or "review before archiving" an OpenSpec change.
 license: MIT
 compatibility: Requires openspec CLI.
+user-invocable: true
+disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"

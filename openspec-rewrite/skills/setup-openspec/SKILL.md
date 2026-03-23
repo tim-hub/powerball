@@ -9,7 +9,7 @@ allowed-tools: Bash, Read, Write, Edit
 
 Run the following steps in order from the project root:
 
-**Step 0 — Check OpenSpec is installed:**
+**Step 1 — Check OpenSpec is installed:**
 ```bash
 openspec --version 2>/dev/null && echo "installed" || echo "missing"
 ```
@@ -17,11 +17,6 @@ openspec --version 2>/dev/null && echo "installed" || echo "missing"
 If missing, install it:
 ```bash
 pnpm install -g @fission-ai/openspec@latest
-```
-
-**Step 1 — Initialize OpenSpec:**
-```bash
-openspec init --tools claude
 ```
 
 **Step 2 — Apply powerball templates (overrides config and schemas):**

@@ -3,6 +3,8 @@ name: openspec-continue-change
 description: This skill should be used when the user asks to "continue a change", "create the next artifact", "progress my change", or "keep working on" an OpenSpec change.
 license: MIT
 compatibility: Requires openspec CLI.
+user-invocable: true
+disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"

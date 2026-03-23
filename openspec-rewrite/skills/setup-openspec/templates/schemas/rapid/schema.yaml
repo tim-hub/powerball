@@ -4,7 +4,7 @@ description: Powerball Rapid Spec Driven (Based on Default OpenSpec workflow) - 
 artifacts:
   - id: proposal
     generates: proposal.md
-    description: Initial proposal document outlining the change
+    description: Initial rapid development proposal document outlining the change
     template: proposal.md
     instruction: >
       Use `@Plan` agent and  `/brainstorming` skill to explore the ideas and create the proposal document that establishes WHY this change is needed.

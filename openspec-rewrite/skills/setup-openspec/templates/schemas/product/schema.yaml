@@ -4,7 +4,7 @@ description: Product OpenSpec workflow - proposal
 artifacts:
   - id: prd
     generates: prd.md
-    description: Initial proposal document outlining the change
+    description: Initial PM proposal document outlining the change
     template: proposal.md
     instruction: >
       Use `/pm-product-discovery:brainstorm` skill to understand what is needed to be done and use `/pm-execution:write-prd` to create the proposal document that establishes WHY this change is needed.

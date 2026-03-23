@@ -4,7 +4,7 @@ description: Default OpenSpec workflow - proposal → specs → design → tasks
 artifacts:
   - id: proposal
     generates: proposal.md
-    description: Initial proposal document outlining the change
+    description: Initial design proposal document outlining the change
     template: proposal.md
     instruction: >
       Use `frontend-design` skill to create the proposal document that establishes WHY this change is needed, and what need to be changed visually.
