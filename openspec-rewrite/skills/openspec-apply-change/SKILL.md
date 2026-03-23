@@ -1,10 +1,11 @@
 ---
 name: openspec-apply-change
-description: This skill should be used when the user asks to "implement tasks", "start implementing", "apply a change", "work through tasks", or "continue implementation" of an OpenSpec change.
-license: MIT
-compatibility: Requires openspec CLI.
+description: This skill should be used when the user asks to "implement tasks", "start implementing", "apply a change", or "work through tasks" of an OpenSpec change.
+argument-hint: "[change name]"
 user-invocable: true
 disable-model-invocation: false
+license: MIT
+compatibility: Requires openspec CLI.
 metadata:
   author: openspec
   version: "1.0"

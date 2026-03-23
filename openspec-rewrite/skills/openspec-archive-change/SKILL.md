@@ -1,12 +1,13 @@
 ---
 name: openspec-archive-change
-description: This skill should be used when the user asks to "archive a change", "finalize a change", "complete a change", or "archive implementation" after tasks are done.
+description: This skill should be used when the user asks to "archive a change", "finalize a change", "close out a change", or "move a change to archive" after tasks are done.
+argument-hint: "[change name]"
+user-invocable: true
+model: haiku
+agent: powerball-core:junior
+disable-model-invocation: false
 license: MIT
 compatibility: Requires openspec CLI.
-model: haiku
-agent: junior
-user-invocable: true
-disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"

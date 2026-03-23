@@ -1,10 +1,12 @@
 ---
 name: openspec-new-change
-description: This skill should be used when the user asks to "create a new change", "start a new feature", "begin a new modification", or "start a new OpenSpec workflow" with a structured step-by-step approach.
+description: This skill should be used when the user asks to "scaffold a change", "create a new change", "begin a new modification", or "start a new OpenSpec workflow" without generating artifacts yet.
+argument-hint: "[change name]"
+user-invocable: true
+model: haiku
+disable-model-invocation: false
 license: MIT
 compatibility: Requires openspec CLI.
-user-invocable: true
-disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"

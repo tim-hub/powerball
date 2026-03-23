@@ -1,11 +1,12 @@
 ---
 name: openspec-explore
 description: This skill should be used when the user asks to "explore an idea", "think through a problem", "investigate a design", "brainstorm approaches", or "clarify requirements" before or during an OpenSpec change.
+argument-hint: "[change name or topic]"
+user-invocable: true
+agent: Explore
+disable-model-invocation: false
 license: MIT
 compatibility: Requires openspec CLI.
-agent: Explore
-user-invocable: true
-disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"
@@ -31,9 +32,7 @@ Enter explore mode. Think deeply. Visualize freely. Follow the conversation wher
 
 ---
 
-## What You Might Do
-
-Depending on what the user brings, you might:
+## Possible Actions
 
 **Explore the problem space**
 - Ask clarifying questions that emerge from what they said
@@ -80,7 +79,7 @@ Depending on what the user brings, you might:
 
 ## OpenSpec Awareness
 
-You have full context of the OpenSpec system. Use it naturally, don't force it.
+Use full context of the OpenSpec system naturally, without forcing it.
 
 ### Check for context
 
@@ -135,7 +134,7 @@ If the user mentions a change or you detect one is relevant:
 
 ---
 
-## What You Don't Have To Do
+## Not Required
 
 - Follow a script
 - Ask the same questions every time
@@ -148,105 +147,7 @@ If the user mentions a change or you detect one is relevant:
 
 ## Handling Different Entry Points
 
-**User brings a vague idea:**
-```
-User: I'm thinking about adding real-time collaboration
-
-You: Real-time collab is a big space. Let me think about this...
-
-      COLLABORATION SPECTRUM
-      ════════════════════════════════════════════
-
-      Awareness          Coordination         Sync
-          │                   │                 │
-          ▼                   ▼                 ▼
-      ┌────────┐         ┌────────┐        ┌────────┐
-      │Presence│         │Cursors │        │  CRDT  │
-      │  "3    │         │ Multi  │        │Conflict│
-      │online" │         │ select │        │  free  │
-      └────────┘         └────────┘        └────────┘
-          │                   │                 │
-       trivial            moderate           complex
-
-      Where's your head at?
-```
-
-**User brings a specific problem:**
-```
-User: The auth system is a mess
-
-You: [reads codebase]
-
-     ┌─────────────────────────────────────────────┐
-     │              CURRENT AUTH FLOW              │
-     └─────────────────────────────────────────────┘
-                        │
-          ┌─────────────┼─────────────┐
-          ▼             ▼             ▼
-     ┌─────────┐  ┌─────────┐  ┌─────────┐
-     │ Google  │  │  GitHub │  │  Email  │
-     │  OAuth  │  │  OAuth  │  │  Magic  │
-     └────┬────┘  └────┬────┘  └────┬────┘
-          │             │             │
-          └─────────────┼─────────────┘
-                        ▼
-                  ┌───────────┐
-                  │  Session  │
-                  └─────┬─────┘
-                        │
-                        ▼
-                  ┌───────────┐
-                  │   Perms   │
-                  └───────────┘
-
-     I see three tangles. Which one's burning?
-```
-
-**User is stuck mid-implementation:**
-```
-User: /openspec-explore add-auth-system
-      The OAuth integration is more complex than expected
-
-You: [reads change artifacts]
-
-     You're on task 4: "Implement OAuth flow"
-
-     Let me trace what's involved...
-
-     [draws diagram, explores options, suggests paths]
-
-     Want to update the design to reflect this?
-     Or add a spike task to investigate?
-```
-
-**User wants to compare options:**
-```
-User: Should we use Postgres or SQLite?
-
-You: Generic answer is boring. What's the context?
-
-User: A CLI tool that tracks local dev environments
-
-You: That changes everything.
-
-     ┌─────────────────────────────────────────────────┐
-     │         CLI TOOL DATA STORAGE                  │
-     └─────────────────────────────────────────────────┘
-
-     Key constraints:
-     • No daemon running
-     • Must work offline
-     • Single user
-
-                  SQLite          Postgres
-     Deployment   embedded ✓      needs server ✗
-     Offline      yes ✓           no ✗
-     Single file  yes ✓           no ✗
-
-     SQLite. Not even close.
-
-     Unless... is there a sync component?
-```
+See `references/explore-examples.md` for example interactions (vague idea, specific problem, stuck mid-implementation, comparing options).
 
 ---
 

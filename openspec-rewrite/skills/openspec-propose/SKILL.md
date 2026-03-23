@@ -1,19 +1,20 @@
 ---
 name: openspec-propose
 description: This skill should be used when the user asks to "propose a change", "create a full proposal", "generate all artifacts", or "quickly plan a feature" with design, specs, and tasks ready for implementation in one step.
+argument-hint: "[change name or description]"
+user-invocable: true
+model: opus
+agent: Plan
+disable-model-invocation: false
 license: MIT
 compatibility: Requires openspec CLI.
-agent: Plan 
-model: opus
-user-invocable: true
-disable-model-invocation: false
 metadata:
   author: openspec
   version: "1.0"
   generatedBy: "1.2.0"
 ---
 
-Propose a new change - create the change and generate all artifacts in one step.
+Propose a new proposal - create the change and generate all artifacts in one step.
 
 Creates a change with artifacts:
 - proposal.md (what & why)
@@ -28,7 +29,7 @@ When ready to implement, run /openspec-apply-change
 
 **Steps**
 
-1. **If no clear input provided, ask what they want to build**
+1. **If no clear input provided, use skill `/brainstorming` and ask what they want to build**
 
    Use the **AskUserQuestion tool** (open-ended, no preset options) to ask:
    > "What change do you want to work on? Describe what you want to build or fix."
@@ -98,13 +99,7 @@ After completing all artifacts, summarize:
 
 **Artifact Creation Guidelines**
 
-- Follow the `instruction` field from `openspec instructions` for each artifact type
-- The schema defines what each artifact should contain - follow it
-- Read dependency artifacts for context before creating new ones
-- Use `template` as the structure for your output file - fill in its sections
-- **IMPORTANT**: `context` and `rules` are constraints for YOU, not content for the file
-  - Do NOT copy `<context>`, `<rules>`, `<project_context>` blocks into the artifact
-  - These guide what you write, but should never appear in the output
+See `references/artifact-guidelines.md` for the full guidelines.
 
 **Guardrails**
 - Create ALL artifacts needed for implementation (as defined by schema's `apply.requires`)

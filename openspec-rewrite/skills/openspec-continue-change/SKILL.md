@@ -1,10 +1,11 @@
 ---
 name: openspec-continue-change
-description: This skill should be used when the user asks to "continue a change", "create the next artifact", "progress my change", or "keep working on" an OpenSpec change.
-license: MIT
-compatibility: Requires openspec CLI.
+description: This skill should be used when the user asks to "continue a change", "create the next planning artifact", "progress my change", or "keep working on" an OpenSpec change to advance the artifact workflow (proposal → specs → design → tasks).
+argument-hint: "[change name]"
 user-invocable: true
 disable-model-invocation: false
+license: MIT
+compatibility: Requires openspec CLI.
 metadata:
   author: openspec
   version: "1.0"
@@ -95,18 +96,7 @@ After each invocation, show:
 
 **Artifact Creation Guidelines**
 
-The artifact types and their purpose depend on the schema. Use the `instruction` field from the instructions output to understand what to create.
-
-Common artifact patterns:
-
-**spec-driven schema** (proposal → specs → design → tasks):
-- **proposal.md**: Ask user about the change if not clear. Fill in Why, What Changes, Capabilities, Impact.
-  - The Capabilities section is critical - each capability listed will need a spec file.
-- **specs/<capability>/spec.md**: Create one spec per capability listed in the proposal's Capabilities section (use the capability name, not the change name).
-- **design.md**: Document technical decisions, architecture, and implementation approach.
-- **tasks.md**: Break down implementation into checkboxed tasks.
-
-For other schemas, follow the `instruction` field from the CLI output.
+The artifact types and their purpose depend on the schema. Use the `instruction` field from the instructions output to understand what to create. For the full artifact creation guidelines, see `references/artifact-guidelines.md`.
 
 **Guardrails**
 - Create ONE artifact per invocation
