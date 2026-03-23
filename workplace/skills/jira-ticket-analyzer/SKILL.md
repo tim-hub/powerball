@@ -1,6 +1,7 @@
 ---
 name: jira-ticket-analyzer
 description: "Fetch and analyze Jira tickets to produce actionable development plans. Use this skill whenever the user provides a Jira ticket number (e.g., XY-12345), a Jira URL, or asks to analyze/plan work for a Jira issue. Also trigger when the user says things like 'what needs to be done for [ticket]', 'plan the work for [ticket]', 'analyze [ticket]', 'look at this Jira ticket', or mentions working on a specific ticket. This skill fetches the ticket via the Atlassian MCP server, analyzes the problem, searches the codebase for relevant files, and produces a structured development plan including reproduction steps (for bugs), implementation steps, and test coverage guidance."
+user-invocable: true
 ---
 
 # Jira Ticket Analyzer

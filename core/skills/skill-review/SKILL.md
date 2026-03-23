@@ -1,5 +1,5 @@
 ---
-name: skill-reviewer
+name: skill-review
 description: This skill should be used when the user asks to "review a skill", "check skill quality", "review my SKILL.md", "audit skills", or wants to ensure skills are clear, consistent, and follow repo conventions. Use proactively after creating or editing any skill in this repo.
 argument-hint: "[path to skill directory or SKILL.md]"
 user-invocable: true

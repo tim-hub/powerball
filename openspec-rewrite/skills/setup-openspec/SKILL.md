@@ -1,6 +1,6 @@
 ---
 name: setup-openspec
-description: Initializes OpenSpec in a project by copying config and schemas from the powerball templates. Use when the user asks to "set up openspec", "init openspec", "install openspec templates", or "initialize openspec" in a project.
+description: This skill should be used when the user asks to "set up openspec", "init openspec", "install openspec templates", or "initialize openspec" in a project. Copies config and schemas from the powerball templates.
 user-invocable: true
 disable-model-invocation: true
 model: haiku

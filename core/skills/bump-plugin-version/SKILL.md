@@ -1,6 +1,6 @@
 ---
-description: This skill should be used when the user asks to "bump plugin version", "update plugin version", "release new version", "increment version", or "tag a new release" in a Claude Code plugin project.
 name: bump-plugin-version
+description: This skill should be used when the user asks to "bump plugin version", "update plugin version", "release new version", "increment version", or "tag a new release" in a Claude Code plugin project.
 disable-model-invocation: true
 user-invocable: true
 model: haiku
