@@ -5,11 +5,11 @@ artifacts:
   - id: prd
     generates: prd.md
     description: Initial PM proposal document outlining the change
-    template: proposal.md
+    template: prd.md
     instruction: >
       Use `/pm-product-discovery:brainstorm` skill to understand what is needed to be done and use `/pm-execution:write-prd` to create the proposal document that establishes WHY this change is needed.
 
-      Use mermaid charts to represent the old and new changes of how the problems is solved, such as, data flow, system archtecture, use case diagrams.  
+      Use mermaid charts when needed to represent data flow, system archtecture, use case diagrams.  
 
       Sections:
 

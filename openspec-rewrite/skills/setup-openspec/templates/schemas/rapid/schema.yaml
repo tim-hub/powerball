@@ -2,14 +2,63 @@ name: rapid
 version: 1
 description: Powerball Rapid Spec Driven (Based on Default OpenSpec workflow) - proposal → specs → design → tasks
 artifacts:
+  - id: brainstorm
+    generates: brainstorm.md
+    description: Brainstorm ideas, investigate problems and any potential solutions.
+    template: brainstorm.md
+    requires: []
+    instruction: >
+      Use `/brainstorming` skill to explore and brainstorm ideas, read files, search code, and investigate freely, but do not write code.
+                                                                                      
+      ---                                                                           
+
+      ## Step 1: Gather Context                                                       
+      
+      - Read relevant source files, configs, proejct spec files (@openspec/changes, @openspec/specs), UI/UX design files, testing cases and documentation.                       
+      - Identify existing coding styles, patterns, and conventions in use.                   
+      - Map the architecture around the area of interest.                             
+                                                                                      
+      ## Step 2: Identify Problems and Root Causes                                    
+                                                                                      
+      - List current problems, limitations, and pain points.                          
+      - Trace each problem to its root cause where possible.
+      - Note any technical debt or architectural constraints.                         
+                                                                                      
+      ## Step 3: Brainstorm Ideas
+                                                                                      
+      For each problem identified, propose 2–3 potential solutions with tradeoffs:    
+      
+      | Solution | Pros | Cons |                                                      
+      |----------|------|------|                                                    
+      | Approach A | ... | ... |
+      | Approach B | ... | ... |                                                      
+      
+      ## Questions and Recommendations                                                   
+                                                                                    
+      [For anything uncertain: state the question, then provide a recommended course  
+      of action based on available context. Do not prompt the user for clarification —
+      provide the best recommendation given what is known.]                          
+                                                                                    
+      ---
+
+      ## Guardrails
+
+      - **Do not implement** — Investigate and recommend only
+      - **Do not prompt the user for missing info** — Provide recommendations based on
+      available context instead                                                      
+      - **Do ground recommendations in code** — Reference specific files, functions,
+      and patterns found during investigation    
+
   - id: proposal
     generates: proposal.md
     description: Initial rapid development proposal document outlining the change
     template: proposal.md
+    requires: 
+      - brainstorm
     instruction: >
-      Use `@Plan` agent to explore the ideas and create the proposal document that establishes WHY this change is needed.
+      Use `@Plan` agent to create the proposal document that establishes WHY this change is needed.
 
-      Use mermaid charts to represent the old and new changes of how the problems is solved, such as, data flow, system archtecture, use case diagrams.  
+      Use mermaid charts when needed, such as, data flow, system archtecture, use case diagrams.  
 
       Sections:
 
@@ -38,7 +87,6 @@ artifacts:
 
 
       This is the foundation - specs, design, and tasks all build on this.
-    requires: []
   - id: specs
     generates: specs/**/*.md
     description: Detailed specifications for the change
@@ -138,6 +186,7 @@ artifacts:
       Specs should be testable - each scenario is a potential test case.
     requires:
       - proposal
+      - brainstorm
   - id: design
     generates: design.md
     description: Technical design document with implementation details
@@ -183,6 +232,7 @@ artifacts:
       Good design docs explain the "why" behind technical decisions.
     requires:
       - proposal
+      - brainstorm
   - id: tasks
     generates: tasks.md
     description: Implementation checklist with trackable tasks
@@ -244,7 +294,6 @@ apply:
     Read context files, work through pending tasks, mark complete as you go.
     Pause if you hit blockers or need clarification.
     Use `@junior` agent if work is simple, straightforward and less than 10 lines of changes.
-    Use `/brainstorming` skill when you need to think through a problem or explore ideas.
 
 archive:
   requires:
