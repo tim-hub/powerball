@@ -15,7 +15,4 @@ schema: rapid
 rules:
   proposal:
     - Keep proposals under 500 words.
-    - Use mermaid charts to illustrate changes when helpful.
-    - Include a roll back plan.
-  tasks:
-    - Break tasks into small and clear work items. Each task should be small enough to complete in one session, ideally under 30 minutes.
+    - Use mermaid charts to illustrate changes when need.
