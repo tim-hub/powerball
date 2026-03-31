@@ -106,13 +106,19 @@ mkdir -p ~/.claude/skills/get-api-docs && curl -fsSL https://raw.githubuserconte
 
 Report whether chub was already installed or freshly installed, and confirm the skill was added to `~/.claude/skills/get-api-docs/SKILL.md`.
 
-## Step 5: Set up Claude Code settings
+## Step 5: Install external skills
+
+```bash
+bash "<base-dir>/scripts/install-skills.sh"
+```
+
+## Step 6: Set up Claude Code settings
 
 ```bash
 bash "<base-dir>/scripts/init-claude-settings.sh"
 ```
 
-## Step 6: Set up plugins
+## Step 7: Set up plugins
 
 ```bash
 bash "<base-dir>/scripts/set-up-plugins.sh"
