@@ -106,22 +106,28 @@ mkdir -p ~/.claude/skills/get-api-docs && curl -fsSL https://raw.githubuserconte
 
 Report whether chub was already installed or freshly installed, and confirm the skill was added to `~/.claude/skills/get-api-docs/SKILL.md`.
 
-## Step 5: Install external skills
+## Step 5: Upsert external skills
 
 ```bash
-bash "<base-dir>/scripts/install-skills.sh"
+bash "<base-dir>/scripts/upsert-skills.sh"
 ```
 
-## Step 6: Set up Claude Code settings
+## Step 6: Upsert rules
 
 ```bash
-bash "<base-dir>/scripts/init-claude-settings.sh"
+bash "<base-dir>/scripts/upsert-rules.sh"
 ```
 
-## Step 7: Set up plugins
+## Step 7: Upsert Claude Code settings
 
 ```bash
-bash "<base-dir>/scripts/set-up-plugins.sh"
+bash "<base-dir>/scripts/upsert-claude-settings.sh"
+```
+
+## Step 8: Upsert plugins
+
+```bash
+bash "<base-dir>/scripts/upsert-plugins.sh"
 ```
 
 Report the output of each step, then stop.

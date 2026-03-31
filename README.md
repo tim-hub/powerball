@@ -47,7 +47,13 @@ Clone the repository to your local machine.
 - [FAQ](docs/FAQ.md)
 
 
-- [ ] Add a new skill to review skills
-  - Claude Code Focus
-  - Do not remove frontmatter key values
-  - Focus on keep skill clear, straighforward
+
+- Claude Code Focus
+- Do not remove frontmatter key values
+- Focus on keeping skills clear and straightforward
+
+
+VibeGuard is recommended.
+
+- `curl -fsSL https://raw.githubusercontent.com/inkdust2021/VibeGuard/refs/heads/main/install.sh | bash`
+- use `vibeguard claude` instead of `claude`

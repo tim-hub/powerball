@@ -5,7 +5,7 @@ set -euo pipefail
 # To add a new skill, append a line to the SKILLS array below.
 
 SKILLS=(
-  "https://github.com/nichochar/chrome-devtools-mcp --skill chrome-devtools-cli -g --agent claude-code"
+  "https://github.com/chromedevtools/chrome-devtools-mcp --skill chrome-devtools-cli"
 )
 
 installed=0
@@ -13,7 +13,7 @@ failed=0
 
 for entry in "${SKILLS[@]}"; do
   echo "→ Installing: $entry"
-  if pnpx skills add $entry; then
+  if pnpx skills add $entry -g -y --agent claude-code; then
     ((installed++))
   else
     echo "  ✗ Failed: $entry"
