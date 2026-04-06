@@ -15,7 +15,6 @@ PLUGINS=(
   hookify
   huggingface-skills
   learning-output-style
-  playwright
   playground
   plugin-dev
   pr-review-toolkit

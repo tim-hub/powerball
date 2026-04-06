@@ -6,6 +6,7 @@ set -euo pipefail
 
 SKILLS=(
   "https://github.com/chromedevtools/chrome-devtools-mcp --skill chrome-devtools-cli"
+  "https://github.com/mblode/agent-skills --skill mermaid-mind-map"
 )
 
 installed=0
