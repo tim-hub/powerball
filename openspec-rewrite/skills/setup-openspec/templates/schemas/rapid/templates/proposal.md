@@ -2,6 +2,10 @@
 
 <!-- Explain the motivation for this change. What problem does this solve? Why now? -->
 
+### Mindmap:
+
+<!-- Mermaid mindmap diagram to visualize key concepts and relationships of the proposal. -->
+
 ## What Changes
 
 <!-- Describe what will change. Be specific about new capabilities, modifications, or removals. -->

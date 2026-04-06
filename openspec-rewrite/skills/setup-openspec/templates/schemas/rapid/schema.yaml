@@ -2,33 +2,17 @@ name: rapid
 version: 1
 description: Powerball Rapid Spec Driven (Based on Default OpenSpec workflow) - proposal (brainstorm → proposal → specs → design → tasks)
 artifacts:
-  - id: brainstorm
-    generates: brainstorm.md
-    description: Brainstorm ideas, investigate problems and any potential solutions.
-    template: brainstorm.md
-    requires: []
-    instruction: >
-      Use `/brainstorming` skill, before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
-
-      ## Important Notes:
-      - Save output to brainstorm.md instead of write design doc to docs/superpowers/.
-
-      ## Guardrails
-      - **Do not implement** — Investigate and recommend only                                                    
-
   - id: proposal
     generates: proposal.md
     description: Initial rapid development proposal document outlining the change
     template: proposal.md
-    requires: 
-      - brainstorm
+    requires: []
     instruction: >
-      Use `@Plan` agent to create the proposal document based on brainstorm output that establishes WHY this change is needed.
+      Use `@Plan` agent to create the proposal document that establishes WHY this change is needed.
 
       Sections:
 
-      - **Why**: 1-2 sentences on the problem or opportunity. What problem does
-      this solve? Why now?
+      - **Why**: 1-2 sentences on the problem or opportunity. What problem does this solve? Why now?
 
       - **What Changes**: Bullet list of changes. Be specific about new
       capabilities, modifications, or removals. Mark breaking changes with
@@ -40,13 +24,9 @@ artifacts:
       - **Impact**: Affected code, APIs, dependencies, or systems.
 
 
-      IMPORTANT: The Capabilities section is critical. It creates the contract
-      between
-
-      proposal and specs phases. Research existing specs before filling this in.
+      IMPORTANT: The Capabilities section is critical. It creates the contract between proposal and specs phases. Research existing specs before filling this in.
 
       Each capability listed here will need a corresponding spec file.
-
 
       Keep it concise (1-2 pages). Focus on the "why" not the "how" - implementation details belong in design.md.
 
@@ -60,7 +40,7 @@ artifacts:
       - proposal
       - brainstorm
     instruction: >
-      Create specification files that define WHAT the system should do.
+      Use `@Plan` agent to create specification files that define WHAT the system should do.
 
 
       Create one spec file per capability listed in the proposal's Capabilities
@@ -140,22 +120,6 @@ artifacts:
 
 
       Specs should be testable - each scenario is a potential test case.
-  - id: review
-    generates: review.md
-    description: Review artifacts created before design
-    template: review.md
-    requires:
-      - proposal
-      - specs
-      - brainstorm
-    instruction: >
-      Use the @Plan agent to review the current plan and all related artifacts:
-        - brainstorm.md
-        - proposal.md
-        - specs/**/*.md
-
-      IMPORTANT: Report to user and ask clarification questions if there is anything inconsist or anything does not make sense. 
-
   - id: design
     generates: design.md
     description: Technical design document with implementation details
@@ -166,7 +130,7 @@ artifacts:
       - brainstorm
       - review
     instruction: >
-      Create the design document that explains HOW to implement the change.
+      Use `@Plan` agent to create the design document that explains HOW to implement the change.
 
 
       When to include design.md (create only if any apply):
@@ -212,11 +176,8 @@ artifacts:
       Guidelines:
 
       - Group related tasks under ## numbered headings
-
       - Each task MUST be a checkbox: `- [ ] X.Y Task description`
-
       - Tasks should be small enough to complete in one session
-
       - Order tasks by dependency (what must be done first?)
 
 
@@ -226,17 +187,13 @@ artifacts:
 
       ## 1. Setup
 
-
       - [ ] 1.1 Create new module structure
-
       - [ ] 1.2 Add dependencies to package.json
 
 
       ## 2. Core Implementation
 
-
       - [ ] 2.1 Implement data export function
-
       - [ ] 2.2 Add CSV formatting utilities
 
       ```
@@ -245,9 +202,40 @@ artifacts:
       Reference specs for what needs to be built, design for how to build it.
 
       Each task should be verifiable - you know when it's done.
+
     requires:
       - specs
-      - design
+
+    - id: brainstorm
+    generates: brainstorm.md
+    description: Brainstorm ideas, investigate problems and any potential solutions, run in parallel with proposal creation
+    template: brainstorm.md
+    requires: []
+    instruction: >
+      Use `/brainstorming` skill, before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+
+      ## Important Notes:
+      - Save output to brainstorm.md instead of write design doc to docs/superpowers/.
+      - Ask clarifying questions to understand the problem space and context if anything is unclear or uncertain.
+
+      ## Guardrails
+      - Do not implement any changes or write any code in this phase. Focus on understanding the problem and exploring potential solutions.
+  - id: review
+    generates: review.md
+    description: Review artifacts created before design
+    template: review.md
+    requires:
+      - proposal
+      - specs
+      - brainstorm
+    instruction: >
+      Use the @code-reviewer agent to review the current plan and all related artifacts:
+        - brainstorm.md
+        - proposal.md
+        - specs/**/*.md
+
+      IMPORTANT: Report to user and ask clarification questions if there is anything inconsist or anything does not make sense. 
+
 apply:
   requires:
     - tasks

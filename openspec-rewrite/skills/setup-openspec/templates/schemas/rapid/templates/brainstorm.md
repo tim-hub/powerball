@@ -4,7 +4,10 @@
 **Goal**: <!-- What is the overall goal or problem to solve in one line? -->
 **Architecture**: <!-- What is the high-level architecture or design approach? -->
 **Tech Stack**: <!-- What technologies, frameworks, or tools are being used? -->
-**Spec**: <!-- Spec files location-->
+
+### Mindmap:
+
+<!-- Mermaid mindmap diagram to visualize key findings of the brainstorming process. -->
 
 ## File Map:
 
