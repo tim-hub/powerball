@@ -206,7 +206,7 @@ artifacts:
     requires:
       - specs
 
-    - id: brainstorm
+  - id: brainstorm
     generates: brainstorm.md
     description: Brainstorm ideas, investigate problems and any potential solutions, run in parallel with proposal creation
     template: brainstorm.md
@@ -220,6 +220,7 @@ artifacts:
 
       ## Guardrails
       - Do not implement any changes or write any code in this phase. Focus on understanding the problem and exploring potential solutions.
+
   - id: review
     generates: review.md
     description: Review artifacts created before design
@@ -234,7 +235,7 @@ artifacts:
         - proposal.md
         - specs/**/*.md
 
-      IMPORTANT: Report to user and ask clarification questions if there is anything inconsist or anything does not make sense. 
+      IMPORTANT: Report to user and ask clarification questions if there is anything inconsistent or anything does not make sense.
 
 apply:
   requires:
