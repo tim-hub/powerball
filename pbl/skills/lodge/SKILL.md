@@ -6,13 +6,19 @@ argument-hint: "[spec name to lodge, or leave blank to pick from existing specs]
 model: haiku
 ---
 
-Move completed spec directories from `.powerball/specs/` to `.powerball/lodge/`.
+Move completed spec directories from `.powerball/specs/` to `.powerball/lodge/`, after verifying specs and code are in sync.
 
-## Step 1: Select spec to lodge
+## Step 0: Select spec to lodge
 
 1. If the user provided an argument, find the matching directory under `.powerball/specs/` (match by name suffix after the date prefix).
 2. If no argument, list directories under `.powerball/specs/` and ask the user which to lodge.
 3. If `.powerball/specs/` is empty, tell the user there's nothing to lodge and stop.
+
+## Step 1: Sync specs with code
+
+Invoke the `sync-specs` skill with the selected spec directory. This compares spec artifacts against actual code changes and surfaces any drift. If drift is found, the user decides whether to update specs, revert code, or accept drift before proceeding.
+
+Only continue to Step 2 after sync-specs completes and any drift is resolved.
 
 ## Step 2: Verify completion
 
