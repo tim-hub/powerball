@@ -1,16 +1,18 @@
 ## Powerball
 
-A marketplace of Claude Code plugins for productivity, git workflows, and workplace integrations.
+A marketplace of Claude Code plugins for productivity, git workflows, spec-driven development, and workplace integrations.
 
-> In theory all the skills and scripts can be worked on other agent coding tools too, however, this was note tested.
+> In theory all the skills and scripts can be worked on other agent coding tools too, however, this was not tested.
 
 ### Plugins
 
-#### `powerball-personal`
-Agents and skills for everyday Claude Code usage:
-- Small, fast agents for specific tasks — smart commits, code tagging, doc searching, and code example searching
-- `/get-started` — install well-rated plugins from the official marketplace and superpowers, with interactive setup and configuration including statusline
-- A hook to warn when you have both staged and unstaged changes
+
+#### `powerball-sdd`
+Spec-driven development pipeline — explore, plan, execute with structured artifacts:
+- `/explore` — guided codebase exploration with Mermaid diagrams, saved to `.powerball/specs/`
+- `/plan` — implementation planning with architecture decisions, tasks, and checklists
+- `/executing-plan` — task execution with progress tracking, checklist verification, and code review
+- [more](sdd/README.md)
 
 #### `powerball-workplace`
 Skills for workplace tool integrations:
@@ -22,8 +24,9 @@ Skills for workplace tool integrations:
 /plugin marketplace add tim-hub/powerball
 ```
 
-Install 3 plugins, 
-- personal (compulsory, the other two dependets on this one) 
+Install 4 plugins,
+- personal (compulsory, the other plugins depend on this one)
+- sdd - [more](sdd/README.md)
 - workplace - [more](workplace/README.md)
 - openspec-rewrite - [more](openspec-rewrite/README.md)
 

@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "A marketplace of plugins for Claude Code, featuring tools for code management, creative writing, workplace productivity, and more.",
-    "version": "2.0.0"
+    "version": "3.0.0"
   },
   "plugins": [
     {
       "name": "powerball-personal",
       "source": "./personal",
       "description": "Agentic tools for setup claude code, git workflows, issue resolution, code review, creative writing, doc searching, code example searching, and content translation — from smart commits and PR descriptions to fixing GitHub issues and translating markdown.",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "tags": [
         "git",
         "commits",
@@ -28,6 +28,24 @@
         "context7",
         "grep",
         "setup claude"
+      ],
+      "strict": false
+    },
+    {
+      "name": "powerball-sdd",
+      "source": "./sdd",
+      "description": "Spec-driven development pipeline — explore codebases, create implementation plans with tasks and checklists, execute with progress tracking, checklist verification, and code review.",
+      "version": "0.1.0",
+      "tags": [
+        "sdd",
+        "spec-driven",
+        "planning",
+        "exploration",
+        "tasks",
+        "checklist",
+        "code-review",
+        "mermaid",
+        "workflow"
       ],
       "strict": false
     },
