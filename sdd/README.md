@@ -9,3 +9,7 @@
 
 OpenSpec is good, but it does not use full power of Claude Code, since it is focusing on different agent coding tools. 
 
+
+
+
+> Some skills are from superpowers, but adapted to use Claude Code agents and tools. The focus is on simplicity and clarity, rather than having a large number of skills.
