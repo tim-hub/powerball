@@ -8,6 +8,10 @@ model: sonnet
 
 Execute plan by dispatching fresh subagent per independent tasks in isolated worktrees, with two-stage review after each: spec compliance review first, then code quality review and code review step after completion.
 
+## Step 0: Set up workspace
+
+Before executing any tasks, check if the plan has independent tasks that can be parallelized. If so, invoke `using-git-worktrees` to create an isolated worktree for the build. Even for sequential tasks, a worktree keeps build changes isolated from the current workspace.
+
 ## Step 1: Locate the plan
 
 1. If the user provided an argument, search `.powerball/specs/` for a directory whose name ends with `-{{argument}}` (ignoring the date prefix). If multiple matches, list them and ask.
@@ -37,8 +41,7 @@ After all tasks are complete, read `checklist.md` and verify each checkpoint:
    - Mark those tasks back to `[ ]` in `tasks.md`.
    - Go back to **Step 2** and re-execute only the undone tasks.
    - After re-execution, return to **Step 3** and re-verify.
-
-This loop continues until all checkpoints pass.
+4. **Retry limit** — if the same checkpoint fails **twice** after re-execution, stop looping. Surface the failure to the user with full context: which checkpoint, what was tried, and why it keeps failing. Ask whether to modify the plan, skip the checkpoint, or take a different approach.
 
 ## Step 4: Code review
 

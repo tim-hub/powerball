@@ -16,10 +16,17 @@ Move completed spec directories from `.powerball/specs/` to `.powerball/lodge/`.
 
 ## Step 2: Verify completion
 
-Before lodging, check `checklist.md` in the selected spec directory:
+Before lodging, check both `checklist.md` and `tasks.md` in the selected spec directory:
+
+**Checklist check:**
 - If all checkpoints are `[x]`, proceed.
 - If any are `[ ]`, warn the user which checkpoints are incomplete and ask whether to lodge anyway or go back and finish.
 - If no `checklist.md` exists, proceed without warning.
+
+**Unresolved review tasks check:**
+- Scan `tasks.md` for any `[ ]` tasks with "Review fix:" prefix — these are unresolved code review findings.
+- If found, warn the user: "There are N unresolved code review fixes." List them and ask whether to lodge anyway or go back and fix.
+- If no `tasks.md` exists, proceed without warning.
 
 ## Step 3: Move to lodge
 

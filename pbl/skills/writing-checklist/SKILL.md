@@ -11,14 +11,15 @@ Define verification checkpoints that measure whether the implementation meets re
 ## Input
 
 - The exploration at `.powerball/specs/YYYY-MM-DD-{{name}}/exploration.md`
-- The tasks at `.powerball/specs/YYYY-MM-DD-{{name}}/tasks.md`
 - The plan at `.powerball/specs/YYYY-MM-DD-{{name}}/plan.md` — read the goal and architecture decisions from here
 
 To find the directory, search `.powerball/specs/` for a directory ending with `-{{name}}`.
 
+**Important:** Do NOT read `tasks.md`. This skill runs in parallel with `writing-tasks` — both read from `exploration.md` and `plan.md` independently. The checklist must think about **observable outcomes**, not mirror implementation steps.
+
 ## Process
 
-1. Review the goal, tasks, and architecture to identify what "done" looks like.
+1. Review the goal, and architecture to identify what "done" looks like.
 2. Write checkpoints that are **verifiable** — each should have a clear pass/fail answer.
 3. Categorize checkpoints by type:
    - **Functional** — does the feature work as intended?
@@ -36,6 +37,9 @@ To find the directory, search `.powerball/specs/` for a directory ending with `-
 ## Guidelines
 
 - Every checkpoint must be answerable with yes/no — avoid subjective criteria
-- Checkpoints verify outcomes, not process ("API returns 200" not "API was tested")
-- Include at least one checkpoint per task phase from `tasks.md`
+- Checkpoints verify **observable outcomes**, not individual implementation steps, for example: 
+   — "clicking the button triggers action X and log Y is visible" rather than "button text changed" + "onClick handler added"
+   - API returns 200 not API was tested
+- Think about what the **user or system would experience** when the work is complete, not what the developer did
+- A single checkpoint can (and should) verify the combined result of multiple implementation steps
 - If a checkpoint can't be verified without manual testing, note how to verify it

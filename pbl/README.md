@@ -1,27 +1,30 @@
 # Powerball PBL — Plan, Build, Lodge
 
-A spec-driven development plugin for Claude Code.
+A spec-driven development plugin for Claude Code. 🤞
 
-## Core Flow: PBL
+Claude Code's built-in agents are really good. PBL leans into them — using native skills and agents as much as possible, adding just enough structure to make spec-driven development reliable.
+
+## Core Flow
 
 ```
-/explore → /plan → /build → /lodge
+/plan → /build → /lodge
 ```
 
 | Step | Skill | What it does |
 |------|-------|-------------|
-| **Explore** | `/explore` | Guided codebase exploration, saves findings to `.powerball/specs/` |
 | **Plan** | `/plan` | Implementation plan with architecture decisions, tasks, and checklist |
 | **Build** | `/build` | Execute tasks with subagents in worktrees, verify checklist, code review |
 | **Lodge** | `/lodge` | Move completed specs to `.powerball/lodge/` |
 
-- Uses Claude Code [built-in agents](https://code.claude.com/docs/en/sub-agents) (Explore, Plan) for exploration and planning.
-- Uses [SubAgent Driven Development](https://github.com/obra/superpowers/blob/main/skills/subagent-driven-development/SKILL.md) for parallel task execution in isolated worktrees.
-- Mermaid diagrams are used for human and agent friendly reporting of findings, plans, and progress.
+Optional: `/explore` for guided codebase exploration before planning. Saves findings to `.powerball/specs/`.
 
-## Comparison with other agent coding tools
+- Delegates to Claude Code's [built-in Explore and Plan agents](https://code.claude.com/docs/en/sub-agents) — no reimplementing what already works well. ✅
+- Parallel task execution in isolated git worktrees, following [SubAgent Driven Development](https://github.com/obra/superpowers/blob/main/skills/subagent-driven-development/SKILL.md).
+- Mermaid diagrams for human and agent friendly reporting throughout.
 
-OpenSpec is good, but it does not use full power of Claude Code, since it is focusing on different agent coding tools.
+## Why not OpenSpec?
+
+OpenSpec is good. But it's designed for multiple agent tools — so it doesn't use the full power of Claude Code. PBL does. 😊
 
 ### Credits
 

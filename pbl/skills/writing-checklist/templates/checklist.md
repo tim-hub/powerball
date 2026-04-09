@@ -11,7 +11,7 @@
 ## Quality
 
 - [ ] {{checkpoint — e.g., "All new functions have unit tests"}}
-- [ ] {{checkpoint — e.g., "No TypeScript errors or warnings"}}
+- [ ] {{checkpoint — e.g., "Build passes with no errors or warnings"}}
 
 ## Integration
 

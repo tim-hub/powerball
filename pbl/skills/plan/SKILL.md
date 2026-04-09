@@ -35,13 +35,22 @@ Use Plan agent capabilities to design an implementation plan informed by the exp
    - Delete sections that don't apply
 3. Write the filled template to `.powerball/specs/YYYY-MM-DD-{{name}}/plan.md`
 
-## Step 4: Write tasks
+## Step 4: Write tasks and checklist in parallel
 
-Invoke the `writing-tasks` skill to break the plan into ordered, phased tasks with dependencies. This saves `tasks.md` in the same specs directory.
+Invoke **both** skills concurrently as parallel agents:
+- **`writing-tasks`** — breaks the plan into ordered, phased tasks with dependencies. Saves `tasks.md`.
+- **`writing-checklist`** — defines verification checkpoints. Saves `checklist.md`.
 
-## Step 5: Write checklist
+Both skills read from the same inputs (`exploration.md` and `plan.md`) but must NOT read each other's output. This is intentional: tasks describe **what to do** (implementation steps), while the checklist describes **what to verify** (observable outcomes). Running them in parallel prevents the checklist from mirroring tasks 1:1 and instead forces outcome-oriented thinking.
 
-Invoke the `writing-checklist` skill to define verification checkpoints that measure whether the work meets requirements. This saves `checklist.md` in the same specs directory.
+For example, if the tasks are "change button text to X" and "add onClick handler to button", the checklist should NOT be "button text is X" + "onClick handler exists." It should be "clicking the button triggers action Y and log Z is visible" — verifying the combined outcome.
+
+## Step 5: Cross-validate tasks and checklist
+
+After both artifacts are written, do a quick cross-validation:
+- Every checklist item should be achievable by the tasks in `tasks.md` — if a checklist item has no supporting tasks, add the missing task(s).
+- Every task phase should have at least one checklist item that verifies its outcome — if a phase has no coverage, add a checkpoint.
+- Fix any gaps by editing the relevant file directly. Do not re-invoke the writing skills.
 
 ## Step 6: Report
 

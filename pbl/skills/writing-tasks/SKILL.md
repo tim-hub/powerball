@@ -3,6 +3,7 @@ name: writing-tasks
 description: Use when a plan needs discrete implementation tasks with step-by-step ordering, file targets, and dependency mapping. Called by the plan skill — not invoked directly by users.
 model: opus
 user-invocable: false
+context: fork
 ---
 
 Break an implementation plan into ordered, actionable tasks and save to `tasks.md`.
