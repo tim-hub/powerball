@@ -35,7 +35,7 @@
       "name": "powerball-sdd",
       "source": "./sdd",
       "description": "Spec-driven development pipeline — explore codebases, create implementation plans with tasks and checklists, execute with progress tracking, checklist verification, and code review.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "sdd",
         "spec-driven",
