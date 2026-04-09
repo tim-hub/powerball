@@ -12,7 +12,9 @@ Define verification checkpoints that measure whether the implementation meets re
 
 - The exploration at `.powerball/specs/YYYY-MM-DD-{{name}}/exploration.md`
 - The tasks at `.powerball/specs/YYYY-MM-DD-{{name}}/tasks.md`
-- The goal and architecture decisions from the plan
+- The plan at `.powerball/specs/YYYY-MM-DD-{{name}}/plan.md` — read the goal and architecture decisions from here
+
+To find the directory, search `.powerball/specs/` for a directory ending with `-{{name}}`.
 
 ## Process
 

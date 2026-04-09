@@ -6,11 +6,11 @@ argument-hint: "[plan name — e.g. 'auth-module', or leave blank to pick from e
 model: sonnet
 ---
 
-Execute plan by dispatching fresh subagent per independant task, with two-stage review after each: spec compliance review first, then code quality review.
+Execute plan by dispatching fresh subagent per independent tasks in isolated worktrees, with two-stage review after each: spec compliance review first, then code quality review and code review step after completion.
 
 ## Step 1: Locate the plan
 
-1. If the user provided an argument, find the matching directory under `.powerball/specs/` (match by name suffix after the date prefix).
+1. If the user provided an argument, search `.powerball/specs/` for a directory whose name ends with `-{{argument}}` (ignoring the date prefix). If multiple matches, list them and ask.
 2. If no argument, list directories under `.powerball/specs/` and ask the user which plan to execute.
 3. Read the plan's `tasks.md` to get the task list. Also read `plan.md` for architecture context and `checklist.md` for verification criteria.
 
@@ -42,7 +42,7 @@ This loop continues until all checkpoints pass.
 
 ## Step 4: Code review
 
-After all tasks and checklist items pass, dispatch the `code-reviewer` agent to review all changes made during execution.
+After all tasks and checklist items pass, dispatch the code-reviewer agent to review all changes made during execution. Pass the plan directory path (`.powerball/specs/YYYY-MM-DD-{{name}}/`) so the reviewer can read `plan.md` and `tasks.md` for context.
 
 1. **Run code review** — the reviewer examines all modified/created files for bugs, security issues, code quality, and adherence to project conventions.
 2. **Classify issues**:
@@ -57,12 +57,13 @@ This ensures no code ships without review. The loop exits when the reviewer find
 Tell the user:
 - How many tasks were completed (including any that were redone)
 - All checklist items now passing
-- Code review status (clean, or critical issues pending user input)
+- Code review status (clean, or critical issues pending user input, what minor issues and new fixed tasks were created and fixed)
 - What to do next (commit, review critical issues, etc.)
 
 ## Rules
 
-- **Never skip tasks** — execute in order, respecting dependencies
+- **Never skip tasks** — execute in order within phases, respecting dependencies
 - **Stop on failure** — if a task fails, stop and tell the user rather than continuing
-- **One at a time** — do not parallelize tasks (they may have shared state)
+- **Parallelize independent tasks** — use worktrees and subagents for tasks with no shared state
+- **Sequential for dependent tasks** — tasks with dependencies execute one at a time
 - **Update files as you go** — `tasks.md` should reflect progress at all times so the user can resume later

@@ -9,6 +9,14 @@ agent: Explore
 
 Explore a codebase or module through guided discovery, then save structured findings as a persistent markdown document.
 
+## Step 0: Check prior work
+
+Before starting, scan `.powerball/archive/` for existing explorations, plans and decisions.
+
+If `.powerball/archive/` doesn't exist or is empty, proceed directly.
+
+Never update or overwrite existing documents in `.powerball/archive/` — these are immutable records of past work. Always create new documents in `.powerball/specs/` for current work, if it overlaps with archived content, reference the archive during the exploration creation in the following steps.
+
 ## Step 1: Derive exploration name
 
 Parse the user's argument to determine:

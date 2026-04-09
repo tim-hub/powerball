@@ -1,8 +1,11 @@
 # Powerball Spec Driven Development (SDD)
 
 - Use Claude Code [build-in agents](https://code.claude.com/docs/en/sub-agents) to empower spec driven development.
+    - Plan
+    - Explore
 - Use [SubAgent Driven Development](https://github.com/obra/superpowers/blob/main/skills/subagent-driven-development/SKILL.md) similar to SuperPowers, but with less skills and agents.
-- Mermiad diagrams are used for human and agent friendly reporting of findings, plans, and progress.
+- Mermaid diagrams are used for human and agent friendly reporting of findings, plans, and progress.
+
 
 
 ## Comparison with other agent coding tools

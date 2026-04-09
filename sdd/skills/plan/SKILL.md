@@ -13,10 +13,10 @@ Create an implementation plan informed by a prior exploration, and save it along
 
 Same naming convention as the explore skill:
 1. Parse the user's argument to determine scope and derive a kebab-case **name**.
-2. Look for an existing exploration at `.powerball/specs/YYYY-MM-DD-{{name}}/exploration.md`.
-   - If found, read it — this is the context for planning.
-   - If not found, invoke the `explore` skill first with the same argument, then read the resulting exploration.
-3. If no argument is provided, ask the user to input one.
+2. Search `.powerball/specs/` for a directory whose name ends with `-{{name}}` (ignoring the date prefix). If multiple matches, list them and ask.
+3. If a matching directory with `exploration.md` is found, read it — this is the context for planning.
+4. If not found, invoke the `explore` skill first with the same argument, then read the resulting exploration.
+5. If no argument is provided, ask the user to input one.
 
 ## Step 2: Plan
 

@@ -176,7 +176,7 @@ After agents return:
 
 ## Real-World Impact
 
-From debugging session (2025-10-03):
+From debugging session (YYYY-MM-DD):
 - 6 failures across 3 files
 - 3 agents dispatched in parallel
 - All investigations completed concurrently

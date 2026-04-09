@@ -10,7 +10,9 @@ Break an implementation plan into ordered, actionable tasks and save to `tasks.m
 ## Input
 
 - The exploration at `.powerball/specs/YYYY-MM-DD-{{name}}/exploration.md`
-- The architecture decisions and goal from the plan being built
+- The plan at `.powerball/specs/YYYY-MM-DD-{{name}}/plan.md` — read the goal and architecture decisions from here
+
+To find the directory, search `.powerball/specs/` for a directory ending with `-{{name}}`.
 
 ## Process
 
