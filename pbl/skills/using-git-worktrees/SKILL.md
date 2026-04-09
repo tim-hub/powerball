@@ -54,7 +54,7 @@ Ready to implement <feature-name>
 ## Integration
 
 **Called by:**
-- **executing-plan** — use before executing tasks that need workspace isolation
+- **build** — use before executing tasks that need workspace isolation
 - Any skill needing an isolated workspace
 
 **After work is complete:** Remove the worktree with `git worktree remove .worktrees/$BRANCH_NAME`

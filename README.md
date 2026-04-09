@@ -7,12 +7,13 @@ A marketplace of Claude Code plugins for productivity, git workflows, spec-drive
 ### Plugins
 
 
-#### `powerball-sdd`
-Spec-driven development pipeline — explore, plan, execute with structured artifacts:
+#### `powerball-pbl`
+Plan, Build, Lodge — spec-driven development pipeline:
 - `/explore` — guided codebase exploration with Mermaid diagrams, saved to `.powerball/specs/`
 - `/plan` — implementation planning with architecture decisions, tasks, and checklists
-- `/executing-plan` — task execution with progress tracking, checklist verification, and code review
-- [more](sdd/README.md)
+- `/build` — task execution with subagents in worktrees, checklist verification, and code review
+- `/lodge` — move completed specs to `.powerball/lodge/`
+- [more](pbl/README.md)
 
 #### `powerball-workplace`
 Skills for workplace tool integrations:
@@ -26,7 +27,7 @@ Skills for workplace tool integrations:
 
 Install 4 plugins,
 - personal (compulsory, the other plugins depend on this one)
-- sdd - [more](sdd/README.md)
+- pbl - [more](pbl/README.md)
 - workplace - [more](workplace/README.md)
 - openspec-rewrite - [more](openspec-rewrite/README.md)
 

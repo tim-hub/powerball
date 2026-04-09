@@ -1,6 +1,6 @@
 ---
-name: executing-plan
-description: Use when the user asks to "execute a plan", "start implementing", "work through tasks", "run the plan", or wants to implement tasks from a previously created plan in .powerball/specs/.
+name: build
+description: Use when the user asks to "build", "execute a plan", "start implementing", "work through tasks", "run the plan", or wants to implement tasks from a previously created plan in .powerball/specs/.
 user-invocable: true
 argument-hint: "[plan name — e.g. 'auth-module', or leave blank to pick from existing plans]"
 model: sonnet
