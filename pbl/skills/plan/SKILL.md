@@ -1,6 +1,6 @@
 ---
 name: plan
-description: Use when the user asks to "plan", "create a plan", "design a solution", or wants an implementation plan for a feature, refactor, or change based on prior exploration.
+description: Use when the user asks to "plan", "create a plan", "design a solution", "how should I implement", "design an approach for", "what's the best way to build", "architect a solution", or wants an implementation plan for a feature, refactor, or change. Also use when the user describes a feature or change that would benefit from structured planning before coding.
 user-invocable: true
 argument-hint: "[what to plan — e.g. 'auth module', 'API refactor', or leave blank to pick from existing explorations]"
 model: opus
@@ -14,7 +14,7 @@ Same naming convention as the explore skill:
 1. Parse the user's argument to determine scope and derive a kebab-case **name**.
 2. Search `.powerball/specs/` for a directory whose name ends with `-{{name}}` (ignoring the date prefix). If multiple matches, list them and ask.
 3. If a matching directory with `exploration.md` is found, read it — this is the context for planning.
-4. If not found, invoke the `explore` skill first with the same argument, then read the resulting exploration.
+4. If not found, use the `Skill` tool to invoke the `explore` skill with the same argument, then read the resulting exploration.
 5. If no argument is provided, ask the user to input one.
 
 ## Step 2: Plan
@@ -36,7 +36,7 @@ Use Plan agent capabilities to design an implementation plan informed by the exp
 
 ## Step 4: Write tasks and checklist in parallel
 
-Invoke **both** skills concurrently as parallel agents:
+Use the `Skill` tool to invoke **both** skills concurrently as parallel agents:
 - **`writing-tasks`** — breaks the plan into ordered, phased tasks with dependencies. Saves `tasks.md`.
 - **`writing-checklist`** — defines verification checkpoints. Saves `checklist.md`.
 

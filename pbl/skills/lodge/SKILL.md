@@ -16,7 +16,7 @@ Move completed spec directories from `.powerball/specs/` to `.powerball/lodge/`,
 
 ## Step 1: Sync specs with code
 
-Invoke the `sync` skill with the selected spec directory. This compares spec artifacts against actual code changes and surfaces any drift. If drift is found, the user decides whether to update specs, revert code, or accept drift before proceeding.
+Use the `Skill` tool to invoke the `sync` skill with the selected spec directory. This compares spec artifacts against actual code changes and surfaces any drift. If drift is found, the user decides whether to update specs, revert code, or accept drift before proceeding.
 
 Only continue to Step 2 after sync-specs completes and any drift is resolved.
 

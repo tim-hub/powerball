@@ -34,6 +34,8 @@ Run `git diff` against the branch or commits associated with this spec's work:
 
 If the spec work was done in a worktree that has been merged, diff the merge commit range instead.
 
+**If no git history is available** (no associated branch, no commits, or the spec was created without any code changes), skip drift detection entirely. Tell the user: "No git history found for this spec — skipping sync." Return to lodge and proceed directly to the move step.
+
 ### 3. Compare and detect drift
 
 Check for discrepancies in both directions:

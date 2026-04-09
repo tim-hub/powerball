@@ -1,6 +1,6 @@
 ---
 name: explore
-description: Use when the user asks to "explore", "explore the codebase", "map the architecture", "understand the codebase", or wants a structured overview of a project or module saved for future reference.
+description: Use when the user asks to "explore", "explore the codebase", "map the architecture", "understand the codebase", "what does this module do", "give me an overview of", "analyze how X works", "walk me through", "how is this project structured", or wants a structured overview of a project or module saved for future reference. Also use when the user seems unfamiliar with a codebase area and would benefit from a saved exploration before planning or building.
 user-invocable: true
 argument-hint: "[what to explore — e.g. 'auth module', 'API layer', or leave blank for full codebase]"
 model: sonnet
@@ -10,11 +10,14 @@ Explore a codebase or module through guided discovery, then save structured find
 
 ## Step 0: Check prior work
 
-Before starting, scan `.powerball/lodge/` for existing explorations, plans and decisions.
+Before starting, check both directories for existing work on the same topic:
 
-If `.powerball/lodge/` doesn't exist or is empty, proceed directly.
+1. Scan `.powerball/specs/` for directories whose name matches or overlaps with the requested scope. If a recent exploration already exists for the same topic, tell the user and ask whether to reuse it, update it, or start fresh.
+2. Scan `.powerball/lodge/` for archived explorations, plans and decisions on the same topic.
 
-Never update or overwrite existing documents in `.powerball/lodge/` — these are immutable records of past work. Always create new documents in `.powerball/specs/` for current work, if it overlaps with archived content, reference the archive during the exploration creation in the following steps.
+If neither directory exists or both are empty, proceed directly.
+
+Never update or overwrite existing documents in `.powerball/lodge/` — these are immutable records of past work. Always create new documents in `.powerball/specs/` for current work. If prior work overlaps with the requested scope, reference it during the exploration in the following steps.
 
 ## Step 1: Derive exploration name
 

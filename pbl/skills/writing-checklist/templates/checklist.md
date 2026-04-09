@@ -1,7 +1,7 @@
 # Checklist: {{NAME}}
 
 > Generated on {{DATE}}
-> Based on: [exploration.md](./exploration.md) | [tasks.md](./tasks.md)
+> Based on: [exploration.md](./exploration.md) | [plan.md](./plan.md)
 
 ## Functional
 
