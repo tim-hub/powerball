@@ -53,15 +53,14 @@ Adjust depth based on scope size — a single module needs thorough analysis, a 
 
 **For large codebases**: Decompose into subsystems first. Present the high-level map and ask the user which areas to explore deeper before detailing everything.
 
-## Step 4: Present findings and confirm
+## Step 4: Present findings
 
-Before saving, present key findings to the user:
+Present key findings to the user:
 
 1. **Summarize** the 3-5 most important discoveries.
 2. **Flag surprises** — anything that contradicts expectations or seems risky.
-3. **Ask if anything is missing** — "Is there anything else you'd like me to dig into before I save this?"
-
-Incorporate any additional findings from the user's feedback.
+3. **If intent was vague in Step 2** (user chose from proposed angles), ask: "Is there anything else you'd like me to dig into before I save this?" and incorporate feedback.
+4. **If intent was explicit in Step 2**, proceed directly to Step 5 — no confirmation needed.
 
 ## Step 5: Save findings
 
