@@ -64,7 +64,7 @@ Present key findings to the user:
 
 ## Step 5: Save findings
 
-1. Create the output directory: `.powerball/specs/`
+1. Create the output directory: `.powerball/specs/` if it doesn't exist.
 2. Read the template from this skill's `templates/exploration.md`
 3. Fill in the template with findings from Step 3-4:
    - Replace `{{NAME}}` with the derived name (title case, spaces)
