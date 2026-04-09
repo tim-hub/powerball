@@ -4,7 +4,7 @@ description: This skill should be used when the user asks to "archive a change",
 argument-hint: "[change name]"
 user-invocable: true
 model: haiku
-agent: powerball-core:junior
+agent: powerball-personal:junior
 disable-model-invocation: false
 license: MIT
 compatibility: Requires openspec CLI.

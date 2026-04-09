@@ -6,7 +6,7 @@ A marketplace of Claude Code plugins for productivity, git workflows, and workpl
 
 ### Plugins
 
-#### `powerball-core`
+#### `powerball-personal`
 Agents and skills for everyday Claude Code usage:
 - Small, fast agents for specific tasks — smart commits, code tagging, doc searching, and code example searching
 - `/get-started` — install well-rated plugins from the official marketplace and superpowers, with interactive setup and configuration including statusline
@@ -23,7 +23,7 @@ Skills for workplace tool integrations:
 ```
 
 Install 3 plugins, 
-- core (compulsory, the other two dependets on this one) 
+- personal (compulsory, the other two dependets on this one) 
 - workplace - [more](workplace/README.md)
 - openspec-rewrite - [more](openspec-rewrite/README.md)
 
