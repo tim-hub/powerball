@@ -3,7 +3,7 @@ name: writing-checklist
 description: Use when a plan needs verification checkpoints to measure whether completed work meets requirements and quality standards. Called by the plan skill — not invoked directly by users.
 model: opus
 user-invocable: false
-context:fork
+context: fork
 ---
 
 Define verification checkpoints that measure whether the implementation meets requirements, and save to `checklist.md`.
@@ -37,9 +37,7 @@ To find the directory, search `.powerball/specs/` for a directory ending with `-
 ## Guidelines
 
 - Every checkpoint must be answerable with yes/no — avoid subjective criteria
-- Checkpoints verify **observable outcomes**, not individual implementation steps, for example: 
-   — "clicking the button triggers action X and log Y is visible" rather than "button text changed" + "onClick handler added"
-   - API returns 200 not API was tested
+- Checkpoints verify **observable outcomes**, not individual implementation steps — e.g., "clicking the button triggers action X and log Y is visible" rather than "button text changed" + "onClick handler added", or "API returns 200" rather than "API was tested"
 - Think about what the **user or system would experience** when the work is complete, not what the developer did
 - A single checkpoint can (and should) verify the combined result of multiple implementation steps
 - If a checkpoint can't be verified without manual testing, note how to verify it

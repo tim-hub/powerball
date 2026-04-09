@@ -6,11 +6,11 @@ argument-hint: "[plan name — e.g. 'auth-module', or leave blank to pick from e
 model: sonnet
 ---
 
-Execute plan by dispatching fresh subagent per independent tasks in isolated worktrees, with two-stage review after each: spec compliance review first, then code quality review and code review step after completion.
+Dispatch a fresh subagent per independent task in isolated worktrees. Execute with TDD, verify against checklist, then dispatch code review — looping until all gates pass.
 
 ## Step 0: Set up workspace
 
-Before executing any tasks, check if the plan has independent tasks that can be parallelized. If so, invoke `using-git-worktrees` to create an isolated worktree for the build. Even for sequential tasks, a worktree keeps build changes isolated from the current workspace.
+Before executing any tasks, invoke `using-git-worktrees` to create an isolated worktree for the build. This keeps all build changes isolated from the current workspace.
 
 ## Step 1: Locate the plan
 

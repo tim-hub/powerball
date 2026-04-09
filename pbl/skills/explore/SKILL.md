@@ -31,11 +31,12 @@ This name and date prefix are used for the output path and document title throug
 Before diving into code, determine what the user needs:
 
 1. **Check the argument for explicit intent** — if the user's argument already states a clear goal (e.g., "audit all skills", "find performance bottlenecks", "understand how auth works"), treat that as the chosen angle and proceed directly to Step 3. No need to ask.
-2. **If intent is vague or absent**, ask the user what they want to learn — are they onboarding, evaluating a refactor, debugging, planning a feature, or just curious?
-3. **Propose 2-3 exploration angles** based on the scope. For example:
-   - "I can focus on **architecture** (how modules connect), **patterns** (conventions and idioms), or **dependencies** (what relies on what). Which matters most?"
-   - For a single module: "I can go **broad** (overview of all files) or **deep** (trace a specific flow end-to-end)."
-4. **Wait for the user's choice** before proceeding. This shapes what to prioritize in Step 3.
+2. **If intent is vague or absent**, clarify before proceeding:
+   - Ask the user what they want to learn — are they onboarding, evaluating a refactor, debugging, planning a feature, or just curious?
+   - Propose 2-3 exploration angles based on the scope. For example:
+     - "I can focus on **architecture** (how modules connect), **patterns** (conventions and idioms), or **dependencies** (what relies on what). Which matters most?"
+     - For a single module: "I can go **broad** (overview of all files) or **deep** (trace a specific flow end-to-end)."
+   - Wait for the user's choice before proceeding. This shapes what to prioritize in Step 3.
 
 ## Step 3: Explore
 

@@ -40,7 +40,7 @@ When reviewing completed work, you will:
    - Suggest specific improvements with code examples when helpful
 
 6. **Communication Protocol**:
-   - If you find significant deviations from the plan, note the deviation in the review report session below tasks in `tasks.md`, and flag it as Critical for the build skill to surface to the user
+   - If you find significant deviations from the plan, append a `## Review Notes` section to `tasks.md` documenting the deviation, and flag it as Critical for the build skill to surface to the user
    - If you identify issues with the original plan itself, recommend plan updates
    - For implementation problems, provide clear guidance on fixes needed
    - Always acknowledge what was done well before highlighting issues
