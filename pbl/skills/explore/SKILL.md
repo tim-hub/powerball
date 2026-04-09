@@ -3,7 +3,7 @@ name: explore
 description: Use when the user asks to "explore", "explore the codebase", "map the architecture", "understand the codebase", or wants a structured overview of a project or module saved for future reference.
 user-invocable: true
 argument-hint: "[what to explore — e.g. 'auth module', 'API layer', or leave blank for full codebase]"
-model: haiku
+model: sonnet
 agent: Explore
 ---
 
