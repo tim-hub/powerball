@@ -1,6 +1,6 @@
 ---
 name: sync
-description: Use when archiving specs to detect drift between spec artifacts and actual code changes. Called by the lodge skill at Step 0 — not invoked directly by users.
+description: Use when archiving specs to detect drift between spec artifacts and actual code changes. Called by the lodge skill at Step 1 — not invoked directly by users.
 model: sonnet
 user-invocable: false
 ---
