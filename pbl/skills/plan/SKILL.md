@@ -4,7 +4,6 @@ description: Use when the user asks to "plan", "create a plan", "design a soluti
 user-invocable: true
 argument-hint: "[what to plan — e.g. 'auth module', 'API refactor', or leave blank to pick from existing explorations]"
 model: opus
-agent: Plan
 ---
 
 Create an implementation plan informed by a prior exploration, and save it alongside the exploration document.

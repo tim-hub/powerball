@@ -4,7 +4,6 @@ description: Use when the user asks to "explore", "explore the codebase", "map t
 user-invocable: true
 argument-hint: "[what to explore — e.g. 'auth module', 'API layer', or leave blank for full codebase]"
 model: sonnet
-agent: Explore
 ---
 
 Explore a codebase or module through guided discovery, then save structured findings as a persistent markdown document.
