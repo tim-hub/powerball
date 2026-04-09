@@ -20,7 +20,7 @@ For each uncompleted task (where Done is `[ ]`):
 
 1. **Read the task** — understand what needs to be done, which files to touch, and dependencies.
 2. **Check dependencies** — all dependent tasks must be marked `[x]` before starting.
-3. **Implement** — do the work described in the task.
+3. **Implement** — following [tdd](references/tdd.md) principle to do the work described in the task.
 4. **Verify** — confirm the task produces a working result (build passes, no errors).
 5. **Mark done** — update `tasks.md` by changing `[ ]` to `[x]` for this task's Done column.
 6. **Report** — briefly tell the user what was completed before moving to the next task.
@@ -29,7 +29,7 @@ For each uncompleted task (where Done is `[ ]`):
 
 After all tasks are complete, read `checklist.md` and verify each checkpoint:
 
-1. **For each checkpoint**, test whether it passes.
+1. **For each checkpoint**, follow [verification](references/verification.md) procedure to determine whether it passes.
 2. **If it passes**, mark it `[x]` in `checklist.md`.
 3. **If it fails**:
    - Tell the user which checkpoint failed and why.
@@ -59,6 +59,7 @@ Tell the user:
 - All checklist items now passing
 - Code review status (clean, or critical issues pending user input, what minor issues and new fixed tasks were created and fixed)
 - What to do next (commit, review critical issues, etc.)
+- **Suggest `/lodge`** if the build work is complete — the lodge skill reads from the same specs directory
 
 ## Rules
 

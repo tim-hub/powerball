@@ -52,3 +52,4 @@ Tell the user:
   - `plan.md` — goal, architecture, risks
   - `tasks.md` — step-by-step implementation tasks
   - `checklist.md` — verification checkpoints
+- **Suggest `/build`** if the plan work is complete, the build skill reads from the same specs directory
