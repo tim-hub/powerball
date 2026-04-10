@@ -24,24 +24,30 @@ Use the Plan agent to design an implementation plan informed by the exploration:
 - Flag risks, unknowns, or decisions that need user input
 - Consider architectural trade-offs
 
-The Plan agent will return its findings as text. Proceed to Step 3 to save them.
+## Step 3: Present plan
 
-## Step 3: Save plan
+Present the plan to the user before saving:
 
-You MUST save the plan to disk — the Plan agent cannot write files, so this step is your responsibility.
+1. **Summarize** the goal and key architectural decisions.
+2. **Flag** any risks or open questions that need user input.
+3. Proceed to Step 4 to save.
+
+## Step 4: Save plan
+
+You MUST save the plan to disk before proceeding to any other step. Do NOT skip this.
 
 1. Ensure the directory `.powerball/specs/YYYY-MM-DD-{{name}}/` exists (create it if not).
 2. Read the template from this skill's `templates/plan.md`.
-3. Fill in the template with the Plan agent's output from Step 2:
+3. Fill in the template with the plan from Steps 2-3:
    - Replace `{{NAME}}` with the derived name (title case, spaces)
    - Replace `{{DATE}}` with today's date (YYYY-MM-DD)
    - Fill all sections with actual plan content — remove placeholder text
    - Delete sections that don't apply
    - Keep any important information that doesn't fit other sections in the **Other** section
 4. Use the **Write** tool to save the filled template to `.powerball/specs/YYYY-MM-DD-{{name}}/plan.md`.
-5. Verify the file was written by reading it back.
+5. Verify the file was written by reading it back. If it was not written, stop and report the failure.
 
-## Step 4: Write tasks and checklist in parallel
+## Step 5: Write tasks and checklist in parallel
 
 Use the `Skill` tool to invoke **both** skills concurrently as parallel agents:
 - **`writing-tasks`** — breaks the plan into ordered, phased tasks with dependencies. Saves `tasks.md`.
@@ -51,14 +57,14 @@ Both skills read from the same inputs (`exploration.md` and `plan.md`) but must 
 
 For example, if the tasks are "change button text to X" and "add onClick handler to button", the checklist should NOT be "button text is X" + "onClick handler exists." It should be "clicking the button triggers action Y and log Z is visible" — verifying the combined outcome.
 
-## Step 5: Cross-validate tasks and checklist
+## Step 6: Cross-validate tasks and checklist
 
 After both artifacts are written, do a quick cross-validation:
 - Every checklist item should be achievable by the tasks in `tasks.md` — if a checklist item has no supporting tasks, add the missing task(s).
 - Every task phase should have at least one checklist item that verifies its outcome — if a phase has no coverage, add a checkpoint.
 - Fix any gaps by editing the relevant file directly. Do not re-invoke the writing skills.
 
-## Step 6: Report
+## Step 7: Report
 
 Tell the user:
 - Summary of the plan (key phases, task count)

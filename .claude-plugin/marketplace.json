@@ -35,7 +35,7 @@
       "name": "pbl",
       "source": "./pbl",
       "description": "Plan, Build, Lodge — spec-driven development pipeline. Explore codebases, create plans with tasks and checklists, build with subagents in worktrees, lodge completed work.",
-      "version": "0.4.8",
+      "version": "0.4.9",
       "tags": [
         "pbl",
         "plan-build-lodge",
