@@ -40,9 +40,16 @@ Before lodging, check both `checklist.md` and `tasks.md` in the selected spec di
 2. Move the selected directory: `.powerball/specs/YYYY-MM-DD-{{name}}/` to `.powerball/lodge/YYYY-MM-DD-{{name}}/`.
 3. If a directory with the same name already exists in lodge, ask the user whether to overwrite, rename with a suffix, or cancel.
 
-## Step 4: Report
+## Step 4: Update overview
+
+Use the `Skill` tool to invoke the `update-overview` skill. Pass the path to the lodged spec directory. This updates `.powerball/lodge/overall.md` with cumulative mermaid diagrams reflecting the work that was just lodged.
+
+Only continue to Step 5 after update-overview completes.
+
+## Step 5: Report
 
 Tell the user:
 - What was lodged
 - Where it was moved to
+- Whether `overall.md` was created or updated (and which diagrams changed)
 - How many spec directories remain in `.powerball/specs/`
