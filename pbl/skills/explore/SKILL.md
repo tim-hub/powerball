@@ -66,14 +66,17 @@ Present key findings to the user:
 
 ## Step 5: Save findings
 
-1. Create the output directory: `.powerball/specs/` if it doesn't exist.
-2. Read the template from this skill's `templates/exploration.md`
+You MUST save the exploration to disk — do not just present it in conversation.
+
+1. Ensure the directory `.powerball/specs/YYYY-MM-DD-{{name}}/` exists (create it if not).
+2. Read the template from this skill's `templates/exploration.md`.
 3. Fill in the template with findings from Step 3-4:
    - Replace `{{NAME}}` with the derived name (title case, spaces)
    - Replace `{{DATE}}` with today's date (YYYY-MM-DD)
    - Fill all sections with actual findings — remove placeholder text
    - Delete sections that don't apply (e.g., no external deps for a pure utility module)
-4. Write the filled template to `.powerball/specs/YYYY-MM-DD-{{name}}/exploration.md`
+4. Use the **Write** tool to save the filled template to `.powerball/specs/YYYY-MM-DD-{{name}}/exploration.md`.
+5. Verify the file was written by reading it back.
 
 ## Step 6: Next step
 
