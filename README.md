@@ -18,6 +18,8 @@ Plan, Build, Lodge — spec-driven development pipeline:
 #### `powerball-workplace`
 Skills for workplace tool integrations:
 - Jira ticket analyzer — fetch and analyze Jira tickets to produce actionable development plans
+- Build knowledge — capture what was done, why, and challenges faced to a persistent knowledge base
+- Dig knowledge — search past development knowledge during exploration, planning, or troubleshooting
 
 ### Install
 
