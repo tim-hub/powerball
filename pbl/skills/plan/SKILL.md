@@ -14,27 +14,30 @@ Same naming convention as the explore skill:
 1. Parse the user's argument to determine scope and derive a kebab-case **name**.
 2. Search `.powerball/specs/` for a directory whose name ends with `-{{name}}` (ignoring the date prefix). If multiple matches, list them and ask.
 3. If a matching directory with `exploration.md` is found, read it — this is the context for planning.
-4. If not found, use the `Skill` tool to invoke the `explore` skill with the same argument, then read the resulting exploration.
+4. If not found, use the `Skill` tool to invoke the `/pbl:explore` skill with the same argument, then read the resulting exploration.
 5. If no argument is provided, ask the user to input one.
 
-## Step 2: Plan
+## Step 2: Plan (via agent)
 
-Use Plan agent capabilities to design an implementation plan informed by the exploration:
+Use the Plan agent to design an implementation plan informed by the exploration:
 - Define the goal and architectural decisions
 - Flag risks, unknowns, or decisions that need user input
 - Consider architectural trade-offs
 
+The Plan agent will return its findings as text. Proceed to Step 3 to save them.
+
 ## Step 3: Save plan
 
-You MUST save the plan to disk — do not just present it in conversation.
+You MUST save the plan to disk — the Plan agent cannot write files, so this step is your responsibility.
 
 1. Ensure the directory `.powerball/specs/YYYY-MM-DD-{{name}}/` exists (create it if not).
 2. Read the template from this skill's `templates/plan.md`.
-3. Fill in the template with findings from Step 2:
+3. Fill in the template with the Plan agent's output from Step 2:
    - Replace `{{NAME}}` with the derived name (title case, spaces)
    - Replace `{{DATE}}` with today's date (YYYY-MM-DD)
    - Fill all sections with actual plan content — remove placeholder text
    - Delete sections that don't apply
+   - Keep any important information that doesn't fit other sections in the **Other** section
 4. Use the **Write** tool to save the filled template to `.powerball/specs/YYYY-MM-DD-{{name}}/plan.md`.
 5. Verify the file was written by reading it back.
 
