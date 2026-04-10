@@ -1,3 +1,4 @@
 .claude/*.local.md
 */*/evals/
 .DS_Store
+pbl-workspace/

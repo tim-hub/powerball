@@ -1,0 +1,94 @@
+{
+  "skill_name": "pbl",
+  "evals": [
+    {
+      "id": 1,
+      "skill": "explore",
+      "prompt": "I just cloned this repo and have no idea how it's structured. Can you explore the pbl plugin — I want to understand the full workflow, how the skills chain together, and what artifacts get produced. Focus on the spec-driven dev cycle.",
+      "expected_output": "A structured exploration.md saved to .powerball/specs/ with components table, mermaid architecture diagram, workflow description, pattern conventions, and dependency mapping",
+      "files": [],
+      "expectations": [
+        "Creates a file at .powerball/specs/YYYY-MM-DD-*/exploration.md",
+        "The exploration.md contains a markdown table listing key components",
+        "The exploration.md contains a mermaid diagram (```mermaid block)",
+        "The exploration.md identifies the explore→plan→build→lodge workflow chain",
+        "The exploration.md mentions the .powerball/specs/ directory as artifact store",
+        "The exploration.md lists external dependencies (git worktrees, subagents)",
+        "The exploration.md documents at least 3 patterns or conventions used"
+      ]
+    },
+    {
+      "id": 2,
+      "skill": "explore",
+      "prompt": "explore just the build skill — I want to understand how TDD enforcement works, what the verification loop does, and how code review fits in. I'm thinking of modifying the retry logic.",
+      "expected_output": "A focused exploration.md covering build skill internals: TDD protocol, verification-before-completion, code review dispatch, retry mechanism, and reference files",
+      "files": [],
+      "expectations": [
+        "Creates exploration.md in .powerball/specs/",
+        "Documents the TDD Red-Green-Refactor cycle from references/tdd.md",
+        "Describes the verification loop with its 2-retry-per-checkpoint limit",
+        "Explains how the code-reviewer agent is dispatched and how critical vs minor issues are handled",
+        "References the three reference files (tdd.md, verification.md, testing-anti-patterns.md)",
+        "Identifies the task dependency ordering mechanism"
+      ]
+    },
+    {
+      "id": 3,
+      "skill": "plan",
+      "prompt": "ok based on the exploration, I want to plan adding a 'resume' skill that can pick up a partially-completed build — say the user's session crashed mid-way through tasks.md. It should detect which tasks were done, which checklist items pass, and restart from the right point.",
+      "expected_output": "A plan.md with architecture decisions, risks, and out-of-scope items, plus tasks.md and checklist.md generated in parallel by sub-skills",
+      "files": [],
+      "expectations": [
+        "Creates plan.md in the same spec directory",
+        "plan.md contains architecture decisions with rationale",
+        "plan.md includes a mermaid diagram showing the resume flow",
+        "plan.md identifies risks (e.g. partial git state, incomplete test runs)",
+        "tasks.md is created with phased tasks in dependency order",
+        "checklist.md is created with Functional, Quality, Integration sections",
+        "tasks.md and checklist.md cross-reference — every checklist category has supporting tasks"
+      ]
+    },
+    {
+      "id": 4,
+      "skill": "plan",
+      "prompt": "plan a refactor of the sync skill — right now it only checks git diff but I want it to also verify that test coverage didn't drop and that no TODO comments were left behind. Keep it backward compatible.",
+      "expected_output": "A plan for extending sync with coverage checks and TODO scanning, maintaining the existing drift-detection interface",
+      "files": [],
+      "expectations": [
+        "Creates plan.md with architecture decisions",
+        "Addresses backward compatibility as a design constraint",
+        "tasks.md breaks the work into phases (e.g. coverage integration, TODO scanning, existing behavior preservation)",
+        "checklist.md includes both new functionality checks and regression checks for existing sync behavior",
+        "plan.md explicitly lists what's out of scope"
+      ]
+    },
+    {
+      "id": 5,
+      "skill": "build",
+      "prompt": "build the resume skill from the plan we just created",
+      "expected_output": "Executes tasks from tasks.md in order using TDD, verifies checklist items, dispatches code review, produces working code in a git worktree",
+      "files": [],
+      "expectations": [
+        "Attempts to create or use a git worktree for isolation",
+        "Reads tasks.md and processes tasks in dependency order",
+        "Writes tests before implementation code (TDD)",
+        "Marks tasks as [x] in tasks.md after completion",
+        "Runs checklist verification after tasks complete",
+        "Dispatches code-reviewer agent for review"
+      ]
+    },
+    {
+      "id": 6,
+      "skill": "lodge",
+      "prompt": "lodge the resume skill specs — everything should be done now",
+      "expected_output": "Invokes sync for drift detection, verifies all checklist items are checked, moves spec directory from .powerball/specs/ to .powerball/lodge/",
+      "files": [],
+      "expectations": [
+        "Invokes sync skill to check for drift",
+        "Verifies all checklist items in checklist.md are [x]",
+        "Moves the spec directory to .powerball/lodge/",
+        "Reports the final archived location"
+      ]
+    }
+  ]
+}
