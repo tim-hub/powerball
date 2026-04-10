@@ -26,13 +26,17 @@ Use Plan agent capabilities to design an implementation plan informed by the exp
 
 ## Step 3: Save plan
 
-1. Read the template from this skill's `templates/plan.md`
-2. Fill in the template with findings from Step 2:
+You MUST save the plan to disk — do not just present it in conversation.
+
+1. Ensure the directory `.powerball/specs/YYYY-MM-DD-{{name}}/` exists (create it if not).
+2. Read the template from this skill's `templates/plan.md`.
+3. Fill in the template with findings from Step 2:
    - Replace `{{NAME}}` with the derived name (title case, spaces)
    - Replace `{{DATE}}` with today's date (YYYY-MM-DD)
    - Fill all sections with actual plan content — remove placeholder text
    - Delete sections that don't apply
-3. Write the filled template to `.powerball/specs/YYYY-MM-DD-{{name}}/plan.md`
+4. Use the **Write** tool to save the filled template to `.powerball/specs/YYYY-MM-DD-{{name}}/plan.md`.
+5. Verify the file was written by reading it back.
 
 ## Step 4: Write tasks and checklist in parallel
 

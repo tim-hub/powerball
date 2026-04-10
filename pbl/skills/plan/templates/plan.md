@@ -37,3 +37,7 @@ graph TD
 ## Open Questions
 
 - [ ] {{Decision that needs user input before proceeding}}
+
+## Other
+
+{{Any other important information — constraints, assumptions, prior art, references, or context that doesn't fit the sections above.}}

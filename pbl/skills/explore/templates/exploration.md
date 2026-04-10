@@ -35,7 +35,7 @@ graph TD
 ## Dependencies
 
 ### External
-- {{package}} — {{what it's used for}}
+- {{package}} — {{what it is used for}}
 
 ### Internal
 - {{module}} depends on {{module}} — {{why}}
@@ -43,3 +43,7 @@ graph TD
 ## Notes
 
 - {{Anything surprising, risky, undocumented, or worth flagging for future work}}
+
+## Other
+
+{{Any other important information — constraints, assumptions, prior art, references, or context that doesn't fit the sections above.}}
