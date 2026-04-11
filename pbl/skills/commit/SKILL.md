@@ -6,7 +6,6 @@ user-invocable: true
 allowed-tools: Bash, Read
 context: fork
 model: haiku
-agent: powerball-personal:junior
 ---
 
 Analyze what has changed, write a precise conventional commit message, and commit — without asking for confirmation.
@@ -16,14 +15,15 @@ If the user provided an argument, treat it as a hint or context for the commit m
 ## Process
 
 1. Run `git status` to see all changed, untracked, and staged files.
-2. Run `git diff HEAD` (or `git diff` + `git diff --cached`) to understand the actual changes.
-3. Analyze the diff to determine:
+2. **Check for sensitive files** — scan the output for `.env`, credentials, secrets, or private keys. If found among changed/untracked files, warn the user and stop. Do not stage or commit them.
+3. Run `git diff HEAD` (or `git diff` + `git diff --cached`) to understand the actual changes.
+4. Analyze the diff to determine:
    - The primary type of change: `feat`, `fix`, `refactor`, `docs`, `chore`, `test`, `style`, `perf`, `ci`, or `build`
    - A concise scope (optional) — the module, file, or area affected
    - A short imperative summary (under 72 chars) describing WHAT changed and WHY
-4. Stage everything with `git add -A`.
-5. Commit with the generated message.
-6. Push to remote only if the user explicitly asked to push.
+5. Stage changes with `git add -A`.
+6. Commit with the generated message.
+7. Push to remote only if the user explicitly asked to push.
 
 ## Conventional Commit Format
 
@@ -52,6 +52,7 @@ Optional longer body explaining the why, not the what.
 - `style` — formatting, whitespace, no logic change
 - `perf` — performance improvement
 - `ci` — CI/CD pipeline changes
+- `build` — build system or external dependency changes
 
 ## Edge Cases
 
