@@ -22,7 +22,6 @@ PLUGINS=(
   ralph-loop
   security-guidance
   skill-creator
-  superpowers
   typescript-lsp
 )
 
@@ -42,7 +41,7 @@ echo "Recommended plugins to install:"
 for plugin in "${PLUGINS[@]}"; do
   echo "  - ${plugin}@claude-plugins-official"
 done
-echo "  - superpowers@superpowers-marketplace"
+echo "  - spower@spower-marketplace"
 echo ""
 echo "PM plugins (from phuryn/pm-skills marketplace):"
 for plugin in "${PM_PLUGINS[@]}"; do
@@ -56,6 +55,9 @@ if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
     echo "Installing $plugin..."
     claude plugin install "${plugin}@claude-plugins-official"
   done
+
+  echo "Installing spower..."
+  claude plugin install "spower@spower-marketplace"
 
   echo "Adding pm-skills marketplace..."
   claude plugin marketplace add phuryn/pm-skills
