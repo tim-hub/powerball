@@ -4,9 +4,20 @@ description: Use when the user asks to "plan", "create a plan", "design a soluti
 user-invocable: true
 argument-hint: "[what to plan — e.g. 'auth module', 'API refactor', or leave blank to pick from existing explorations]"
 model: opus
+effort: high
 ---
 
+## CRITICAL CONSTRAINTS — Read Before Anything Else
+
+**You MUST NOT call `EnterPlanMode` or `ExitPlanMode` at any point during this skill.** This skill operates in normal mode and hands off to subagent-driven-development at the end. Calling `EnterPlanMode` traps the session in plan mode where Write/Edit are restricted. Calling `ExitPlanMode` breaks the workflow and skips execution. If you feel the urge to call either, STOP — follow this skill's instructions instead.
+
+## Overview
 Create an implementation plan informed by a prior exploration, and save it alongside the exploration document.
+
+Write comprehensive implementation plans assuming the engineer has zero context for our codebase and questionable taste. Document everything they need to know: which files to touch for each task, code, testing, docs they might need to check, how to test it. Give them the whole plan as bite-sized tasks. DRY. YAGNI. TDD. Frequent commits.
+
+Assume they are a skilled developer, but know almost nothing about our toolset or problem domain. Assume they don't know good test design very well.
+
 
 ## Step 1: Derive name and locate exploration
 
@@ -17,9 +28,9 @@ Same naming convention as the explore skill:
 4. If not found, use the `Skill` tool to invoke the `/explore` skill with the same argument, then read the resulting exploration.
 5. If no argument is provided, ask the user to input one.
 
-## Step 2: Plan (via agent)
+## Step 2: Plan 
 
-Use the Plan agent to design an implementation plan informed by the exploration:
+Design an implementation plan informed by the exploration:
 - Define the goal and architectural decisions
 - Flag risks, unknowns, or decisions that need user input
 - Consider architectural trade-offs
