@@ -19,6 +19,8 @@ Claude Code's built-in agents are really good. PBL leans into them — using nat
 
 Optional: `/explore` for guided codebase exploration before planning. Saves findings to `.powerball/specs/`.
 
+Full auto: `/harness-implement` runs the entire pipeline autonomously — explore, plan, build, lodge, commit, and PR.
+
 Utilities: `/commit` for quick conventional commits.
 
 - Delegates to Claude Code's [built-in Explore ~~and Plan~~ agents](https://code.claude.com/docs/en/sub-agents) — no reimplementing what already works well. ✅
