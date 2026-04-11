@@ -35,32 +35,13 @@ If there are no changes AND no unpushed commits, tell the user there's nothing t
 
 When changes exist on `main` or `master`, they need a feature branch before a PR can be created.
 
-1. **Analyze the changes** — read the diff to understand what was done:
-   ```bash
-   git diff HEAD
-   git diff --staged
-   ```
+1. **Derive a branch name** — from the diff, pick a kebab-case name: `feat/short-description`, `fix/short-description`, `refactor/short-description`, or `chore/short-description`. Incorporate the user's argument if provided (e.g. `feat/PROJ-123-add-auth`).
 
-2. **Derive a branch name** — from the diff content, pick a descriptive kebab-case name following conventional patterns:
-   - `feat/short-description` for new features
-   - `fix/short-description` for bug fixes
-   - `refactor/short-description` for refactors
-   - `chore/short-description` for maintenance
-   
-   If the user provided an argument (like a ticket number), incorporate it: `feat/PROJ-123-add-auth`.
+2. **Create branch via worktree** — use `/using-git-worktrees` with the derived branch name. This creates an isolated worktree for the PR branch.
 
-3. **Create the branch and move changes over:**
-   ```bash
-   git checkout -b <branch-name>
-   ```
-   This carries uncommitted changes to the new branch automatically.
+3. **Commit** — use `/commit` to stage and commit the changes.
 
-4. **Commit** — use `/commit` to stage and commit the changes with a conventional commit message.
-
-5. **Push the branch:**
-   ```bash
-   git push -u origin <branch-name>
-   ```
+4. **Push the branch:** `git push -u origin <branch-name>`
 
 ### Path B: On a feature branch
 
@@ -75,12 +56,13 @@ The branch already exists — just ensure changes are committed and pushed.
 
 ## Step 3: Analyze changes for PR description
 
-Before creating the PR, build a thorough understanding of the changes. Compare against the base branch (usually `main` or `master`):
+Before creating the PR, build a thorough understanding of the changes. Compare against the base branch detected in Step 1 (`main` or `master`):
 
 ```bash
-git log main..HEAD --oneline
-git diff main..HEAD --stat
-git diff main..HEAD
+BASE=$(git remote show origin | grep 'HEAD branch' | awk '{print $NF}')
+git log $BASE..HEAD --oneline
+git diff $BASE..HEAD --stat
+git diff $BASE..HEAD
 ```
 
 From this analysis, extract:
