@@ -25,7 +25,7 @@ Same naming convention as the explore skill:
 1. Parse the user's argument to determine scope and derive a kebab-case **name**.
 2. Search `.powerball/specs/` for a directory whose name ends with `-{{name}}` (ignoring the date prefix). If multiple matches, list them and ask.
 3. If a matching directory with `exploration.md` is found, read it — this is the context for planning.
-4. If not found, use the `Skill` tool to invoke the `/explore` skill with the same argument, then read the resulting exploration.
+4. If not found, use `/explore` with the same argument, then read the resulting exploration.
 5. If no argument is provided, ask the user to input one.
 
 ## Step 2: Plan 
@@ -60,7 +60,7 @@ You MUST save the plan to disk before proceeding to any other step. Do NOT skip 
 
 ## Step 5: Write tasks and checklist in parallel
 
-Use the `Skill` tool to invoke **both** skills concurrently as parallel agents:
+Use **both** skills concurrently as parallel agents:
 - **`writing-tasks`** — breaks the plan into ordered, phased tasks with dependencies. Saves `tasks.md`.
 - **`writing-checklist`** — defines verification checkpoints. Saves `checklist.md`.
 

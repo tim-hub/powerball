@@ -55,7 +55,7 @@ When changes exist on `main` or `master`, they need a feature branch before a PR
    ```
    This carries uncommitted changes to the new branch automatically.
 
-4. **Commit** — use the `Skill` tool to invoke `/commit` to stage and commit the changes with a conventional commit message.
+4. **Commit** — use `/commit` to stage and commit the changes with a conventional commit message.
 
 5. **Push the branch:**
    ```bash
@@ -66,7 +66,7 @@ When changes exist on `main` or `master`, they need a feature branch before a PR
 
 The branch already exists — just ensure changes are committed and pushed.
 
-1. **If uncommitted changes exist** — use the `Skill` tool to invoke `/commit` to stage and commit.
+1. **If uncommitted changes exist** — use `/commit` to stage and commit.
 2. **If there are unpushed commits** — push to remote:
    ```bash
    git push -u origin <branch-name>
@@ -120,7 +120,7 @@ Run automated review and fix issues, up to 3 rounds.
 
 ### Round N (max 3):
 
-1. **Review** — use the `Skill` tool to invoke `/pr-review-toolkit:review-pr` with the PR number. This dispatches multiple specialized reviewers (code quality, tests, error handling, types, comments).
+1. **Review** — use `/pr-review-toolkit:review-pr` with the PR number. This dispatches multiple specialized reviewers (code quality, tests, error handling, types, comments).
 
 2. **Evaluate results** — classify issues by severity:
    - **Critical/High** — bugs, security vulnerabilities, data loss risks, broken logic
@@ -128,7 +128,7 @@ Run automated review and fix issues, up to 3 rounds.
 
 3. **If critical or high issues exist AND this is not round 3:**
    - Fix the issues in the codebase
-   - Use the `Skill` tool to invoke `/commit` with hint "address PR review findings (round N)"
+   - Use `/commit` with hint "address PR review findings (round N)"
    - Push the fixes: `git push`
    - Go to the next round
 

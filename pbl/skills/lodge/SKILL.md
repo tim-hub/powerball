@@ -16,7 +16,7 @@ Move completed spec directories from `.powerball/specs/` to `.powerball/lodge/`,
 
 ## Step 1: Sync specs with code
 
-Use the `Skill` tool to invoke the `sync` skill with the selected spec directory. This compares spec artifacts against actual code changes and surfaces any drift. If drift is found, the user decides whether to update specs, revert code, or accept drift before proceeding.
+Use `/sync` with the selected spec directory. This compares spec artifacts against actual code changes and surfaces any drift. If drift is found, the user decides whether to update specs, revert code, or accept drift before proceeding.
 
 Only continue to Step 2 after sync-specs completes and any drift is resolved.
 
@@ -42,7 +42,7 @@ Before lodging, check both `checklist.md` and `tasks.md` in the selected spec di
 
 ## Step 4: Update overview
 
-Use the `Skill` tool to invoke the `update-overview` skill. Pass the path to the lodged spec directory. This updates `.powerball/lodge/overall.md` with cumulative mermaid diagrams reflecting the work that was just lodged.
+Use `/update-overview` with the path to the lodged spec directory. This updates `.powerball/lodge/overall.md` with cumulative mermaid diagrams reflecting the work that was just lodged.
 
 Only continue to Step 5 after update-overview completes.
 
