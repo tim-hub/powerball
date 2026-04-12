@@ -1,6 +1,5 @@
 ## Consulation between agents
-- Communication between agents to resolve issues is encouraged and it should be clear and concise
-- **Uncertainty**: Consult an Opus agent for advice when uncertain or need to confirm anything
+- **Uncertainty or Challenges**: Consult an "@senior" agent for advice when uncertain or need guidance on a task. This promotes collaboration and ensures that the best possible solution is reached.
 
 ## Testing
 - Prefer running single tests, and not the whole test suite, for performance
