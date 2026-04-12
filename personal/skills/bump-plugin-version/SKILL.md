@@ -31,4 +31,4 @@ For the target plugin entry in `marketplace.json`, check whether `strict` is `fa
 ## Step 3: Commit and tag
 
 - Run the `/commit` skill to commit the changes.
-- Run the `powerball-personal:tag` skill to tag git with the same version that was bumped.
+- Run the `/tag` skill to tag git with the same version that was bumped.

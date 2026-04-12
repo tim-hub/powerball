@@ -5,6 +5,7 @@ model: haiku
 allowed-tools: Bash, Read, Write, Edit
 disable-model-invocation: true
 user-invocable: true
+argument-hint: "[all | claude.md | statusline | playwright | chub | skills | rules | settings | plugins]"
 hooks:
   Stop:
     - matcher: "*"
@@ -19,7 +20,27 @@ hooks:
 
 The base directory for this skill is shown in the header when invoked (e.g. `/path/to/plugin/skills/get-started`). All script paths below use `<base-dir>/scripts/` — substitute the actual base directory path shown in the header.
 
-Run the following steps in order. For each step, check if the file already exists before running the script.
+## Arguments
+
+This skill accepts optional arguments to run specific steps. With no arguments or `all`, every step runs.
+
+| Argument       | Step(s)                          |
+|----------------|----------------------------------|
+| `all`          | Run all steps (default)          |
+| `claude.md`    | Step 1 — Set up CLAUDE.md        |
+| `statusline`   | Step 2 — Set up statusline       |
+| `playwright`   | Step 3 — Install playwright-cli  |
+| `chub`         | Step 4 — Install chub            |
+| `skills`       | Step 5 — Upsert external skills  |
+| `rules`        | Step 6 — Upsert rules            |
+| `settings`     | Step 7 — Upsert Claude settings  |
+| `plugins`      | Step 8 — Upsert plugins          |
+
+Multiple arguments can be passed space-separated, e.g. `/get-started rules plugins settings`.
+
+Parse the arguments from the skill invocation. If no arguments or `all`, run every step. Otherwise, run only the matching steps in order.
+
+---
 
 Before starting, create the sentinel file so the Stop hook knows this skill ran:
 
@@ -28,6 +49,8 @@ touch /tmp/.get-started-running
 ```
 
 ## Step 1: Set up CLAUDE.md
+
+**Argument: `claude.md`**
 
 Check if `~/.claude/CLAUDE.md` already exists:
 
@@ -47,6 +70,8 @@ test -f ~/.claude/CLAUDE.md && echo "exists" || echo "missing"
   - If No: report `  Skipped: ~/.claude/CLAUDE.md`
 
 ## Step 2: Set up statusline
+
+**Argument: `statusline`**
 
 Check if `~/.claude/statusline-command.sh` already exists:
 
@@ -68,6 +93,8 @@ test -f ~/.claude/statusline-command.sh && echo "exists" || echo "missing"
 
 ## Step 3: Install playwright-cli skills
 
+**Argument: `playwright`**
+
 Check if `@playwright/cli` is already installed globally:
 
 ```bash
@@ -86,6 +113,8 @@ playwright-cli --version 2>/dev/null && echo "installed" || echo "missing"
   ```
 
 ## Step 4: Install chub and get-api-docs skill
+
+**Argument: `chub`**
 
 Check if `@aisuite/chub` is already installed globally:
 
@@ -108,11 +137,15 @@ Report whether chub was already installed or freshly installed, and confirm the 
 
 ## Step 5: Upsert external skills
 
+**Argument: `skills`**
+
 ```bash
 bash "<base-dir>/scripts/upsert-skills.sh"
 ```
 
 ## Step 6: Upsert rules
+
+**Argument: `rules`**
 
 ```bash
 bash "<base-dir>/scripts/upsert-rules.sh"
@@ -120,14 +153,20 @@ bash "<base-dir>/scripts/upsert-rules.sh"
 
 ## Step 7: Upsert Claude Code settings
 
+**Argument: `settings`**
+
 ```bash
 bash "<base-dir>/scripts/upsert-claude-settings.sh"
 ```
 
 ## Step 8: Upsert plugins
 
+**Argument: `plugins`**
+
 ```bash
 bash "<base-dir>/scripts/upsert-plugins.sh"
 ```
 
-Report the output of each step, then stop.
+## Completion
+
+Report the output of each step that was run, then stop.

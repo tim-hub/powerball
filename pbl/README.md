@@ -21,8 +21,6 @@ Optional: `/explore` for guided codebase exploration before planning. Saves find
 
 Full auto: `/harness-implement` runs the entire pipeline autonomously — explore, plan, build, lodge, commit, and PR.
 
-Utilities: `/commit` for quick conventional commits.
-
 - Delegates to Claude Code's [built-in Explore ~~and Plan~~ agents](https://code.claude.com/docs/en/sub-agents) — no reimplementing what already works well. ✅
 - Parallel task execution in isolated git worktrees, following [SubAgent Driven Development](https://github.com/obra/superpowers/blob/main/skills/subagent-driven-development/SKILL.md).
 - Mermaid diagrams for human and agent friendly reporting throughout.
