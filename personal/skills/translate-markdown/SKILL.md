@@ -7,26 +7,27 @@ disable-model-invocation: true
 allowed-tools: Bash, Write, Edit, Read
 ---
 
-Translate source content to the target language, preserving markdown structure throughout.
+Translate a markdown file (or markdown content) to a target language, preserving structure.
 
-- Keep the original meaning and tone of the text.
-- Preserve all markdown formatting — headings, bold, italic, links, code blocks, lists — exactly as they appear in the source.
-- Do not translate code blocks, variable names, file paths, URLs, or technical identifiers.
-- Write the translated markdown content to a file if a target directory or file path is specified; otherwise return the translated text directly.
+This skill is a convenience wrapper around the general-purpose `language-translate` skill, specialized for the common case of translating markdown files on disk. For the underlying translation rules (what to preserve, what to translate, how to handle code blocks), defer to `language-translate`.
 
 ## Process
 
-1. **Identify the source.** Read the source file or content provided.
-2. **Identify the target language and destination.** Extract the target language and output path from the provided argument, or ask if unclear.
-3. **Translate.** Produce a faithful translation that preserves meaning, tone, and markdown structure.
-4. **Write or return.** If a target path is given, write the translated content to that file. Otherwise, return the translated text.
+1. **Identify the source.** Read the markdown file or content provided.
+2. **Identify the target language and destination.** Extract the target language and output path from the argument, or ask if unclear.
+3. **Delegate the translation.** Apply the rules from the `language-translate` skill:
+   - Preserve all markdown syntax (headings, bold, italic, links, lists, tables, code fences).
+   - Translate only human-readable prose.
+   - Inside code blocks, translate comments and docstrings; leave code itself unchanged.
+   - Do not translate URLs, file paths, variable names, or technical identifiers.
+4. **Write or return.** If a target path is given, write the translated markdown to that file (creating the directory if needed). Otherwise, return the translated content directly.
 
 ## Argument Format
 
 Accepts flexible input, for example:
 - `path/to/file.md Spanish`
 - `path/to/file.md --lang fr --out path/to/output.md`
-- Just a target language if content is already in context
+- Just a target language if the content is already in context
 
 ## Edge Cases
 
@@ -34,3 +35,7 @@ Accepts flexible input, for example:
 - If the source file does not exist, report the error and stop.
 - If the target directory does not exist, create it before writing.
 - If the content is already in the target language, inform the user and stop.
+
+## Relationship to language-translate
+
+Use `translate-markdown` when the user specifically wants a markdown file translated and written to disk. Use `language-translate` directly for non-file inputs, non-markdown formats (plain text, standalone code snippets), or when embedding translation into a larger workflow.
