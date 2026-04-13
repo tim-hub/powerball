@@ -3,3 +3,6 @@
 .DS_Store
 pbl-workspace/
 worktrees/
+.claude/state
+.claude/sessions
+$TMPDIR/
