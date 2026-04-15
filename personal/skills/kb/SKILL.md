@@ -44,7 +44,7 @@ Where:
 - `<kb-file-path>` — full path to the project's KB markdown file
 - `<topic>` — the section heading (derived from the conversation context or argument hint)
 - `<tags>` — space-separated hashtags, e.g. `#claude #performance #debugging`
-- `<content>` — the actual insight or information to save
+- `<content>` — the actual insight or information to save, formatted as bullet points (each line starting with `- `)
 
 The script handles file creation from template, section detection via ripgrep, and appending or updating content.
 
@@ -53,7 +53,7 @@ The script handles file creation from template, section detection via ripgrep, a
 When triggered proactively (not by explicit user command), distill the conversation into:
 - **Topic**: a short, specific heading (e.g., "JWT token refresh strategy", "Database migration approach")
 - **Tags**: 1-4 hashtags starting with `#` that categorize the topic (e.g., `#auth #security`, `#performance #database`). Derive from the domain, technology, or concern the insight relates to.
-- **Content**: 2-5 concise bullet points capturing the key insight, decision rationale, or pattern discovered
+- **Content**: 2-5 bullet points capturing the key insight, decision rationale, or pattern discovered. Each line must start with `- `. Never use plain prose.
 
 Tags appear on the line immediately after the heading, e.g. `#auth #security`. They make sections findable via `kb-search` even when the topic heading isn't exact.
 
@@ -68,5 +68,6 @@ After the upsert, confirm briefly:
 
 ## References
 
+- Example: `examples/kb.example.md` — canonical format reference; match this exactly when generating topics and content
 - Template: `templates/kb.template.md` — used when creating a new KB file
 - Script: `scripts/upsert.sh` — handles all file I/O and ripgrep-based section detection
