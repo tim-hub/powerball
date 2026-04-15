@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
 # upsert.sh — Add or update a section in a KB markdown file
-# Usage: upsert.sh <kb-file-path> <topic> <content>
+# Usage: upsert.sh <kb-file-path> <topic> <tags> <content>
+#
+# tags    — space-separated hashtags, e.g. "#claude #performance"
+#           pass "" to omit tags
 #
 # - Creates the file from template if it doesn't exist
 # - Uses ripgrep to detect if the topic section already exists
-# - Appends a new section or updates the existing one
+# - Appends a new section or appends content under an existing one
 
 set -euo pipefail
 
 KB_FILE="$1"
 TOPIC="$2"
-CONTENT="$3"
+TAGS="${3:-}"
+CONTENT="$4"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEMPLATE="$SCRIPT_DIR/../templates/kb.template.md"
@@ -52,6 +56,10 @@ if [ -n "$EXISTING_LINE" ]; then
   echo "updated:$LINE_NUM"
 else
   # Topic does not exist — append new section at end of file
-  printf '\n## %s\n\n%s\n' "$TOPIC" "$CONTENT" >> "$KB_FILE"
+  if [ -n "$TAGS" ]; then
+    printf '\n## %s\n\n%s\n\n%s\n' "$TOPIC" "$TAGS" "$CONTENT" >> "$KB_FILE"
+  else
+    printf '\n## %s\n\n%s\n' "$TOPIC" "$CONTENT" >> "$KB_FILE"
+  fi
   echo "created"
 fi
