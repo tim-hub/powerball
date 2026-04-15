@@ -1,0 +1,19 @@
+{
+  "eval_id": 1,
+  "eval_name": "kb-setup-fresh",
+  "prompt": "I want to set up my knowledge base for the first time. I'll store everything in /tmp/kb-eval-1-with and exclude /tmp/kb-eval-1-with/archive from searches.",
+  "assertions": [
+    {
+      "text": "Config file written with valid JSON containing allow_list and disallow_list keys"
+    },
+    {
+      "text": "allow_list contains the user-specified path (/tmp/kb-eval-1-*)"
+    },
+    {
+      "text": "disallow_list contains the archive path"
+    },
+    {
+      "text": "kb/ subdirectory created inside allow_list[0]"
+    }
+  ]
+}

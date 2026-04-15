@@ -1,0 +1,303 @@
+{
+  "metadata": {
+    "skill_name": "kb/kb-search/kb-setup",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-04-16T01:59:17Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 67.2,
+        "tokens": 17188,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Config file written with valid JSON containing allow_list and disallow_list keys",
+          "passed": true,
+          "evidence": "result.md shows config written: {\"allow_list\": [\"/tmp/kb-eval-1-with\"], \"disallow_list\": [\"/tmp/kb-eval-1-with/archive\"]} \u2014 correct schema, valid JSON"
+        },
+        {
+          "text": "allow_list contains the user-specified path (/tmp/kb-eval-1-*)",
+          "passed": true,
+          "evidence": "allow_list: [\"/tmp/kb-eval-1-with\"] \u2014 exact match to user's requested path"
+        },
+        {
+          "text": "disallow_list contains the archive path",
+          "passed": true,
+          "evidence": "disallow_list: [\"/tmp/kb-eval-1-with/archive\"] \u2014 correctly captured"
+        },
+        {
+          "text": "kb/ subdirectory created inside allow_list[0]",
+          "passed": true,
+          "evidence": "result.md: 'Script created /tmp/kb-eval-1-with/kb' \u2014 verified with ls output"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 95.0,
+        "tokens": 20510,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "KB markdown file was created/updated under a kb/ directory",
+          "passed": true,
+          "evidence": "kb_file.md shows content written to /tmp/kb-eval-2-with/kb/powerball.md \u2014 correct location"
+        },
+        {
+          "text": "File contains a ## section heading relevant to connection pools or 503 errors",
+          "passed": true,
+          "evidence": "## API 503 errors \u2014 connection pool exhaustion fix \u2014 clear, accurate heading"
+        },
+        {
+          "text": "Content captures the key facts: pool_size, value 100, pool_timeout, value 30",
+          "passed": true,
+          "evidence": "Bullets mention 'pool_size to 100' and 'pool_timeout to 30s' explicitly"
+        },
+        {
+          "text": "Agent confirmed what was saved and the file path",
+          "passed": true,
+          "evidence": "result.md documents topic saved, file path, and 'created' status from upsert.sh"
+        },
+        {
+          "text": "No unsubstituted template placeholders (e.g. {{topic}}) left in the output file",
+          "passed": false,
+          "evidence": "kb_file.md line 10: '## 1 {{topic}}' \u2014 placeholder from kb.template.md was not substituted by upsert.sh (script only replaces {{project}} and {{date}})"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 92.7,
+        "tokens": 20361,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Results formatted as ### N. [Topic] \u2014 <path> with excerpt",
+          "passed": true,
+          "evidence": "'### 1. Connection Pool Sizing \u2014 kb/myproject.md' followed by blockquote excerpt \u2014 matches specified format exactly"
+        },
+        {
+          "text": "Correct section (Connection Pool Sizing) found and returned",
+          "passed": true,
+          "evidence": "Result #1 is '## Connection Pool Sizing' with full excerpt from myproject.md"
+        },
+        {
+          "text": "Keyword expansion used \u2014 more than one search term derived from the query",
+          "passed": true,
+          "evidence": "4 keywords used: connection, pool, database, pool_size \u2014 all passed to search.sh in parallel with rationale documented"
+        },
+        {
+          "text": "Result count respects top-3 limit",
+          "passed": true,
+          "evidence": "Only 1 result returned (only 1 existed after deduplication) \u2014 correctly noted no additional results"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 4,
+        "total": 4,
+        "time_seconds": 62.4,
+        "tokens": 15792,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Config file written with valid JSON containing allow_list and disallow_list keys",
+          "passed": false,
+          "evidence": "Config written but uses ad hoc schema (kb_root, search.exclude) \u2014 not the expected allow_list/disallow_list structure. File also placed at wrong location (.kb/config.json inside /tmp dir, not ~/.kb/config.json)"
+        },
+        {
+          "text": "allow_list contains the user-specified path (/tmp/kb-eval-1-*)",
+          "passed": false,
+          "evidence": "No allow_list key used. Used kb_root instead, pointing to /tmp/kb-eval-1-without root, not a search path array"
+        },
+        {
+          "text": "disallow_list contains the archive path",
+          "passed": false,
+          "evidence": "Archive path stored under search.exclude, not disallow_list. Different schema entirely \u2014 won't interoperate with kb-search script"
+        },
+        {
+          "text": "kb/ subdirectory created inside allow_list[0]",
+          "passed": false,
+          "evidence": "Created notes/, references/, projects/, archive/ subdirs \u2014 but no kb/ subfolder, which is the convention used by the kb skill"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 37.2,
+        "tokens": 13804,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "KB markdown file was created/updated under a kb/ directory",
+          "passed": false,
+          "evidence": "File created at /tmp/kb-eval-2-without/ but not under a kb/ subfolder \u2014 no canonical storage convention followed"
+        },
+        {
+          "text": "File contains a ## section heading relevant to connection pools or 503 errors",
+          "passed": true,
+          "evidence": "Used # heading (H1 not H2): 'API 503 Errors \u2014 Connection Pool Misconfiguration' \u2014 relevant but wrong heading level for a KB section"
+        },
+        {
+          "text": "Content captures the key facts: pool_size, value 100, pool_timeout, value 30",
+          "passed": true,
+          "evidence": "Table shows pool_size 5\u2192100, pool_timeout set to 30s \u2014 facts are present"
+        },
+        {
+          "text": "Agent confirmed what was saved and the file path",
+          "passed": true,
+          "evidence": "result.md includes file path and summary of approach"
+        },
+        {
+          "text": "No unsubstituted template placeholders (e.g. {{topic}}) left in the output file",
+          "passed": true,
+          "evidence": "No template used \u2014 agent wrote content directly, no placeholders"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 37.4,
+        "tokens": 14341,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Results formatted as ### N. [Topic] \u2014 <path> with excerpt",
+          "passed": false,
+          "evidence": "Used '**From myproject.md \u2014 Connection Pool Sizing**' format with bullet points \u2014 not the ### N. [Topic] \u2014 <path> format"
+        },
+        {
+          "text": "Correct section (Connection Pool Sizing) found and returned",
+          "passed": true,
+          "evidence": "Section 'Connection Pool Sizing' found and content returned correctly"
+        },
+        {
+          "text": "Keyword expansion used \u2014 more than one search term derived from the query",
+          "passed": false,
+          "evidence": "Used a single combined regex pattern 'pool|database|connection' \u2014 not separate parallel searches with independently expanded keywords"
+        },
+        {
+          "text": "Result count respects top-3 limit",
+          "passed": true,
+          "evidence": "Only 1 result returned \u2014 respects limit trivially"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9333,
+        "stddev": 0.1155,
+        "min": 0.8,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 84.9667,
+        "stddev": 15.4293,
+        "min": 67.2,
+        "max": 95.0
+      },
+      "tokens": {
+        "mean": 19353.0,
+        "stddev": 1876.4245,
+        "min": 17188,
+        "max": 20510
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.3667,
+        "stddev": 0.3215,
+        "min": 0.0,
+        "max": 0.6
+      },
+      "time_seconds": {
+        "mean": 45.6667,
+        "stddev": 14.4918,
+        "min": 37.2,
+        "max": 62.4
+      },
+      "tokens": {
+        "mean": 14645.6667,
+        "stddev": 1028.4223,
+        "min": 13804,
+        "max": 15792
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.57",
+      "time_seconds": "+39.3",
+      "tokens": "+4707"
+    }
+  },
+  "notes": []
+}

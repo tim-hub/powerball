@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Config file written with valid JSON containing allow_list and disallow_list keys",
+      "passed": true,
+      "evidence": "result.md shows config written: {\"allow_list\": [\"/tmp/kb-eval-1-with\"], \"disallow_list\": [\"/tmp/kb-eval-1-with/archive\"]} \u2014 correct schema, valid JSON"
+    },
+    {
+      "text": "allow_list contains the user-specified path (/tmp/kb-eval-1-*)",
+      "passed": true,
+      "evidence": "allow_list: [\"/tmp/kb-eval-1-with\"] \u2014 exact match to user's requested path"
+    },
+    {
+      "text": "disallow_list contains the archive path",
+      "passed": true,
+      "evidence": "disallow_list: [\"/tmp/kb-eval-1-with/archive\"] \u2014 correctly captured"
+    },
+    {
+      "text": "kb/ subdirectory created inside allow_list[0]",
+      "passed": true,
+      "evidence": "result.md: 'Script created /tmp/kb-eval-1-with/kb' \u2014 verified with ls output"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  }
+}

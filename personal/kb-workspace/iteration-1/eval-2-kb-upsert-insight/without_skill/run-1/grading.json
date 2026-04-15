@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "KB markdown file was created/updated under a kb/ directory",
+      "passed": false,
+      "evidence": "File created at /tmp/kb-eval-2-without/ but not under a kb/ subfolder \u2014 no canonical storage convention followed"
+    },
+    {
+      "text": "File contains a ## section heading relevant to connection pools or 503 errors",
+      "passed": true,
+      "evidence": "Used # heading (H1 not H2): 'API 503 Errors \u2014 Connection Pool Misconfiguration' \u2014 relevant but wrong heading level for a KB section"
+    },
+    {
+      "text": "Content captures the key facts: pool_size, value 100, pool_timeout, value 30",
+      "passed": true,
+      "evidence": "Table shows pool_size 5\u2192100, pool_timeout set to 30s \u2014 facts are present"
+    },
+    {
+      "text": "Agent confirmed what was saved and the file path",
+      "passed": true,
+      "evidence": "result.md includes file path and summary of approach"
+    },
+    {
+      "text": "No unsubstituted template placeholders (e.g. {{topic}}) left in the output file",
+      "passed": true,
+      "evidence": "No template used \u2014 agent wrote content directly, no placeholders"
+    }
+  ],
+  "summary": {
+    "pass_rate": 0.6,
+    "passed": 3,
+    "failed": 2,
+    "total": 5
+  }
+}

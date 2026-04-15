@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Results formatted as ### N. [Topic] \u2014 <path> with excerpt",
+      "passed": false,
+      "evidence": "Used '**From myproject.md \u2014 Connection Pool Sizing**' format with bullet points \u2014 not the ### N. [Topic] \u2014 <path> format"
+    },
+    {
+      "text": "Correct section (Connection Pool Sizing) found and returned",
+      "passed": true,
+      "evidence": "Section 'Connection Pool Sizing' found and content returned correctly"
+    },
+    {
+      "text": "Keyword expansion used \u2014 more than one search term derived from the query",
+      "passed": false,
+      "evidence": "Used a single combined regex pattern 'pool|database|connection' \u2014 not separate parallel searches with independently expanded keywords"
+    },
+    {
+      "text": "Result count respects top-3 limit",
+      "passed": true,
+      "evidence": "Only 1 result returned \u2014 respects limit trivially"
+    }
+  ],
+  "summary": {
+    "pass_rate": 0.5,
+    "passed": 2,
+    "failed": 2,
+    "total": 4
+  }
+}

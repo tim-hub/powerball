@@ -1,0 +1,22 @@
+{
+  "eval_id": 2,
+  "eval_name": "kb-upsert-insight",
+  "prompt": "We just figured out why the API was randomly returning 503s — the connection pool size was set to 5 but we were seeing 50+ concurrent requests. Fixed it by bumping pool_size to 100 and pool_timeout to 30s. Save this to the knowledge base.",
+  "assertions": [
+    {
+      "text": "KB markdown file was created/updated under a kb/ directory"
+    },
+    {
+      "text": "File contains a ## section heading relevant to connection pools or 503 errors"
+    },
+    {
+      "text": "Content captures the key facts: pool_size, value 100, pool_timeout, value 30"
+    },
+    {
+      "text": "Agent confirmed what was saved and the file path"
+    },
+    {
+      "text": "No unsubstituted template placeholders (e.g. {{topic}}) left in the output file"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Results formatted as ### N. [Topic] \u2014 <path> with excerpt",
+      "passed": true,
+      "evidence": "'### 1. Connection Pool Sizing \u2014 kb/myproject.md' followed by blockquote excerpt \u2014 matches specified format exactly"
+    },
+    {
+      "text": "Correct section (Connection Pool Sizing) found and returned",
+      "passed": true,
+      "evidence": "Result #1 is '## Connection Pool Sizing' with full excerpt from myproject.md"
+    },
+    {
+      "text": "Keyword expansion used \u2014 more than one search term derived from the query",
+      "passed": true,
+      "evidence": "4 keywords used: connection, pool, database, pool_size \u2014 all passed to search.sh in parallel with rationale documented"
+    },
+    {
+      "text": "Result count respects top-3 limit",
+      "passed": true,
+      "evidence": "Only 1 result returned (only 1 existed after deduplication) \u2014 correctly noted no additional results"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  }
+}

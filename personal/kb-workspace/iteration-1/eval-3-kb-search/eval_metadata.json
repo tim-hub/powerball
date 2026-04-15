@@ -1,0 +1,19 @@
+{
+  "eval_id": 3,
+  "eval_name": "kb-search-pool-settings",
+  "prompt": "Search my knowledge base for anything about database connections or pool settings.",
+  "assertions": [
+    {
+      "text": "Results formatted as ### N. [Topic] — <path> with excerpt"
+    },
+    {
+      "text": "Correct section (Connection Pool Sizing) found and returned"
+    },
+    {
+      "text": "Keyword expansion used — more than one search term derived from the query"
+    },
+    {
+      "text": "Result count respects top-3 limit"
+    }
+  ]
+}

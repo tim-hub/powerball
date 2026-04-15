@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "KB markdown file was created/updated under a kb/ directory",
+      "passed": true,
+      "evidence": "kb_file.md shows content written to /tmp/kb-eval-2-with/kb/powerball.md \u2014 correct location"
+    },
+    {
+      "text": "File contains a ## section heading relevant to connection pools or 503 errors",
+      "passed": true,
+      "evidence": "## API 503 errors \u2014 connection pool exhaustion fix \u2014 clear, accurate heading"
+    },
+    {
+      "text": "Content captures the key facts: pool_size, value 100, pool_timeout, value 30",
+      "passed": true,
+      "evidence": "Bullets mention 'pool_size to 100' and 'pool_timeout to 30s' explicitly"
+    },
+    {
+      "text": "Agent confirmed what was saved and the file path",
+      "passed": true,
+      "evidence": "result.md documents topic saved, file path, and 'created' status from upsert.sh"
+    },
+    {
+      "text": "No unsubstituted template placeholders (e.g. {{topic}}) left in the output file",
+      "passed": false,
+      "evidence": "kb_file.md line 10: '## 1 {{topic}}' \u2014 placeholder from kb.template.md was not substituted by upsert.sh (script only replaces {{project}} and {{date}})"
+    }
+  ],
+  "summary": {
+    "pass_rate": 0.8,
+    "passed": 4,
+    "failed": 1,
+    "total": 5
+  }
+}

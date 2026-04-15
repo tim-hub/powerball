@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Config file written with valid JSON containing allow_list and disallow_list keys",
+      "passed": false,
+      "evidence": "Config written but uses ad hoc schema (kb_root, search.exclude) \u2014 not the expected allow_list/disallow_list structure. File also placed at wrong location (.kb/config.json inside /tmp dir, not ~/.kb/config.json)"
+    },
+    {
+      "text": "allow_list contains the user-specified path (/tmp/kb-eval-1-*)",
+      "passed": false,
+      "evidence": "No allow_list key used. Used kb_root instead, pointing to /tmp/kb-eval-1-without root, not a search path array"
+    },
+    {
+      "text": "disallow_list contains the archive path",
+      "passed": false,
+      "evidence": "Archive path stored under search.exclude, not disallow_list. Different schema entirely \u2014 won't interoperate with kb-search script"
+    },
+    {
+      "text": "kb/ subdirectory created inside allow_list[0]",
+      "passed": false,
+      "evidence": "Created notes/, references/, projects/, archive/ subdirs \u2014 but no kb/ subfolder, which is the convention used by the kb skill"
+    }
+  ],
+  "summary": {
+    "pass_rate": 0.0,
+    "passed": 0,
+    "failed": 4,
+    "total": 4
+  }
+}
