@@ -2,7 +2,7 @@
 name: kb-setup
 description: Knowledge base setup and configuration skill. Use this skill when the user wants to configure the knowledge base, set up KB paths, update allow/disallow lists, reset the KB config, or when kb/kb-search fails because config is missing. Trigger when user says "kb setup", "setup knowledge base", "configure kb", "kb reset", or when invoked internally by kb or kb-search because ~/.kb/config.json is missing.
 argument-hint: "[reset]"
-user-invocable: false
+user-invocable: true
 allowed-tools: Bash, Read
 model: haiku
 ---

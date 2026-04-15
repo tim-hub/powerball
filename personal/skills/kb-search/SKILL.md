@@ -45,12 +45,11 @@ Collect all results. The script returns matching lines with file paths and conte
 
 ## Result Ranking and Filtering
 
-From all parallel results (max 20 total raw results):
-1. Deduplicate results that appear for multiple keyword variants.
+From all parallel results:
+1. Deduplicate results that appear for multiple keyword variants (same file + line number).
 2. Rank by relevance — prefer results where:
    - The keyword appears in a heading (`##`) over body text
    - Multiple keyword variants matched the same file/section
-   - The match is in a `kb/` subfolder (more curated)
 3. Return the **top 3 most relevant results**.
 
 ## Output Format

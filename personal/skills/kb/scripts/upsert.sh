@@ -24,10 +24,14 @@ PROJECT_NAME="$(basename "$KB_FILE" .md)"
 # Ensure KB directory exists
 mkdir -p "$KB_DIR"
 
+TODAY="$(date '+%Y-%m-%d')"
+
 # Create from template if file doesn't exist
 if [ ! -f "$KB_FILE" ]; then
-  TODAY="$(date '+%Y-%m-%d')"
   sed "s/{{project}}/$PROJECT_NAME/g; s/{{date}}/$TODAY/g" "$TEMPLATE" > "$KB_FILE"
+else
+  # Refresh the _Last updated_ line
+  sed -i '' "s/_Last updated: .*_/_Last updated: ${TODAY}_/" "$KB_FILE" 2>/dev/null || true
 fi
 
 # Check if a section with this topic already exists (case-insensitive heading match)
