@@ -54,18 +54,23 @@ From all parallel results:
 
 ## Output Format
 
-Present results clearly, always showing the file path so the user can judge context:
+Present results clearly. For each result:
+- Convert the absolute file path to a `~/...` path (replace the home directory prefix with `~`)
+- Format the path as a markdown link so the user can navigate to the file: `[~/relative/path](file:///absolute/path)`
 
 ```
 ## Search Results for "<query>"
 
-### 1. [Topic from heading or filename] — <file-path relative to allow_list root>
+### 1. [Topic from heading or filename]
+[~/relative/path/to/file.md](file:///absolute/path/to/file.md)
 > <matching excerpt, 2-4 lines of context>
 
-### 2. [Topic from heading or filename] — <file-path relative to allow_list root>
+### 2. [Topic from heading or filename]
+[~/relative/path/to/file.md](file:///absolute/path/to/file.md)
 > <matching excerpt, 2-4 lines of context>
 
-### 3. [Topic from heading or filename] — <file-path relative to allow_list root>
+### 3. [Topic from heading or filename]
+[~/relative/path/to/file.md](file:///absolute/path/to/file.md)
 > <matching excerpt, 2-4 lines of context>
 ```
 

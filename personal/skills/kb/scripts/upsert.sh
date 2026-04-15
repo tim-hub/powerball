@@ -50,10 +50,10 @@ if [ -n "$EXISTING_LINE" ]; then
     # No next section, insert at end of file
     INSERT_AT=$(wc -l < "$KB_FILE")
   fi
-  # Insert the content lines before next section (or at end)
+  # Insert the content lines before next section (or at end), with an updated-at marker
   TEMP_FILE=$(mktemp)
-  awk -v insert_at="$INSERT_AT" -v content="$CONTENT" '
-    NR == insert_at { print ""; print content }
+  awk -v insert_at="$INSERT_AT" -v content="$CONTENT" -v today="$TODAY" '
+    NR == insert_at { print ""; print "_Updated: " today "_"; print ""; print content }
     { print }
   ' "$KB_FILE" > "$TEMP_FILE"
   mv "$TEMP_FILE" "$KB_FILE"
@@ -61,9 +61,9 @@ if [ -n "$EXISTING_LINE" ]; then
 else
   # Topic does not exist — append new section at end of file
   if [ -n "$TAGS" ]; then
-    printf '\n## %s\n\n%s\n\n%s\n' "$TOPIC" "$TAGS" "$CONTENT" >> "$KB_FILE"
+    printf '\n## %s\n\n%s\n\n_Updated: %s_\n\n%s\n' "$TOPIC" "$TAGS" "$TODAY" "$CONTENT" >> "$KB_FILE"
   else
-    printf '\n## %s\n\n%s\n' "$TOPIC" "$CONTENT" >> "$KB_FILE"
+    printf '\n## %s\n\n_Updated: %s_\n\n%s\n' "$TOPIC" "$TODAY" "$CONTENT" >> "$KB_FILE"
   fi
   echo "created"
 fi
