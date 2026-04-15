@@ -1,7 +1,7 @@
 ---
 name: kb
 description: Knowledge base maintenance skill. Use this skill to save, update, or upsert insights, learnings, decisions, and important information gained during a conversation to the project's knowledge base. Trigger this skill whenever the user gains a new insight, makes an important decision, wants to remember something, or says "save this to kb", "add to knowledge base", "remember this", "note this down", "kb add", "kb upsert", "kb update". Also trigger proactively after solving a complex problem, completing a feature, or discovering a non-obvious pattern.
-argument-hint: "[add|upsert|update] [optional: topic or content description]"
+argument-hint: "[optional: topic hint]"
 user-invocable: true
 allowed-tools: Bash, Read
 context: fork
@@ -18,11 +18,10 @@ cat ~/.kb/config.json 2>/dev/null
 ```
 If the config is missing or empty, invoke the `kb-setup` skill first.
 
-## Determine Operation
+## Determine Topic and Content
 
-Parse the argument:
-- `add`, `upsert`, or `update` (or no subcommand) → **upsert** (default)
-- The rest of the argument is the topic hint or content description
+- **If an argument is provided**: use it as the topic hint, derive content from the conversation context around that topic.
+- **If no argument**: automatically summarise the current conversation — identify the most significant insight, decision, or pattern from the exchange, and use that as both the topic and content. Do not ask the user for input; proceed directly to upsert.
 
 ## Get Project Context
 
