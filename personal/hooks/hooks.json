@@ -1,6 +1,16 @@
 {
-  "description": "Warn when both staged and unstaged changes exist after file modifications",
+  "description": "Powernall Personall Plugin Hooks — custom hooks for personal workflows, knowledge management, and development processes.",
   "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'KB checkpoint: before compacting, invoke the kb skill to save any key insights, decisions, or non-obvious patterns discovered in this session.'"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit|Bash",
