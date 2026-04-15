@@ -50,26 +50,26 @@ From all parallel results:
 2. Rank by relevance — prefer results where:
    - The keyword appears in a heading (`##`) over body text
    - Multiple keyword variants matched the same file/section
-3. Return the **top 3 most relevant results**.
+3. Show the **top 3 results** by rank. Do not suppress or hide results because they seem tangential — the user decides what's useful, not you. If ripgrep found a match, surface it.
 
 ## Output Format
 
-Present results clearly:
+Present results clearly, always showing the file path so the user can judge context:
 
 ```
 ## Search Results for "<query>"
 
-### 1. [Topic from heading] — <relative-file-path>
+### 1. [Topic from heading or filename] — <file-path relative to allow_list root>
 > <matching excerpt, 2-4 lines of context>
 
-### 2. [Topic from heading] — <relative-file-path>
+### 2. [Topic from heading or filename] — <file-path relative to allow_list root>
 > <matching excerpt, 2-4 lines of context>
 
-### 3. [Topic from heading] — <relative-file-path>
+### 3. [Topic from heading or filename] — <file-path relative to allow_list root>
 > <matching excerpt, 2-4 lines of context>
 ```
 
-If no results found: say so clearly and suggest trying broader terms or checking if `kb-setup` has the right paths configured.
+Only say "no results found" if ripgrep returned zero matches. If there were matches, show them.
 
 ## References
 
