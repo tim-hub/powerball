@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Review the last response. Output ONLY valid JSON, no prose. If the response contains any insight, decision, pattern, or fix worth recalling in a future conversation, return: {\"decision\": \"approve\", \"systemMessage\": \"KB checkpoint: invoke the powerball-personal:kb skill (no argument) to save the key insight from this response before finishing.\"}. If the response is trivial (listing files, simple edits, answering a factual question), return: {\"decision\": \"approve\"}.",
+            "prompt": "Review the last response. Output ONLY valid JSON, no prose. If the response contains any insight, decision, pattern, or fix worth recalling in a future conversation, return: {\"decision\": \"block\", \"reason\": \"KB checkpoint: invoke the powerball-personal:kb skill (no argument) to save the key insight from this response before finishing.\"}. If the response is trivial (listing files, simple edits, answering a factual question), return: {\"decision\": \"allow\"}.",
             "model": "haiku",
             "timeout": 10
           }
