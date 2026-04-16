@@ -1,12 +1,14 @@
 {
   "description": "Powerball Personal Plugin Hooks — custom hooks for personal workflows, knowledge management, and development processes.",
   "hooks": {
-    "PreCompact": [
+    "Stop": [
       {
         "hooks": [
           {
-            "type": "command",
-            "command": "echo '{\"additionalContext\": \"MANDATORY PreCompact Hook: You MUST invoke the kb skill RIGHT NOW before context is compacted. Do not skip this step. Use the Skill tool with skill=powerball-personal:kb (no argument) to auto-summarise and save the most significant insight or decision from this conversation to the knowledge base. This is non-optional.\"}'"
+            "type": "prompt",
+            "prompt": "Review the last response. If it contains a non-obvious insight, decision, pattern, or fix worth recalling in a future conversation, invoke the kb skill (skill=powerball-personal:kb, no argument) to save it. Skip if the response is trivial (e.g. listing files, simple edits, answering a factual question). Err on the side of saving.",
+            "model": "haiku",
+            "timeout": 10
           }
         ]
       }
