@@ -1,6 +1,6 @@
 ---
 name: kb
-description: Knowledge base maintenance skill. Use this skill to save, update, or upsert insights, learnings, decisions, and important information gained during a conversation to the project's knowledge base. Trigger this skill whenever the user gains a new insight, makes an important decision, wants to remember something, or says "save this to kb", "add to knowledge base", "remember this", "note this down", "kb add", "kb upsert", "kb update". Also trigger proactively after solving a complex problem, completing a feature, or discovering a non-obvious pattern.
+description: Knowledge base maintenance skill. Use this skill to save, update, or upsert insights, learnings, decisions, and important information gained during a conversation to the project's knowledge base. Trigger this skill whenever the user gains a new insight, makes an important decision, wants to remember something, or says "save this to kb", "add to knowledge base", "remember this", "note this down", "kb add", "kb upsert", "kb update". Also trigger proactively after solving a complex problem, completing a feature, or discovering a non-obvious pattern. MANDATORY: Always trigger immediately when a PreCompact hook fires (hook output will say "MANDATORY") — this must run before context is lost.
 argument-hint: "[optional: topic hint]"
 user-invocable: true
 allowed-tools: Bash, Read
