@@ -5,9 +5,11 @@
       {
         "hooks": [
           {
-            "type": "prompt",
-            "prompt": "Review the last response. Output ONLY valid JSON, no prose. If the response contains any insight, decision, pattern, or fix worth recalling in a future conversation, return: {\"decision\": \"block\", \"reason\": \"KB checkpoint: invoke the powerball-personal:kb skill (no argument) to save the key insight from this response before finishing.\"}. If the response is trivial (listing files, simple edits, answering a factual question), return: {\"decision\": \"allow\"}.",
-            "timeout": 10
+            "type": "agent",
+            "prompt": "You are a silent knowledge-base saver. Read the transcript file at {{transcript_path}} and inspect ONLY the most recent assistant message.\n\nDecide whether it is worth saving to the KB. TODO(user): tune this filter to match what you actually want to recall later.\n\nSAVE if the message contains any of:\n  - A non-obvious insight or gotcha about how a system, tool, or API works\n  - A design decision with a clear rationale (the WHY, not just the WHAT)\n  - A reusable pattern, workaround, or fix for a stubborn problem\n  - A project- or tooling-specific fact that future-you would have to re-derive\n\nSKIP if the message is:\n  - A file listing, trivial factual answer, or status update\n  - Already obvious from the code or git history\n  - A generic programming concept with no project-specific angle\n  - Chit-chat, clarifying questions, or a plan that was never executed\n\nIf SKIP: emit exactly {\"ok\": true} and stop.\n\nIf SAVE, do all of the following:\n  1. Derive a concise topic (3–6 words, no punctuation).\n  2. Derive 1–3 hashtags, e.g. \"#hooks #kb\". Pass \"\" if none fit.\n  3. Write 2–4 sentences of content that capture the insight AND the why — not a copy of the response.\n  4. Get the KB base dir: read ~/.kb/config.json and take allow_list[0]. If the config is missing, emit {\"ok\": true} and stop (KB not set up).\n  5. Get the project name: basename of the current working directory.\n  6. Run: bash \"$CLAUDE_PLUGIN_ROOT/skills/kb/scripts/upsert.sh\" \"<kb-base>/kb/<project>.md\" \"<topic>\" \"<tags>\" \"<content>\"\n  7. Emit exactly {\"ok\": true}.\n\nNever emit {\"ok\": false} — we do not want to block Claude's stop; we just want the KB to get updated silently in the background.",
+            "timeout": 120,
+            "model": "haiku",
+            "allowed-tools": ["Read", "Bash"]
           }
         ]
       }
