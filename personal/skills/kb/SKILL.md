@@ -4,7 +4,6 @@ description: Knowledge base maintenance skill. Use this skill to save, update, o
 argument-hint: "[optional: topic hint]"
 user-invocable: true
 allowed-tools: Bash, Read
-context: fork
 model: haiku
 ---
 
