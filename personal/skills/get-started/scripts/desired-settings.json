@@ -2,8 +2,7 @@
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
     "DISABLE_AUTOUPDATER": "1",
-    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
-    "DISABLE_AUTO_COMPACT": "1"
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1"
   },
   "attribution": {
     "commit": "",
@@ -173,6 +172,7 @@
   },
   "sandbox": {
     "enabled": true,
+    "autoAllowBashIfSandboxed": true,
     "filesystem": {
       "denyRead": [
         ".env",
