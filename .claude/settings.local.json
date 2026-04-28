@@ -7,7 +7,8 @@
       "WebFetch",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:api.github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Skill(powerball-personal:commit)"
     ]
   },
   "sandbox": {
