@@ -13,7 +13,7 @@
       "name": "powerball-personal",
       "source": "./personal",
       "description": "Agentic tools for setup claude code, git workflows, issue resolution, code review, creative writing, doc searching, code example searching, and content translation — from smart commits and PR descriptions to fixing GitHub issues and translating markdown.",
-      "version": "0.7.1",
+      "version": "0.7.2",
       "tags": [
         "git",
         "commits",
