@@ -36,6 +36,10 @@ PM_PLUGINS=(
   pm-execution
 )
 
+KARPATHY_PLUGINS=(
+  andrej-karpathy-skills
+)
+
 echo ""
 echo "Recommended plugins to install:"
 for plugin in "${PLUGINS[@]}"; do
@@ -46,6 +50,11 @@ echo ""
 echo "PM plugins (from phuryn/pm-skills marketplace):"
 for plugin in "${PM_PLUGINS[@]}"; do
   echo "  - ${plugin}@pm-skills"
+done
+echo ""
+echo "Karpathy plugins (from forrestchang/andrej-karpathy-skills marketplace):"
+for plugin in "${KARPATHY_PLUGINS[@]}"; do
+  echo "  - ${plugin}@karpathy-skills"
 done
 echo ""
 
@@ -65,6 +74,14 @@ if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
   for plugin in "${PM_PLUGINS[@]}"; do
     echo "Installing $plugin..."
     claude plugin install "${plugin}@pm-skills"
+  done
+
+  echo "Adding karpathy-skills marketplace..."
+  claude plugin marketplace add forrestchang/andrej-karpathy-skills
+
+  for plugin in "${KARPATHY_PLUGINS[@]}"; do
+    echo "Installing $plugin..."
+    claude plugin install "${plugin}@karpathy-skills"
   done
 else
   echo "  Skipped."
