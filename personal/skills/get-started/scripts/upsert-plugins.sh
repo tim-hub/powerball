@@ -40,6 +40,10 @@ KARPATHY_PLUGINS=(
   andrej-karpathy-skills
 )
 
+PRIVACY_GUARD_PLUGINS=(
+  claude-privacy-guard
+)
+
 echo ""
 echo "Recommended plugins to install:"
 for plugin in "${PLUGINS[@]}"; do
@@ -55,6 +59,11 @@ echo ""
 echo "Karpathy plugins (from forrestchang/andrej-karpathy-skills marketplace):"
 for plugin in "${KARPATHY_PLUGINS[@]}"; do
   echo "  - ${plugin}@karpathy-skills"
+done
+echo ""
+echo "Privacy Guard plugins (from datumbrain/claude-privacy-guard marketplace):"
+for plugin in "${PRIVACY_GUARD_PLUGINS[@]}"; do
+  echo "  - ${plugin}@claude-privacy-guard"
 done
 echo ""
 
@@ -82,6 +91,14 @@ if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
   for plugin in "${KARPATHY_PLUGINS[@]}"; do
     echo "Installing $plugin..."
     claude plugin install "${plugin}@karpathy-skills"
+  done
+
+  echo "Adding claude-privacy-guard marketplace..."
+  claude plugin marketplace add datumbrain/claude-privacy-guard
+
+  for plugin in "${PRIVACY_GUARD_PLUGINS[@]}"; do
+    echo "Installing $plugin..."
+    claude plugin install "${plugin}@claude-privacy-guard"
   done
 else
   echo "  Skipped."
