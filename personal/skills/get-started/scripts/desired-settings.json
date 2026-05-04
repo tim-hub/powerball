@@ -186,12 +186,7 @@
         "**/.aws/**",
         "**/.ssh/**"
       ],
-      "allowRead": [
-        ".env.example",
-        ".env.sample",
-        "config/public-*",
-        "docs/**"
-      ]
+      "allowRead": [".env.example", ".env.sample", "config/public-*", "docs/**"]
     },
     "failIfUnavailable": true,
     "allowedDomains": [
@@ -203,5 +198,18 @@
   },
   "showClearContextOnPlanAccept": true,
   "autoUpdatesChannel": "stable",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  }
 }

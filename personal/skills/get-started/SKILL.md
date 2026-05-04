@@ -31,10 +31,11 @@ This skill accepts optional arguments to run specific steps. With no arguments o
 | `statusline`   | Step 2 — Set up statusline       |
 | `playwright`   | Step 3 — Install playwright-cli  |
 | `chub`         | Step 4 — Install chub            |
-| `skills`       | Step 5 — Upsert external skills  |
-| `rules`        | Step 6 — Upsert rules            |
-| `settings`     | Step 7 — Upsert Claude settings  |
-| `plugins`      | Step 8 — Upsert plugins          |
+| `rtk`          | Step 5 — Install rtk             |
+| `skills`       | Step 6 — Upsert external skills  |
+| `rules`        | Step 7 — Upsert rules            |
+| `settings`     | Step 8 — Upsert Claude settings  |
+| `plugins`      | Step 9 — Upsert plugins          |
 
 Multiple arguments can be passed space-separated, e.g. `/get-started rules plugins settings`.
 
@@ -135,7 +136,31 @@ mkdir -p ~/.claude/skills/get-api-docs && curl -fsSL https://raw.githubuserconte
 
 Report whether chub was already installed or freshly installed, and confirm the skill was added to `~/.claude/skills/get-api-docs/SKILL.md`.
 
-## Step 5: Upsert external skills
+## Step 5: Install rtk
+
+**Argument: `rtk`**
+
+Check if `rtk` is already installed:
+
+```bash
+rtk --version 2>/dev/null && echo "installed" || echo "missing"
+```
+
+- If **missing**: install via Homebrew:
+  ```bash
+  brew install rtk
+  ```
+
+Then initialize rtk globally in silent mode and disable telemetry:
+
+```bash
+rtk init -g --auto-patch
+rtk telemetry disable
+```
+
+Report whether rtk was already installed or freshly installed, and confirm init and telemetry-disable completed.
+
+## Step 6: Upsert external skills
 
 **Argument: `skills`**
 
@@ -143,7 +168,7 @@ Report whether chub was already installed or freshly installed, and confirm the 
 bash "<base-dir>/scripts/upsert-skills.sh"
 ```
 
-## Step 6: Upsert rules
+## Step 7: Upsert rules
 
 **Argument: `rules`**
 
@@ -151,7 +176,7 @@ bash "<base-dir>/scripts/upsert-skills.sh"
 bash "<base-dir>/scripts/upsert-rules.sh"
 ```
 
-## Step 7: Upsert Claude Code settings
+## Step 8: Upsert Claude Code settings
 
 **Argument: `settings`**
 
@@ -159,7 +184,7 @@ bash "<base-dir>/scripts/upsert-rules.sh"
 bash "<base-dir>/scripts/upsert-claude-settings.sh"
 ```
 
-## Step 8: Upsert plugins
+## Step 9: Upsert plugins
 
 **Argument: `plugins`**
 
