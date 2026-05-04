@@ -79,6 +79,19 @@
         "atlassian"
       ],
       "strict": false
+    },
+    {
+      "name": "experiment",
+      "source": "./experiment",
+      "description": "Sandbox plugin for experimenting with new hooks and skills before promoting them to a stable plugin.",
+      "version": "0.1.0",
+      "tags": [
+        "experiment",
+        "sandbox",
+        "hooks",
+        "skills"
+      ],
+      "strict": false
     }
   ]
 }

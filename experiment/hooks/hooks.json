@@ -1,0 +1,17 @@
+{
+  "description": "Powerball Experiment Plugin Hooks — sandbox for trying new hook patterns before promoting to personal or workplace.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PLUGIN_ROOT/skills/optimize-skill-reminder/scripts/hook.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
