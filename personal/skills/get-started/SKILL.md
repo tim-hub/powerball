@@ -140,25 +140,7 @@ Report whether chub was already installed or freshly installed, and confirm the 
 
 **Argument: `rtk`**
 
-Check if `rtk` is already installed:
-
-```bash
-rtk --version 2>/dev/null && echo "installed" || echo "missing"
-```
-
-- If **missing**: install via Homebrew:
-  ```bash
-  brew install rtk
-  ```
-
-Then initialize rtk globally in silent mode and disable telemetry:
-
-```bash
-rtk init -g --auto-patch
-rtk telemetry disable
-```
-
-Report whether rtk was already installed or freshly installed, and confirm init and telemetry-disable completed.
+Invoke the `rtk-setup` skill to handle RTK installation and configuration.
 
 ## Step 6: Upsert external skills
 
