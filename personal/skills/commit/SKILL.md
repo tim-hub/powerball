@@ -1,9 +1,9 @@
 ---
 name: commit
-description: This skill should be used when the user asks to "commit changes", "commit my work", "make a commit", "stage and commit", or wants to save progress with a git commit. Stages relative changes and commits with an auto-generated conventional commit message.
+description: Stage all relevant changes and commit with an auto-generated conventional commit message. Use when the user asks to commit changes, commit work, make a commit, or save progress.
 argument-hint: "[optional context or hint for the commit message]"
 user-invocable: true
-allowed-tools: Bash, Read
+allowed-tools: Bash
 context: fork
 model: haiku
 ---
@@ -14,16 +14,14 @@ If the user provided an argument, treat it as a hint or context for the commit m
 
 ## Process
 
-1. Run `git status` to see all changed, untracked, and staged files.
-2. **Check for sensitive files** — scan the output for `.env`, credentials, secrets, or private keys. If found among changed/untracked files, warn the user and stop. Do not stage or commit them.
-3. Run `git diff HEAD` (or `git diff` + `git diff --cached`) to understand the actual changes.
-4. Analyze the diff to determine:
-   - The primary type of change: `feat`, `fix`, `refactor`, `docs`, `chore`, `test`, `style`, `perf`, `ci`, or `build`
+1. Run `git status` and `git diff HEAD` together to see all changes. **If any sensitive files** (`.env`, credentials, secrets, private keys) appear in the output, warn the user and stop — do not stage or commit them.
+2. Analyze the diff to determine:
+   - The primary type of change — see Type Selection Guide below
    - A concise scope (optional) — the module, file, or area affected
-   - A short imperative summary (under 72 chars) describing WHAT changed and WHY
-5. Stage changes with `git add -A`.
-6. Commit with the generated message.
-7. Push to remote only if the user explicitly asked to push.
+   - A short imperative summary (under 72 chars) describing WHAT changed
+3. Stage changes with `git add -A`.
+4. Commit with the generated message.
+5. Push to remote only if the user explicitly asked to push.
 
 ## Conventional Commit Format
 
@@ -39,7 +37,7 @@ Optional longer body explaining the why, not the what.
 - Summary under 72 characters
 - No period at the end of the summary line
 - If changes span multiple concerns, pick the dominant one for the type; mention others in body
-- Body only when the summary alone would be unclear
+- Body only when motivation or context isn't obvious from the summary
 
 ## Type Selection Guide
 
@@ -47,18 +45,18 @@ Optional longer body explaining the why, not the what.
 - `fix` — corrects a bug or broken behavior
 - `refactor` — code restructure with no behavior change
 - `docs` — documentation only
-- `chore` — tooling, deps, config, build
+- `chore` — tooling, config, build
 - `test` — adding or updating tests
 - `style` — formatting, whitespace, no logic change
 - `perf` — performance improvement
 - `ci` — CI/CD pipeline changes
-- `build` — build system or external dependency changes
+- `build` — external dependency changes (package upgrades, lockfile bumps)
+- `skill` — additions or updates to agent AI coding skills, prompts, or skill definitions
 
 ## Edge Cases
 
-- Nothing to commit: Report `git status` and stop.
-- Already-staged files exist: Stage all remaining changes too (`git add -A` covers both).
-- Massive diff spanning many files: Use a broader type (`chore` or `refactor`) with a body summarizing the scope.
-- Sensitive files (`.env`, credentials): Do NOT commit them. Warn the user and stop.
+- Nothing to commit: report `git status` and stop.
+- Already-staged files exist: `git add -A` will stage remaining changes too.
+- Massive diff spanning many files: use a broader type (`chore` or `refactor`) with a body summarizing the scope.
 
 After committing, confirm with the commit hash and message so the user can see what was saved.
