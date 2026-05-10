@@ -3,7 +3,7 @@ name: commit
 description: Stage all relevant changes and commit with an auto-generated conventional commit message. Use when the user asks to commit changes, commit work, make a commit, or save progress.
 argument-hint: "[optional context or hint for the commit message]"
 user-invocable: true
-allowed-tools: Bash
+allowed-tools: Bash, Read
 context: fork
 model: haiku
 ---
