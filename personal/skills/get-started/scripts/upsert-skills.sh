@@ -7,6 +7,7 @@ set -euo pipefail
 SKILLS=(
   "https://github.com/chromedevtools/chrome-devtools-mcp --skill chrome-devtools-cli"
   "https://github.com/mblode/agent-skills --skill mermaid-mind-map"
+  "https://github.com/jakubkrehel/make-interfaces-feel-better"
 )
 
 MATTPOCOCK_SKILLS=(
