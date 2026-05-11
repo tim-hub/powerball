@@ -45,7 +45,7 @@ echo "Recommended plugins to install:"
 for plugin in "${PLUGINS[@]}"; do
   echo "  - ${plugin}@claude-plugins-official"
 done
-echo "  - spower@spower-marketplace"
+echo "  - spower@spower"
 echo ""
 echo "PM plugins (from phuryn/pm-skills marketplace):"
 for plugin in "${PM_PLUGINS[@]}"; do
@@ -65,8 +65,10 @@ if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
     claude plugin install "${plugin}@claude-plugins-official"
   done
 
+  echo "Adding spower marketplace..."
+  claude plugin marketplace add tim-hub/superpowers
   echo "Installing spower..."
-  claude plugin install "spower@spower-marketplace"
+  claude plugin install spower@spower
 
   echo "Adding pm-skills marketplace..."
   claude plugin marketplace add phuryn/pm-skills
