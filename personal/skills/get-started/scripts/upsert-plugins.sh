@@ -25,17 +25,6 @@ PLUGINS=(
   typescript-lsp
 )
 
-PM_PLUGINS=(
-  pm-toolkit
-  pm-product-strategy
-  pm-product-discovery
-  pm-market-research
-  pm-data-analytics
-  pm-marketing-growth
-  pm-go-to-market
-  pm-execution
-)
-
 KARPATHY_PLUGINS=(
   andrej-karpathy-skills
 )
@@ -46,11 +35,6 @@ for plugin in "${PLUGINS[@]}"; do
   echo "  - ${plugin}@claude-plugins-official"
 done
 echo "  - spower@spower"
-echo ""
-echo "PM plugins (from phuryn/pm-skills marketplace):"
-for plugin in "${PM_PLUGINS[@]}"; do
-  echo "  - ${plugin}@pm-skills"
-done
 echo ""
 echo "Karpathy plugins (from forrestchang/andrej-karpathy-skills marketplace):"
 for plugin in "${KARPATHY_PLUGINS[@]}"; do
@@ -69,14 +53,6 @@ if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
   claude plugin marketplace add tim-hub/superpowers
   echo "Installing spower..."
   claude plugin install spower@spower
-
-  echo "Adding pm-skills marketplace..."
-  claude plugin marketplace add phuryn/pm-skills
-
-  for plugin in "${PM_PLUGINS[@]}"; do
-    echo "Installing $plugin..."
-    claude plugin install "${plugin}@pm-skills"
-  done
 
   echo "Adding karpathy-skills marketplace..."
   claude plugin marketplace add forrestchang/andrej-karpathy-skills
