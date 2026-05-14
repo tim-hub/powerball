@@ -1,8 +1,9 @@
 ## Powerball
 
-A marketplace of Claude Code plugins for productivity, git workflows, spec-driven development, and workplace integrations.
+A marketplace of Claude Code plugins for productivity, software development workflows, spec-driven development, and workplace integrations.
 
-If you are looking for PowerBall Harness, it is located at [tim-hub/powerball-harness](https://github.com/tim-hub/powerball-harness).
+- If you are looking for PowerBall Harness, it is located at [tim-hub/powerball-harness](https://github.com/tim-hub/powerball-harness).
+- I also maintained a [clone of superpowers](https://github.com/tim-hub/superpowers) for Claude Code only, it give up compatibility to other agents to gain better practices and native features from ClaudeCode.
 
 > In theory all the skills and scripts can be worked on other agent coding tools too, however, this was not tested.
 
