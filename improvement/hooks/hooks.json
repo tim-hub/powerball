@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PLUGIN_ROOT/hook-scripts/daily-skill-report.py\"",
+            "command": "python3 \"$CLAUDE_PLUGIN_ROOT/skills/skill-usage-report/report.py\"",
             "timeout": 10
           }
         ]
