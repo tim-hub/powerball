@@ -1,7 +1,7 @@
 ---
 name: update-skill
 description: "Refines an existing project skill in .claude/skills/ with new learnings from the current session. Use when updating or improving an existing skill, or when distill-session identifies the learning extends an existing skill rather than warranting a new one."
-when_to_use: "update the skill, improve this skill, this skill should handle, extend existing skill, refine skill, skill needs updating"
+when_to_use: "update SKILL.md, update an existing skill, improve this skill, extend existing skill, refine skill, tighten skill description, skill needs updating, skill didn't trigger"
 model: opus
 effort: medium
 ---
