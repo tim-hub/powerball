@@ -1,6 +1,6 @@
 ## Powerball
 
-A marketplace of Claude Code plugins for productivity, software development workflows, spec-driven development, and workplace integrations.
+A marketplace of Claude Code plugins for productivity, software development workflows, and spec-driven development.
 
 - If you are looking for PowerBall Harness, it is located at [tim-hub/powerball-harness](https://github.com/tim-hub/powerball-harness).
 - I also maintained a [clone of superpowers](https://github.com/tim-hub/superpowers) for Claude Code only, it give up compatibility to other agents to gain better practices and native features from ClaudeCode.
@@ -9,20 +9,20 @@ A marketplace of Claude Code plugins for productivity, software development work
 
 ### Plugins
 
+#### `powerball-personal`
+Agentic tools for git workflows, issue resolution, code review, creative writing, doc searching, and content translation.
 
-#### `powerball-pbl`
-Plan, Build, Lodge — spec-driven development pipeline:
-- `/explore` — guided codebase exploration with Mermaid diagrams, saved to `.powerball/specs/`
-- `/plan` — implementation planning with architecture decisions, tasks, and checklists
-- `/build` — task execution with subagents in worktrees, checklist verification, and code review
-- `/lodge` — move completed specs to `.powerball/lodge/`
-- [more](pbl/README.md)
+#### `openspec-rewrite`
+Spec-driven development — setup, explore, propose, implement, verify, sync, and archive changes.
 
-#### `powerball-workplace`
-Skills for workplace tool integrations:
-- Jira ticket analyzer — fetch and analyze Jira tickets to produce actionable development plans
-- Build knowledge — capture what was done, why, and challenges faced to a persistent knowledge base
-- Dig knowledge — search past development knowledge during exploration, planning, or troubleshooting
+#### `improvement`
+Skill usage logging and workflow distillation — logs every skill invocation, surfaces a usage summary on session start, and provides skills for capturing and refining reusable workflows.
+
+#### `experiment`
+Sandbox for trying new hooks and skills before promoting them to a stable plugin. Requires `/optimize-skill` from the marketplace.
+
+#### `entrepreneur`
+Marketing, growth, and PM tools for founders and small teams.
 
 ### Install
 
@@ -30,11 +30,12 @@ Skills for workplace tool integrations:
 /plugin marketplace add tim-hub/powerball
 ```
 
-Install 4 plugins,
-- personal (compulsory, the other plugins depend on this one)
-- pbl - [more](pbl/README.md)
-- workplace - [more](workplace/README.md)
+Install plugins:
+- personal (compulsory)
 - openspec-rewrite - [more](openspec-rewrite/README.md)
+- improvement
+- experiment
+- entrepreneur
 
 
 
