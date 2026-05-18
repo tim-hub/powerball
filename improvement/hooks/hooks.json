@@ -20,7 +20,8 @@
           {
             "type": "command",
             "command": "bash \"$CLAUDE_PLUGIN_ROOT/hook-scripts/log-skill.sh\"",
-            "timeout": 5
+            "timeout": 5,
+            "async": true
           }
         ]
       }

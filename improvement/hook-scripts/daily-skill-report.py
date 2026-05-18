@@ -40,7 +40,7 @@ def render_section(label, rows):
         bar = "▪" * min(round(count / max_count * 20), 20)
         print(f"    {skill:<42} {bar} {count}")
 
-print(f"\n┌─ Skill Usage Report · {today} ──────────────────────")
+print(f"\n┌─ Skill Usage Report · {now.strftime('%Y-%m-%d')} ──────────────────────")
 render_section("Last 24 h", top(now - timedelta(days=1)))
 render_section("Last 7 days", top(now - timedelta(days=7)))
 render_section("All time", top(datetime.min.replace(tzinfo=timezone.utc)))
