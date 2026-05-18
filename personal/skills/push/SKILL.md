@@ -1,6 +1,6 @@
 ---
 name: push
-description: Push the current branch to the remote, setting upstream tracking if needed. Use when the user asks to push, push to remote, push changes, or sync with remote.
+description: Push the current branch to remote, setting upstream if needed. Use when the user asks to push, push to remote, push changes, or sync with remote.
 argument-hint: "[optional: remote name, defaults to origin]"
 user-invocable: true
 allowed-tools: Bash
@@ -8,22 +8,16 @@ context: fork
 model: haiku
 ---
 
-Push the current branch to its remote, then confirm what was pushed.
+Push the current branch to its remote.
 
-## Process
+## Steps
 
-1. Run `git status` to check for uncommitted changes. If there are any, warn the user — do not commit them automatically.
-2. Run `git branch --show-current` to get the branch name.
-3. Check if the branch has an upstream: `git rev-parse --abbrev-ref @{u}` (exit code non-zero = no upstream yet).
-4. Push:
-   - No upstream: `git push -u origin <branch>`
-   - Has upstream: `git push`
-5. Report the remote URL and the number of commits pushed (`git log @{u}..HEAD --oneline` before pushing gives the count).
+1. `git status` — if uncommitted changes exist, warn and stop.
+2. No upstream → `git push -u origin <branch>`, has upstream → `git push`.
+3. Confirm the remote branch and commits sent.
 
-## Edge Cases
+## Guards
 
-- Nothing to push (already up to date): say so and stop.
-- Rejected push (non-fast-forward): report the error, suggest `git pull --rebase` to reconcile, and stop — do not force push.
-- Detached HEAD: warn the user and stop.
-
-After pushing, confirm with the remote branch name and the commits that were sent.
+- Already up to date: say so and stop.
+- Rejected (non-fast-forward): report error, suggest `git pull --rebase`, do not force push.
+- Detached HEAD: warn and stop.
