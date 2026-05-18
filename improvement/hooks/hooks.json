@@ -7,8 +7,7 @@
           {
             "type": "command",
             "command": "python3 \"$CLAUDE_PLUGIN_ROOT/hook-scripts/daily-skill-report.py\"",
-            "timeout": 10,
-            "async": true
+            "timeout": 10
           }
         ]
       }
