@@ -58,8 +58,15 @@
       "name": "improvement",
       "source": "./improvement",
       "description": "Skills and hooks for continuous workflow improvement — logs skill usage, distills session workflows into reusable skills, and refines existing skills with new learnings.",
-      "version": "0.1.0",
-      "tags": ["improvement", "skills", "distill", "hooks", "logging", "workflow"],
+      "version": "0.1.2",
+      "tags": [
+        "improvement",
+        "skills",
+        "distill",
+        "hooks",
+        "logging",
+        "workflow"
+      ],
       "strict": false
     },
     {
