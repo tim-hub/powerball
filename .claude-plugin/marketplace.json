@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "A marketplace of plugins for Claude Code, featuring tools for code management, creative writing, workplace productivity, and more.",
-    "version": "3.0.0"
+    "version": "3.0.1"
   },
   "plugins": [
     {
       "name": "powerball-personal",
       "source": "./personal",
       "description": "Agentic tools for setup claude code, git workflows, issue resolution, code review, creative writing, doc searching, code example searching, and content translation — from PR descriptions to fixing GitHub issues and translating markdown.",
-      "version": "0.8.7",
+      "version": "0.8.8",
       "tags": [
         "git",
         "pull-requests",
@@ -34,7 +34,7 @@
       "name": "openspec-rewrite",
       "source": "./openspec-rewrite",
       "description": "Rewritten OpenSpec workflow skills — setup, explore, propose, implement, verify, sync, and archive changes.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "tags": [
         "openspec",
         "spec-driven",
@@ -50,7 +50,7 @@
       "name": "experiment",
       "source": "./experiment",
       "description": "Sandbox plugin for experimenting with new hooks and skills before promoting them to a stable plugin.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": ["experiment", "sandbox", "hooks", "skills"],
       "strict": false
     },
@@ -58,7 +58,7 @@
       "name": "improvement",
       "source": "./improvement",
       "description": "Skills and hooks for continuous workflow improvement — logs skill usage, distills session workflows into reusable skills, and refines existing skills with new learnings.",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "tags": [
         "improvement",
         "skills",
