@@ -32,10 +32,10 @@ This skill accepts optional arguments to run specific steps. With no arguments o
 | `playwright`   | Step 3 — Install playwright-cli  |
 | `chub`         | Step 4 — Install chub            |
 | `rtk`          | Step 5 — Install rtk             |
-| `skills`       | Step 6 — Upsert external skills  |
+| `skills`       | Step 6 — Sync skills  |
 | `rules`        | Step 7 — Upsert rules            |
 | `settings`     | Step 8 — Upsert Claude settings  |
-| `plugins`      | Step 9 — Upsert plugins          |
+| `plugins`      | Step 9 — Sync plugins          |
 
 Multiple arguments can be passed space-separated, e.g. `/get-started rules plugins settings`.
 
