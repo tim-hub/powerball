@@ -2,7 +2,7 @@
 input=$(cat)
 echo "$input" >> /tmp/statusline-debug.json
 
-eval "$(echo "$input" | jq -r '@sh "MODEL=\(.model.display_name) DIR=\(.workspace.current_dir) COST=\(.cost.total_cost_usd // 0) PCT=\(.context_window.used_percentage // 0 | floor) DURATION_MS=\(.cost.total_duration_ms // 0) TRANSCRIPT=\(.transcript_path // "")"')"
+eval "$(echo "$input" | jq -r '@sh "MODEL=\(.model.display_name) DIR=\(.workspace.current_dir) COST=\(.cost.total_cost_usd // 0) PCT=\(.context_window.used_percentage // 0 | floor) DURATION_MS=\(.cost.total_duration_ms // 0) TRANSCRIPT=\(.transcript_path // "") EFFORT=\(.effort.level // "normal") THINKING=\(.thinking.enabled // false) FAST=\(.fast_mode // false)"')"
 
 REMOTE=$(git remote get-url origin 2>/dev/null | sed 's/git@\([^:]*\):/https:\/\/\1\//' | sed 's/\.git$//')
 BRANCH=$(git rev-parse --git-dir > /dev/null 2>&1 && git branch --show-current 2>/dev/null || true)
@@ -23,6 +23,17 @@ C_BRANCH='\033[38;5;81m'    C_STAGED='\033[38;5;82m'    C_MODIFIED='\033[38;5;21
 # Line 2
 C_PIPE='\033[38;5;238m'     C_IDLE='\033[38;5;252m'
 N_SKILL=226   # bright yellow (used with c256/bold256)
+
+# Effort level → 256-color number
+effort_color() {
+    case "$1" in
+        low)    echo 244 ;;  # gray
+        normal) echo 250 ;;  # light gray
+        high)   echo 82  ;;  # lime green
+        max)    echo 201 ;;  # magenta
+        *)      echo 250 ;;
+    esac
+}
 
 # Tool → 256-color number
 tool_color() {
@@ -58,10 +69,17 @@ fi
 
 CC_VERSION=$(claude --version 2>/dev/null | awk '{print $1}')
 
+# Effort + thinking badge
+EFFORT_LABEL="$EFFORT"
+[ "$THINKING" = "true" ] && EFFORT_LABEL+="💭"
+[ "$FAST" = "true" ] && EFFORT_LABEL="⚡fast"
+EFFORT_DISPLAY=$(c256 "$(effort_color "$EFFORT")" "$EFFORT_LABEL")
+
 # Line 1
-printf "${C_MODEL}[%s]${RS} | %b | ${BAR_COLOR}%s${RS} %s%% | ${C_COST}%s${RS} | ⏱️ %dm %ds | ${C_MODEL}v%s${RS}\n" \
+printf "${C_MODEL}[%s]${RS} | %b | ${BAR_COLOR}%s${RS} %s%% | ${C_COST}%s${RS} | ⏱️ %dm %ds | %b | ${C_MODEL}v%s${RS}\n" \
     "$MODEL" "$LOCATION" "$BAR" "$PCT" \
-    "$(printf '$%.2f' "$COST")" "$((DURATION_MS / 60000))" "$(( (DURATION_MS % 60000) / 1000 ))" "$CC_VERSION"
+    "$(printf '$%.2f' "$COST")" "$((DURATION_MS / 60000))" "$(( (DURATION_MS % 60000) / 1000 ))" \
+    "$EFFORT_DISPLAY" "$CC_VERSION"
 
 # Line 2: tools, skills, MCP
 if [ -n "$TRANSCRIPT" ] && [ -f "$TRANSCRIPT" ]; then
