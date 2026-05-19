@@ -1,6 +1,7 @@
 ---
 name: openspec-propose
-description: This skill should be used when the user asks to "propose a change", "create a full proposal", "generate all artifacts", or "quickly plan a feature" with design, specs, and tasks ready for implementation in one step.
+description: "Generates a full OpenSpec proposal with design, specs, and tasks in one step. Use when quickly planning a feature end-to-end."
+when_to_use: "propose a change, create a full proposal, generate all artifacts, quickly plan a feature, openspec propose"
 argument-hint: "[change name or description]"
 user-invocable: true
 model: opus

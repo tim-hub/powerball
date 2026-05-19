@@ -1,6 +1,7 @@
 ---
 name: creative-writing
-description: This skill should be used when the user asks to "write a post about", "create content for", "draft a description of", "generate copy for", "write a tweet", "write a LinkedIn post", "write an announcement", "draft an email", or requests any written material such as blog posts, marketing copy, social media posts, product descriptions, emails, or social media updates.
+description: "Generates written content — blog posts, social posts, emails, and marketing copy — matched to the project's existing voice. Use when the user needs written material."
+when_to_use: "write a post, create content, draft a description, generate copy, write a tweet, LinkedIn post, announcement, draft an email, blog post, marketing copy, social media, product description"
 user-invocable: true
 disable-model-invocation: true
 model: sonnet

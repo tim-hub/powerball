@@ -1,6 +1,7 @@
 ---
 name: openspec-verify-change
-description: This skill should be used when the user asks to "verify implementation", "validate a change", "check if implementation is complete", or "review before archiving" an OpenSpec change.
+description: "Verifies that implementation matches an OpenSpec change before archiving. Use when checking completeness before closing a change."
+when_to_use: "verify implementation, validate a change, check if implementation is complete, review before archiving"
 argument-hint: "[change name]"
 user-invocable: true
 disable-model-invocation: false

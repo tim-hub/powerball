@@ -1,6 +1,7 @@
 ---
 name: language-translate
-description: General-purpose translation between any two languages while preserving source format. Use this skill whenever the user needs to translate plain text, code snippets, markdown, or mixed content from one language to another. Automatically detects source language; user specifies target. Preserves markdown syntax, preserves code (translating only comments and docstrings), and keeps output format identical to input format. This is the core translation primitive — other skills like translate-markdown build on top of it.
+description: "Translates text between any two languages while preserving source format. Use when the user needs to translate plain text, code, or markdown content."
+when_to_use: "translate, language translate, translate text, translate code, translate markdown, source to target language, auto-detect language"
 user-invocable: true
 model: haiku
 disable-model-invocation: false

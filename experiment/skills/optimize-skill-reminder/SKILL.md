@@ -1,6 +1,7 @@
 ---
 name: optimize-skill-reminder
-description: This skill should be used when the user asks about the optimize-skill PostToolUse hook, wants to understand how it works, or needs to disable it. The hook itself runs automatically via hooks.json — no installation required.
+description: "Explains the optimize-skill PostToolUse hook and how to disable it. Use when asking about or managing this hook."
+when_to_use: "optimize-skill hook, PostToolUse hook, skill reminder hook, disable optimize skill hook, how does optimize-skill work"
 user-invocable: true
 model: haiku
 allowed-tools: Bash, Read, Edit

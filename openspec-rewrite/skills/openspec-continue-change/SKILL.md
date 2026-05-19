@@ -1,6 +1,7 @@
 ---
 name: openspec-continue-change
-description: This skill should be used when the user asks to "continue a change", "create the next planning artifact", "progress my change", or "keep working on" an OpenSpec change to advance the artifact workflow (proposal → specs → design → tasks).
+description: "Advances an OpenSpec change through the artifact workflow (proposal → specs → design → tasks). Use when progressing a change to the next planning stage."
+when_to_use: "continue a change, create next planning artifact, progress my change, keep working on change, openspec continue, advance workflow"
 argument-hint: "[change name]"
 user-invocable: true
 disable-model-invocation: false

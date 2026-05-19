@@ -1,6 +1,7 @@
 ---
 name: openspec-sync-specs
-description: This skill should be used when the user asks to "sync OpenSpec specs", "update main specs", "apply delta specs", or "sync changes to specs" from an OpenSpec change without archiving.
+description: "Syncs delta specs from an OpenSpec change into the main specs without archiving. Use when applying spec changes without closing the change."
+when_to_use: "sync OpenSpec specs, update main specs, apply delta specs, sync changes to specs"
 argument-hint: "[change name]"
 user-invocable: true
 model: haiku

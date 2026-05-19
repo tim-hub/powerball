@@ -1,6 +1,7 @@
 ---
 name: fix-issue
-description: This skill should be used when the user asks to "fix issue", "resolve issue", "address bug in issue", "fix #42", "resolve #7", or provides a GitHub issue number or URL to implement.
+description: "Implements a fix for a GitHub issue. Use when given an issue number or URL to resolve."
+when_to_use: "fix issue, resolve issue, address bug in issue, fix #42, resolve GitHub issue, implement issue"
 argument-hint: "[issue number or URL]"
 user-invocable: true
 model: sonnet

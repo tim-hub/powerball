@@ -1,6 +1,7 @@
 ---
 name: translate-markdown
-description: This skill should be used when the user asks to "translate this file to Spanish", "convert this markdown to French", "translate the docs to Japanese", or wants to translate any markdown file or text content from one language to another.
+description: "Translates a markdown file to a target language, preserving structure. Use when the user needs a markdown file translated."
+when_to_use: "translate this file, convert markdown to French, translate docs to Japanese, translate markdown, translate content to language"
 user-invocable: true
 model: haiku
 disable-model-invocation: true

@@ -1,6 +1,7 @@
 ---
 name: openspec-new-change
-description: This skill should be used when the user asks to "scaffold a change", "create a new change", "begin a new modification", or "start a new OpenSpec workflow" without generating artifacts yet.
+description: "Scaffolds a new OpenSpec change without generating artifacts yet. Use when starting a new change workflow."
+when_to_use: "scaffold a change, create a new change, begin a modification, start a new OpenSpec workflow, openspec new"
 argument-hint: "[change name]"
 user-invocable: true
 model: haiku

@@ -1,6 +1,7 @@
 ---
 name: openspec-explore
-description: This skill should be used when the user asks to "explore an idea", "think through a problem", "investigate a design", "brainstorm approaches", or "clarify requirements" before or during an OpenSpec change.
+description: "Explores ideas, designs, or requirements before or during an OpenSpec change. Use when investigating an approach or clarifying requirements."
+when_to_use: "explore an idea, think through a problem, investigate a design, brainstorm approaches, clarify requirements, openspec explore"
 argument-hint: "[change name or topic]"
 user-invocable: true
 agent: Explore

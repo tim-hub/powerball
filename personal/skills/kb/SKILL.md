@@ -1,6 +1,7 @@
 ---
 name: kb
-description: Knowledge base maintenance skill. Use this skill to save, update, or upsert insights, learnings, decisions, and important information gained during a conversation to the project's knowledge base. Trigger this skill whenever the user gains a new insight, makes an important decision, wants to remember something, or says "save this to kb", "add to knowledge base", "remember this", "note this down", "kb add", "kb upsert", "kb update". Also trigger proactively after solving a complex problem, completing a feature, or discovering a non-obvious pattern. MANDATORY: Always trigger when a Stop hook prompt instructs you to save — evaluate the last response and save any non-obvious insight, decision, or pattern to the knowledge base.
+description: "Saves insights, decisions, and learnings from the current conversation to the project knowledge base. Use when the user wants to remember something or after solving a non-obvious problem."
+when_to_use: "save this to kb, add to knowledge base, remember this, note this down, kb add, kb upsert, kb update, save insight, capture decision, stop hook save"
 argument-hint: "[optional: topic hint]"
 user-invocable: true
 allowed-tools: Bash, Read

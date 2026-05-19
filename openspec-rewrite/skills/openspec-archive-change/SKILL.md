@@ -1,6 +1,7 @@
 ---
 name: openspec-archive-change
-description: This skill should be used when the user asks to "archive a change", "finalize a change", "close out a change", or "move a change to archive" after tasks are done.
+description: "Archives a completed OpenSpec change after tasks are done. Use when finalizing or closing out a change."
+when_to_use: "archive a change, finalize a change, close out a change, move change to archive"
 argument-hint: "[change name]"
 user-invocable: true
 model: haiku

@@ -1,6 +1,7 @@
 ---
 name: skill-review
-description: This skill should be used when the user asks to "review a skill", "check skill quality", "review my SKILL.md", "audit skills", or wants to ensure skills are clear, consistent, and follow repo conventions. Use proactively after creating or editing any skill in this repo.
+description: "Reviews skills for clarity, consistency, and adherence to this repo's conventions. Use when auditing or editing a skill."
+when_to_use: "review a skill, check skill quality, review my SKILL.md, audit skills, skill quality check"
 argument-hint: "[path to skill directory or SKILL.md]"
 user-invocable: true
 model: opus

@@ -1,6 +1,6 @@
 ---
 name: skill-usage-report
-description: "This skill should be used when the user asks to show skill usage, see skill stats, view skill report, or check which skills have been used most."
+description: "Shows a report of skill invocations and usage frequency. Use when reviewing which skills are being used."
 when_to_use: "skill usage report, show skill stats, which skills am I using, skill summary, how often are skills used"
 user-invocable: true
 model: haiku

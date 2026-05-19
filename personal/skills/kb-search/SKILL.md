@@ -1,8 +1,8 @@
 ---
 name: kb-search
-description: Knowledge base search skill. Use this skill when the user wants to search anything, search in knowledgebase, find past notes, look up stored information, recall what was previously documented,  or any variation of searching local notes/knowledge. Also trigger when a question could be answered by prior documented knowledge.
+description: "Searches the project knowledge base for stored insights and notes. Use when looking up previously documented information."
 argument-hint: "<search keyword or phrase>"
-when-to-use: "kb search", "search kb", "find in knowledge base", "look up X in kb", "what do we know about X", "search my notes for X", "search notes", "ocal search"
+when_to_use: "kb search, search kb, find in knowledge base, look up in kb, what do we know about, search my notes, search notes, local search"
 user-invocable: true
 allowed-tools: Bash, Read
 model: haiku

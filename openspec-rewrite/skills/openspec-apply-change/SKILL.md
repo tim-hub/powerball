@@ -1,6 +1,7 @@
 ---
 name: openspec-apply-change
-description: This skill should be used when the user asks to "implement tasks", "start implementing", "apply a change", or "work through tasks" of an OpenSpec change.
+description: "Implements the tasks in an OpenSpec change. Use when starting or working through tasks in a change."
+when_to_use: "implement tasks, start implementing, apply a change, work through tasks, openspec tasks"
 argument-hint: "[change name]"
 user-invocable: true
 disable-model-invocation: false

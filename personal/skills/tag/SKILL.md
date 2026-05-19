@@ -1,6 +1,7 @@
 ---
 name: tag
-description: This skill should be used when the user asks to "tag a release", "create a git tag", "tag this version", "add a version tag", or wants to mark a release point in git history.
+description: "Tags the current git repository with a new version tag. Use when marking a release point in git history."
+when_to_use: "tag a release, create a git tag, tag this version, add a version tag, mark release"
 argument-hint: "[optional tag name, e.g. v1.2.3]"
 model: haiku
 user-invocable: true
