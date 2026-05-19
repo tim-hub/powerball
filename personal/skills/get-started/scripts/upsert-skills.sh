@@ -5,31 +5,31 @@ set -euo pipefail
 # To add a new skill, append a line to the SKILLS array below.
 
 SKILLS=(
-  "https://github.com/chromedevtools/chrome-devtools-mcp --skill chrome-devtools-cli"
-  "https://github.com/mblode/agent-skills --skill mermaid-mind-map"
-  "https://github.com/jakubkrehel/make-interfaces-feel-better"
+  # "https://github.com/chromedevtools/chrome-devtools-mcp --skill chrome-devtools-cli"
+  # "https://github.com/mblode/agent-skills --skill mermaid-mind-map"
+  # "https://github.com/jakubkrehel/make-interfaces-feel-better"
 )
 
 MATTPOCOCK_SKILLS=(
   grill-me
-  tdd
-  improve-codebase-architecture
-  write-a-prd
-  write-a-skill
-  prd-to-issues
-  to-prd
-  to-issues
-  prd-to-plan
-  triage-issue
-  caveman
-  setup-pre-commit
+  # tdd
+  # improve-codebase-architecture
+  # write-a-prd
+  # write-a-skill
+  # prd-to-issues
+  # to-prd
+  # to-issues
+  # prd-to-plan
+  # triage-issue
+  # caveman
+  # setup-pre-commit
   zoom-out
-  edit-article
-  github-triage
-  scaffold-exercises
+  # edit-article
+  # github-triage
+  # scaffold-exercises
   grill-with-docs
-  domain-model
-  triage
+  # domain-model
+  # triage
 )
 
 installed=0
