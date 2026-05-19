@@ -68,25 +68,6 @@
         "workflow"
       ],
       "strict": false
-    },
-    {
-      "name": "entrepreneur",
-      "source": "./entrepreneur",
-      "description": "Marketing, growth, and PM tools for entrepreneurs, bootstrappers, solo founders, and small teams — includes PM toolkit, inference-sh, PostHog analytics, and go-to-market skills.",
-      "version": "0.1.0",
-      "tags": [
-        "entrepreneur",
-        "marketing",
-        "growth",
-        "pm",
-        "product-management",
-        "analytics",
-        "posthog",
-        "go-to-market",
-        "startup",
-        "bootstrapper"
-      ],
-      "strict": false
     }
   ]
 }
