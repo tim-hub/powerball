@@ -12,21 +12,32 @@
     {
       "name": "powerball-personal",
       "source": "./personal",
-      "description": "Agentic tools for setup claude code, git workflows, issue resolution, code review, creative writing, doc searching, code example searching, and content translation — from PR descriptions to fixing GitHub issues and translating markdown.",
-      "version": "0.8.8",
+      "description": "Agentic tools for setting up Claude Code, git workflows, issue resolution, code review, doc searching, and knowledge base management.",
+      "version": "0.8.9",
       "tags": [
         "git",
         "pull-requests",
         "workflow",
         "issues",
         "code-review",
-        "creative-writing",
-        "markdown",
-        "translation",
         "agents",
         "context7",
         "grep",
         "setup claude"
+      ],
+      "strict": false
+    },
+    {
+      "name": "writing",
+      "source": "./writing",
+      "description": "Skills for content creation and translation — creative writing, markdown file translation, and general multi-language text translation.",
+      "version": "0.1.0",
+      "tags": [
+        "creative-writing",
+        "translation",
+        "markdown",
+        "content",
+        "language"
       ],
       "strict": false
     },
