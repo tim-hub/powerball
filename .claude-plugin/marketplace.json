@@ -68,6 +68,21 @@
         "workflow"
       ],
       "strict": false
+    },
+    {
+      "name": "powerball-dx",
+      "source": "./dx",
+      "description": "Developer experience toolkit — reusable CI/CD and workflow skills for diagnosing build failures, fixing tests, and maintaining pipelines.",
+      "version": "0.1.0",
+      "tags": [
+        "ci",
+        "cd",
+        "github-actions",
+        "pipeline",
+        "debugging",
+        "dx"
+      ],
+      "strict": false
     }
   ]
 }
