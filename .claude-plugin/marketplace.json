@@ -60,9 +60,9 @@
     {
       "name": "experiment",
       "source": "./experiment",
-      "description": "Sandbox plugin for experimenting with new hooks and skills before promoting them to a stable plugin.",
-      "version": "0.1.1",
-      "tags": ["experiment", "sandbox", "hooks", "skills"],
+      "description": "Sandbox plugin for experimenting with new hooks and skills before promoting them to a stable plugin. Includes CI/CD diagnostics and browser automation.",
+      "version": "0.1.2",
+      "tags": ["experiment", "sandbox", "hooks", "skills", "ci", "cd"],
       "strict": false
     },
     {
@@ -77,21 +77,6 @@
         "hooks",
         "logging",
         "workflow"
-      ],
-      "strict": false
-    },
-    {
-      "name": "powerball-dx",
-      "source": "./dx",
-      "description": "Developer experience toolkit — reusable CI/CD and workflow skills for diagnosing build failures, fixing tests, and maintaining pipelines.",
-      "version": "0.1.0",
-      "tags": [
-        "ci",
-        "cd",
-        "github-actions",
-        "pipeline",
-        "debugging",
-        "dx"
       ],
       "strict": false
     }
