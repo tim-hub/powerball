@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "A marketplace of plugins for Claude Code, featuring tools for code management, creative writing, workplace productivity, and more.",
-    "version": "3.0.1"
+    "version": "3.1.0"
   },
   "plugins": [
     {
@@ -76,6 +76,23 @@
         "distill",
         "hooks",
         "logging",
+        "workflow"
+      ],
+      "strict": false
+    },
+    {
+      "name": "multica",
+      "source": "./multica",
+      "description": "Skills for working with the Multica CLI — issue management, agent/squad setup, autopilot pipelines, label-driven workflows, and batch update scripts.",
+      "version": "0.1.0",
+      "tags": [
+        "multica",
+        "cli",
+        "autopilot",
+        "agents",
+        "squads",
+        "issues",
+        "labels",
         "workflow"
       ],
       "strict": false
