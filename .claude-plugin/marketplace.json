@@ -13,7 +13,7 @@
       "name": "powerball-personal",
       "source": "./personal",
       "description": "Agentic tools for setting up Claude Code, git workflows, issue resolution, code review, doc searching, and knowledge base management.",
-      "version": "0.8.9",
+      "version": "0.9.0",
       "tags": [
         "git",
         "pull-requests",
