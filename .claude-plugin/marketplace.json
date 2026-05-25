@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "A marketplace of plugins for Claude Code, featuring tools for code management, creative writing, workplace productivity, and more.",
-    "version": "3.1.0"
+    "version": "3.1.1"
   },
   "plugins": [
     {
       "name": "powerball-personal",
       "source": "./personal",
       "description": "Agentic tools for setting up Claude Code, git workflows, issue resolution, code review, doc searching, and knowledge base management.",
-      "version": "0.9.0",
+      "version": "0.9.1",
       "tags": [
         "git",
         "pull-requests",
@@ -69,7 +69,7 @@
       "name": "improvement",
       "source": "./improvement",
       "description": "Skills and hooks for continuous workflow improvement — logs skill usage, distills session workflows into reusable skills, and refines existing skills with new learnings.",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "tags": [
         "improvement",
         "skills",
