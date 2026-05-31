@@ -16,13 +16,14 @@ When invoked:
    - It was Q&A or pure exploration
    - The same outcome would come from a one-line prompt
 
-   If a similar skill already exists in `.claude/skills/`, **invoke `update-skill` instead** of creating a new one.
+> If a similar skill already exists in `.claude/skills/`, **invoke `update-skill`** instead of creating a new one.
 
 3. If worth saving, draft a SKILL.md with:
    - A short kebab-case `name`
    - A "pushy" description listing trigger phrases (skills under-trigger by default — be explicit about when to fire)
    - Instructions focused on what Claude wouldn't do correctly on its own. Skip generic advice.
    - Keep under 200 lines. Link out to `references/*.md` for anything longer.
+   - Use `/writing-skills` to write this skill.
 
 4. Show me the draft. Wait for approval before writing.
 
