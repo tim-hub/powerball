@@ -3,6 +3,7 @@ name: skill-usage-report
 description: "Shows a report of skill invocations and usage frequency."
 user-invocable: true
 model: haiku
+context: fork
 disable-model-invocation: true
 allowed-tools: Bash
 ---
