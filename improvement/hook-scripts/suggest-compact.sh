@@ -1,100 +1,28 @@
 #!/usr/bin/env bash
-# suggest-compact.sh
-# PostToolUse(Edit|Write) hook: increments a per-session tool-call counter and
-# suggests /compact at strategic checkpoints.
-#
-# Adapted from affaan-m/everything-claude-code strategic-compact/suggest-compact.sh
-# See: https://github.com/affaan-m/everything-claude-code/tree/main/skills/strategic-compact
-#
-# Harness adaptations vs upstream:
-#   - Counter at .claude/state/compact-counter-<session_id>.json (not /tmp/)
-#   - Emits {"systemMessage":"..."} on stdout at threshold (reaches model context,
-#     not just stderr operator breadcrumbs)
-#   - Env vars HARNESS_COMPACT_THRESHOLD / HARNESS_COMPACT_INTERVAL
-#   - Suppression: skips when role=worker AND plans.json has cc:WIP
-#   - Project root via git rev-parse per harness/rules/path-conventions.md
-#   - Always exits 0 — never blocks tool execution
-#
-# Hook config (harness/hooks/hooks.json):
-#   PostToolUse / matcher "Edit|Write" / command:
-#   bash "${CLAUDE_PLUGIN_ROOT}/scripts/suggest-compact.sh"
-
-set -euo pipefail
+# PostToolUse(Edit|Write) hook: tracks tool calls per session and suggests
+# /compact at configurable checkpoints.
 
 THRESHOLD="${HARNESS_COMPACT_THRESHOLD:-50}"
 INTERVAL="${HARNESS_COMPACT_INTERVAL:-25}"
 SESSION_ID="${CLAUDE_SESSION_ID:-default}"
 
-# project-root: user's git repository root
 PROJECT_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-STATE_DIR="${PROJECT_ROOT}/.claude/state"
-COUNTER_FILE="${STATE_DIR}/compact-counter-${SESSION_ID}.json"
-SESSION_FILE="${STATE_DIR}/session.json"     # project-root: session state
-PLANS_JSON="${PROJECT_ROOT}/.claude/harness/plans.json"  # project-root: plans.json SSOT
+COUNTER_FILE="${PROJECT_ROOT}/.claude/state/compact-counter-${SESSION_ID}.txt"
 
-# --- Suppression: worker session with cc:WIP tasks ---
-# Mirrors the PreCompact role-gate in pre-compact-save.js so we don't nag a
-# Worker that is already blocked from compacting.
-if [ -f "${SESSION_FILE}" ] && command -v python3 >/dev/null 2>&1; then
-  _role=$(python3 -c "
-import json, sys
-try:
-    d = json.load(open(sys.argv[1]))
-    print((d.get('role') or d.get('agent_role') or '').lower().strip())
-except Exception:
-    print('')
-" "${SESSION_FILE}" 2>/dev/null || true)
-  _wip_count=0
-  if command -v jq >/dev/null 2>&1 && [ -f "${PLANS_JSON}" ]; then
-    _wip_count=$(jq '[.phases[].tasks[]? | select(.status=="cc:WIP")] | length' "${PLANS_JSON}" 2>/dev/null || echo 0)
-  fi
-  if [ "${_role}" = "worker" ] && [ "${_wip_count:-0}" -gt 0 ]; then
-    echo "[HarnessCompact] suppressed (worker session with cc:WIP tasks)" >&2
-    exit 0
-  fi
-fi
+mkdir -p "${PROJECT_ROOT}/.claude/state" 2>/dev/null || true
 
-# --- Read + increment counter ---
-mkdir -p "${STATE_DIR}" 2>/dev/null || true
+_count=$(( $(cat "${COUNTER_FILE}" 2>/dev/null || echo 0) + 1 ))
+echo "${_count}" > "${COUNTER_FILE}"
 
-_count=1
-if [ -f "${COUNTER_FILE}" ] && command -v python3 >/dev/null 2>&1; then
-  _count=$(python3 -c "
-import json, sys
-try:
-    d = json.load(open(sys.argv[1]))
-    print(int(d.get('count', 0)) + 1)
-except Exception:
-    print(1)
-" "${COUNTER_FILE}" 2>/dev/null || echo 1)
-fi
-
-# Write updated counter (best-effort; never block on failure)
-if command -v python3 >/dev/null 2>&1; then
-  python3 -c "
-import json, sys
-d = {'count': int(sys.argv[1]), 'threshold': int(sys.argv[2]), 'interval': int(sys.argv[3])}
-with open(sys.argv[4], 'w') as f:
-    json.dump(d, f)
-" "${_count}" "${THRESHOLD}" "${INTERVAL}" "${COUNTER_FILE}" 2>/dev/null || true
-fi
-
-# --- Decide whether to suggest ---
 _suggest=false
 if [ "${_count}" -eq "${THRESHOLD}" ]; then
   _suggest=true
-elif [ "${_count}" -gt "${THRESHOLD}" ]; then
-  _remainder=$(( (_count - THRESHOLD) % INTERVAL ))
-  [ "${_remainder}" -eq 0 ] && _suggest=true
+elif [ "${_count}" -gt "${THRESHOLD}" ] && [ "$(( (_count - THRESHOLD) % INTERVAL ))" -eq 0 ]; then
+  _suggest=true
 fi
 
 if [ "${_suggest}" = "true" ]; then
-  _msg="${_count} tool calls this session — consider \`/compact\` if transitioning phases or completing a milestone. Compacting now preserves the handoff artifact and re-injects plans.json context after resume."
-  echo "[HarnessCompact] ${_count} tool calls — strategic compact checkpoint" >&2
-  if command -v python3 >/dev/null 2>&1; then
-    python3 -c "import json,sys; print(json.dumps({'systemMessage':sys.argv[1]}))" \
-      "${_msg}" 2>/dev/null || true
-  fi
+  printf '{"systemMessage":"%d tool calls this session — consider `/compact` if transitioning phases or completing a milestone, for example finishing a planning session, or finishing a verification phase."}\n' "${_count}"
 fi
 
 exit 0
