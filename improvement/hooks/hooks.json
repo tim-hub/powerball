@@ -24,6 +24,18 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hook-scripts/suggest-compact.sh\"",
+            "timeout": 3
+          }
+        ]
+      }
     ]
   }
 }
