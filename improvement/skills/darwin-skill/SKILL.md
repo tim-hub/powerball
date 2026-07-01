@@ -1,6 +1,6 @@
 ---
 name: darwin-skill
-description: "Use when the user wants to evaluate, score, review, or automatically improve an existing Claude Code skill (a SKILL.md) — e.g. \"optimize this skill\", \"score my skill\", \"review my SKILL.md\", \"how good is this skill\", \"auto-optimize\", \"improve skill quality\". Use when a skill needs quality assessment against a rubric or iterative refinement. Chinese triggers: 达尔文、darwin、优化skill、skill评分、自动优化、skill质量检查、帮我改改skill、skill怎么样、提升skill质量、skill打分。"
+description: "Use when the user wants to evaluate, score, review, or automatically improve an existing agent skill (a SKILL.md) — e.g. \"optimize this skill\", \"score my skill\", \"review my SKILL.md\", \"how good is this skill\", \"auto-optimize\", \"improve skill quality\". Use when a skill needs quality assessment against a rubric or iterative refinement."
 ---
 
 > **Output language: English.** Produce all evaluation reports, improvement notes, judge reasoning, and result cards in English, regardless of the language used in these instructions or by the user — unless the user explicitly asks for another language.

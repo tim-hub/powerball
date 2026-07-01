@@ -6,7 +6,6 @@ argument-hint: "[optional tag name, e.g. v1.2.3]"
 model: haiku
 user-invocable: true
 context: fork
-agent: powerball-personal:junior
 ---
 
 Tag the current git repository with a new version tag.

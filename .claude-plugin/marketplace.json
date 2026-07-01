@@ -12,17 +12,14 @@
     {
       "name": "powerball-personal",
       "source": "./personal",
-      "description": "Agentic tools for setting up Claude Code, git workflows, issue resolution, code review, doc searching, and knowledge base management.",
-      "version": "0.9.1",
+      "description": "Agentic tools for setting up Claude Code, git workflows, issue resolution, and code review.",
+      "version": "0.9.2",
       "tags": [
         "git",
         "pull-requests",
         "workflow",
         "issues",
         "code-review",
-        "agents",
-        "context7",
-        "grep",
         "setup claude"
       ],
       "strict": false
@@ -42,34 +39,10 @@
       "strict": false
     },
     {
-      "name": "openspec-rewrite",
-      "source": "./openspec-rewrite",
-      "description": "Rewritten OpenSpec workflow skills — setup, explore, propose, implement, verify, sync, and archive changes.",
-      "version": "0.2.2",
-      "tags": [
-        "openspec",
-        "spec-driven",
-        "workflow",
-        "planning",
-        "artifacts",
-        "changes",
-        "setup"
-      ],
-      "strict": false
-    },
-    {
-      "name": "experiment",
-      "source": "./experiment",
-      "description": "Sandbox plugin for experimenting with new hooks and skills before promoting them to a stable plugin. Includes CI/CD diagnostics and browser automation.",
-      "version": "0.1.2",
-      "tags": ["experiment", "sandbox", "hooks", "skills", "ci", "cd"],
-      "strict": false
-    },
-    {
       "name": "improvement",
       "source": "./improvement",
       "description": "Skills and hooks for continuous workflow improvement — logs skill usage, distills session workflows into reusable skills, refines existing skills, distills cognitive frameworks from people (nuwa), and autonomously optimizes skills (darwin).",
-      "version": "0.1.8",
+      "version": "0.1.9",
       "tags": [
         "improvement",
         "skills",
@@ -80,23 +53,6 @@
         "nuwa",
         "darwin",
         "skill-optimization"
-      ],
-      "strict": false
-    },
-    {
-      "name": "multica",
-      "source": "./multica",
-      "description": "Skills for working with the Multica CLI — issue management, agent/squad setup, autopilot pipelines, label-driven workflows, and batch update scripts.",
-      "version": "0.1.0",
-      "tags": [
-        "multica",
-        "cli",
-        "autopilot",
-        "agents",
-        "squads",
-        "issues",
-        "labels",
-        "workflow"
       ],
       "strict": false
     }

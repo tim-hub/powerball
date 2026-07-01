@@ -18,9 +18,6 @@ Spec-driven development — setup, explore, propose, implement, verify, sync, an
 #### `improvement`
 Skill usage logging and workflow distillation — logs every skill invocation, surfaces a usage summary on session start, and provides skills for capturing and refining reusable workflows.
 
-#### `experiment`
-Sandbox for trying new hooks and skills before promoting them to a stable plugin. Requires `/optimize-skill` from the marketplace.
-
 #### `entrepreneur`
 Marketing, growth, and PM tools for founders and small teams.
 
@@ -34,7 +31,6 @@ Install plugins:
 - personal (compulsory)
 - openspec-rewrite - [more](openspec-rewrite/README.md)
 - improvement
-- experiment
 - entrepreneur
 
 
@@ -46,6 +42,17 @@ Then run `/get-started` to set up statusline and install recommended plugins.
 
 If you want to set up a skill set of openspec globally, run `setup-openspec`
 
+#### Install skills without a plugin
+
+Each plugin's skills can also be installed individually via [skills](https://github.com/vercel-labs/skills), without adding the marketplace:
+
+```bash
+bunx skills add https://github.com/tim-hub/powerball/tree/master/personal/skills
+bunx skills add https://github.com/tim-hub/powerball/tree/master/improvement/skills
+bunx skills add https://github.com/tim-hub/powerball/tree/master/writing/skills
+```
+
+Add `--skill <name>` to install a single skill from that folder, or `-g` to install globally.
 
 #### Manual installation
 

@@ -1,6 +1,6 @@
 ---
 name: huashu-nuwa
-description: "Use when the user wants to capture, replicate, or distill how a specific person (or topic/role) thinks into a reusable thinking-framework skill — e.g. \"distill Munger\", \"make a Feynman skill\", \"build an X-perspective\", \"how does <person> think\", or updating an existing <person>-perspective skill. Also use when the user expresses a vague need for a thinking partner or decision lens (\"help me improve decision quality\", \"I need a mental-model advisor\", \"is there a way of thinking that helps me see business clearly\"). Chinese triggers: 造skill、蒸馏XX、女娲、造人、XX的思维方式、做个XX视角、更新XX的skill。"
+description: "Use when the user wants to capture, replicate, or distill how a specific person (or topic/role) thinks into a reusable thinking-framework skill — e.g. \"distill Munger\", \"make a Feynman skill\", \"build an X-perspective\", \"how does <person> think\", or updating an existing <person>-perspective skill. Also use when the user expresses a vague need for a thinking partner or decision lens (\"help me improve decision quality\", \"I need a mental-model advisor\", \"is there a way of thinking that helps me see business clearly\")."
 ---
 
 > **Output language: English.** Produce all reasoning, intermediate notes, and the final generated SKILL.md in English, regardless of the language used in these instructions or by the user — unless the user explicitly asks for another language.
