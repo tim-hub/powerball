@@ -1,8 +1,0 @@
-{
-  "allow_list": [
-    "/tmp/kb-eval-1-with"
-  ],
-  "disallow_list": [
-    "/tmp/kb-eval-1-with/archive"
-  ]
-}
