@@ -1,17 +1,6 @@
 {
   "description": "Improvement plugin hooks — logs skill usage for analysis and iteration.",
   "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 \"$CLAUDE_PLUGIN_ROOT/skills/skill-usage-report/report.py\"",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
     "PreToolUse": [
       {
         "matcher": "Skill",

@@ -8,7 +8,6 @@ Skills and hooks for continuous workflow improvement — logging skill usage, di
 |-------|---------|
 | `distill-session` | Distill a session's repeatable workflow into a new project skill |
 | `update-skill` | Refine an existing project skill with new learnings |
-| `skill-usage-report` | Report skill invocation frequency from the usage log |
 | `huashu-nuwa` | Distill how a person/topic thinks into a runnable `*-perspective` skill |
 | `darwin-skill` | Autonomously evaluate and improve an existing skill against a rubric |
 
