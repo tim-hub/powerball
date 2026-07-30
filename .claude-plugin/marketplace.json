@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "A marketplace of plugins for Claude Code, featuring tools for code management, creative writing, workplace productivity, and more.",
-    "version": "3.1.2"
+    "version": "3.2.0"
   },
   "plugins": [
     {
@@ -41,18 +41,15 @@
     {
       "name": "improvement",
       "source": "./improvement",
-      "description": "Skills and hooks for continuous workflow improvement — logs skill usage, distills session workflows into reusable skills, refines existing skills, distills cognitive frameworks from people (nuwa), and autonomously optimizes skills (darwin).",
-      "version": "0.1.10",
+      "description": "Skills and hooks for continuous workflow improvement — logs skill usage, distills session workflows into reusable skills, and refines existing skills.",
+      "version": "0.2.0",
       "tags": [
         "improvement",
         "skills",
         "distill",
         "hooks",
         "logging",
-        "workflow",
-        "nuwa",
-        "darwin",
-        "skill-optimization"
+        "workflow"
       ],
       "strict": false
     }
