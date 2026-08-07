@@ -1,6 +1,6 @@
 ## Powerball
 
-A marketplace of Claude Code plugins for productivity, software development workflows, and spec-driven development.
+A marketplace of Claude Code plugins for translation and workflow improvement.
 
 - If you are looking for PowerBall Harness, it is located at [tim-hub/powerball-harness](https://github.com/tim-hub/powerball-harness).
 - I also maintained a [clone of superpowers](https://github.com/tim-hub/superpowers) for Claude Code only, it give up compatibility to other agents to gain better practices and native features from ClaudeCode.
@@ -9,17 +9,11 @@ A marketplace of Claude Code plugins for productivity, software development work
 
 ### Plugins
 
-#### `powerball-personal`
-Agentic tools for git workflows, issue resolution, code review, creative writing, doc searching, and content translation.
-
-#### `openspec-rewrite`
-Spec-driven development — setup, explore, propose, implement, verify, sync, and archive changes.
+#### `writing`
+Translation skills — `language-translate` for text and `translate-markdown` for markdown files.
 
 #### `improvement`
-Skill usage logging and workflow distillation — logs every skill invocation, surfaces a usage summary on session start, and provides skills for capturing and refining reusable workflows.
-
-#### `entrepreneur`
-Marketing, growth, and PM tools for founders and small teams.
+Hooks only — logs every skill invocation to `~/.claude/skill-usage.log` and suggests compaction when context grows large.
 
 ### Install
 
@@ -27,28 +21,13 @@ Marketing, growth, and PM tools for founders and small teams.
 /plugin marketplace add tim-hub/powerball
 ```
 
-Install plugins:
-- personal (compulsory)
-- openspec-rewrite - [more](openspec-rewrite/README.md)
-- improvement
-- entrepreneur
-
-
-
-Then run `/get-started` to set up statusline and install recommended plugins.
-
-> You may need to temporarily disable sandbox mode for the session, because this skill edits `~/.claude` to add the statusline script. You can re-enable it after setup.
-
-
-If you want to set up a skill set of openspec globally, run `setup-openspec`
+Then install `writing`, `improvement`, or both.
 
 #### Install skills without a plugin
 
-Each plugin's skills can also be installed individually via [skills](https://github.com/vercel-labs/skills), without adding the marketplace:
+The writing skills can also be installed individually via [skills](https://github.com/vercel-labs/skills), without adding the marketplace:
 
 ```bash
-bunx skills add https://github.com/tim-hub/powerball/tree/master/personal/skills
-bunx skills add https://github.com/tim-hub/powerball/tree/master/improvement/skills
 bunx skills add https://github.com/tim-hub/powerball/tree/master/writing/skills
 ```
 
@@ -61,7 +40,7 @@ Clone the repository to your local machine.
 ### Others
 
 - [Why create this plugin?](docs/why%20create%20this%20plugin.md)
-- [FAQ](docs/FAQ.md)
+- [FAQ](docs/faq.md)
 
 
 

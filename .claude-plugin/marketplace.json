@@ -5,32 +5,16 @@
     "url": "https://github.com/tim-hub/powerball"
   },
   "metadata": {
-    "description": "A marketplace of plugins for Claude Code, featuring tools for code management, creative writing, workplace productivity, and more.",
-    "version": "3.2.0"
+    "description": "A marketplace of plugins for Claude Code, featuring tools for translation and workflow improvement.",
+    "version": "4.0.0"
   },
   "plugins": [
     {
-      "name": "powerball-personal",
-      "source": "./personal",
-      "description": "Agentic tools for setting up Claude Code, git workflows, issue resolution, and code review.",
-      "version": "0.9.2",
-      "tags": [
-        "git",
-        "pull-requests",
-        "workflow",
-        "issues",
-        "code-review",
-        "setup claude"
-      ],
-      "strict": false
-    },
-    {
       "name": "writing",
       "source": "./writing",
-      "description": "Skills for content creation and translation — creative writing, markdown file translation, and general multi-language text translation.",
-      "version": "0.1.0",
+      "description": "Skills for translation — markdown file translation and general multi-language text translation.",
+      "version": "0.2.0",
       "tags": [
-        "creative-writing",
         "translation",
         "markdown",
         "content",
@@ -41,12 +25,10 @@
     {
       "name": "improvement",
       "source": "./improvement",
-      "description": "Skills and hooks for continuous workflow improvement — logs skill usage, distills session workflows into reusable skills, and refines existing skills.",
-      "version": "0.2.0",
+      "description": "Hooks for continuous workflow improvement — logs skill usage and suggests compaction when context grows large.",
+      "version": "0.3.0",
       "tags": [
         "improvement",
-        "skills",
-        "distill",
         "hooks",
         "logging",
         "workflow"

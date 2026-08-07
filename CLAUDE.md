@@ -6,4 +6,4 @@ Focusing on providing subagents and skills to increase productivity.
 
 All changes for this project must be limited to this repository. Do not modify files under `~/.claude/plugins/cache/powerball-marketplace` sicne that is a cache version
 
-@[Reademe](README.md)
+@[Readme](README.md)
